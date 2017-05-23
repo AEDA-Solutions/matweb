@@ -20,7 +20,7 @@
     <table class = "table table-bordered table-hover">
         <tbody>
             <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
-                <td> {{departamento.id}} </td>
+                <td> {{departamento.sigla}} </td>
                 <td> {{departamento.nome}} </td>
             </tr>
         </tbody>

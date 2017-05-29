@@ -11,10 +11,15 @@ angular.module('MatWeb', [
   'Admin',
   'Oferta',
   'Campus',
+<<<<<<< HEAD
+  'Curso',
+  'Registrodesala',
+=======
   'Cadastrarmateria',
   'Predio',
   'Departamento',
   'Registrodesala',
   'Curso',
+>>>>>>> pedrogabriel96
   'ui.bootstrap',
 ]);

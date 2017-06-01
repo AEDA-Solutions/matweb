@@ -16,14 +16,23 @@ angular.
       $routeProvider.when('/Usuario/Entrar', {
           template: '<usuario-entrar></usuario-entrar>'
         })
+      $routeProvider.when('/Usuario/Dados', {
+          template: '<usuario-dados></usuario-dados>'
+        })
       $routeProvider.when('/Usuario/Cadastrar', {
           template: '<registrar-usuario></registrar-usuario>'
+        })
+      $routeProvider.when('/Disciplina/Info', {
+          template: '<materia-info></materia-info>'
         })
       $routeProvider.when('/Usuario/Home', {
           template: '<casa-usuario></casa-usuario>'
         })
       $routeProvider.when('/', {
           template: '<tela-principal></tela-principal>'
+        })
+      $routeProvider.when('/Oferta/Cadastrar', {
+          template: '<registrar-oferta></registrar-oferta>'
         })
       $routeProvider.when('/Oferta', {
           template: '<oferta-disciplina></oferta-disciplina>'
@@ -43,6 +52,9 @@ angular.
         $routeProvider.when('/Cadastrar', {
           template: '<registrar-departamento></registrar-departamento>'
         })
+        $routeProvider.when('/Usuario/Grade', {
+          template: '<usuario-grade></usuario-grade>'
+        })
       $routeProvider.when('/Cadastro/Disciplina', {
           template: '<registrar-disciplina></registrar-disciplina>'
         })
@@ -55,6 +67,9 @@ angular.
       .otherwise('/');
       $routeProvider.when('/Registrodesala/Cadastrar', {
           template: '<sala-registrar></sala-registrar>'
+        })
+      $routeProvider.when('/Salas', {
+          template: '<listar-salas></listar-salas>'
         })
     }
   ]).value('MatWebGlobals', {});

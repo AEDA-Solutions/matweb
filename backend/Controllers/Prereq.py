@@ -6,4 +6,4 @@ from Models.Prereq.RespostaListar import RespostaListar
 class Prereq(Controller):
 
 	def Listar(self,pedido_listar):
-		return RespostaListar(Ass_disc_pre().pegarPegarResumoAss("disciplina.id = %s",(BDDisciplina().pegarDisciplina("WHERE nome = %s",(pedido_listar.getDisciplina(),)))))
+		return RespostaListar(Ass_disc_pre().pegarResumoAss("disciplina.id = %s",(BDDisciplina().pegarDisciplina("WHERE nome = %s",(pedido_listar.getDisciplina(),)))))

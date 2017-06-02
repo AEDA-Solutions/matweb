@@ -7,4 +7,4 @@ class Prereq(Controller):
 
 	def Listar(self,pedido_listar):
 		id_disciplina = (BDDisciplina().pegarDisciplina("WHERE nome = %s",(pedido_listar.getDisciplina()))).getId()
-		return RespostaListar(Ass_disc_pre().pegarResumoAss("disciplina.id = %s",(id_disciplina)))
+		return RespostaListar(Ass_disc_pre().pegarResumoAss("disciplina.id = %s",[id_disciplina]))

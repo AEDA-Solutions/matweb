@@ -1,3 +1,0 @@
-angular.module('Registrodesala', [
-	'ngResource',
-	]);

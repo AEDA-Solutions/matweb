@@ -1,3 +1,0 @@
-angular.module('Cadastrarpredio', [
-	'ngResource',
-	]);

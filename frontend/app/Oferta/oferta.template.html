@@ -10,7 +10,10 @@ x<menu-principal></menu-principal>
                         <form role="form" ng-submit="$ctrl.pesquisar()">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Nome da disciplina" ng-model="$ctrl.nome_disciplina" type="text" autofocus>
+                                    <input class="form-control" placeholder="Id do departamento" ng-model="$ctrl.i_departamento" type="text" autofocus required="">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome da disciplina" ng-model="$ctrl.nome_disciplina" type="text">
                                 </div>
                                 <button class="btn btn-lg btn-success btn-block">Pesquisar</button>
                             </fieldset>

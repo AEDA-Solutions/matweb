@@ -19,10 +19,9 @@
 <div class="table-responsive">
     <table class = "table table-bordered table-hover">
         <tbody>
-            <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
-                <td> {{departamento.id}} </td>
-                <td> {{departamento.nome}} </td>
-                <td> {{departamento.codigo}} </td>
+            <tr ng-repeat="dep in $ctrl.departamento | filter: $ctrl.nome_departamento">
+                <td> {{dep.id}} </td>
+                <td> {{dep.nome}} </td>
             </tr>
         </tbody>
     </table>

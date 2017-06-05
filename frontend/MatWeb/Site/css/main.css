@@ -53,6 +53,7 @@ h3 {
 .parallax textarea:hover {
   font-weight: 300;
   color: #fff;
+  margin: 50px;
 }
 
 .btn {

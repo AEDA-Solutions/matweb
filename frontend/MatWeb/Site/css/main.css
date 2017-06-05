@@ -864,11 +864,9 @@ section {
 
 .form-control {
   background-color: transparent;
-  border: rgba(255,255,255,.1);
   border-color: rgba(255,255,255,.1);
   height: 50px;
   border-radius: 0;
-  box-shadow: none;
 }
 
 textarea.form-control {

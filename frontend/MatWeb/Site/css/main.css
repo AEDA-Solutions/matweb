@@ -863,7 +863,8 @@ section {
 }
 
 .form-control {
-  background-color: lightblue;
+  background-color: transparent;
+  border: rgba(255,255,255,.1);
   border-color: rgba(255,255,255,.1);
   height: 50px;
   border-radius: 0;

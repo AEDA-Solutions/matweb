@@ -50,9 +50,9 @@ h3 {
 .parallax input[type="password"],
 .parallax input[type="password"]:hover,
 .parallax textarea,
-.parallax textarea:hover {
+.parallax textarea: {
   font-weight: 300;
-  color: #bbb;
+  color: #fff;
   margin: 50px;
 }
 

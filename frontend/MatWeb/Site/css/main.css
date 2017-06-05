@@ -873,7 +873,7 @@ section {
 textarea.form-control {
   min-height: 180px;
   resize:none;
-  border:10px;
+  border:10px powderblue;
 }
 
 .form-group {

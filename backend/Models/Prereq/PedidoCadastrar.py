@@ -6,9 +6,9 @@ class PedidoCadastrar(Pedido):
 	def __init__(self,variaveis_do_ambiente):
 		super(PedidoCadastrar, self).__init__(variaveis_do_ambiente)
 		try:
-						
+			self.disciplina = dados ['come']			
 			self.grupo = dados ['grupo']
-			self.id_disc_pre = dados ['id_disc_pre']
+			self.prereq = dados ['prereq']
 		except:
 			raise ErroNoHTTP(400)
 				
@@ -16,9 +16,8 @@ class PedidoCadastrar(Pedido):
 	def getGrupo(self):
 		return self.grupo		
 	
-	
-	def getId_disc_pre(self):
-		return self.id_disc_pre
+	def getDisciplina(self):
+		return self.disciplina
 		
-	def getDisc_pre(self):
-		return (Disciplina().pegarDisciplina('id = %s',(self.id_disc_pre,))).getNome()
+	def getPrereq(self):
+		return self.prereq

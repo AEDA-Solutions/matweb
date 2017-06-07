@@ -1,7 +1,7 @@
 angular.
   module('Disciplina').
   component('ofertaDisciplina', {
-    templateUrl: '/app/Disciplina/oferta.template.html',
+    templateUrl: '/app/Disciplina/Oferta/oferta.template.html',
     controller: ['ApiDisciplina',function List(ApiDisciplina) {
       this.nome_disciplina = "";
       this.i_departamento = "";

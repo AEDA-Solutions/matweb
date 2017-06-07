@@ -1,8 +1,8 @@
 angular.
   module('Disciplina').
   component('cadastrarDisciplina', {
-    templateUrl: '/app/Disciplina/cadastrar.template.html',
-    controller: ['ApiDisciplina',function Cadastro(ApiDisciplina){
+    templateUrl: '/app/Disciplina/Cadastro/cadastrar.template.html',
+    controller: ['ApiDisciplina',function Cad(ApiDisciplina){
 
     var ctrl = this;
     this.formulario = {'nome':'', 'codigo': '', 'id_departamento':''}

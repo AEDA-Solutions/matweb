@@ -22,6 +22,7 @@ angular.
     templateUrl: '/app/Departamento/departPcampus.template.html',
     controller: ['ApiDepartamentoPCampus', 'MatWebGlobals', '$routeParams', function Listar(ApiDepartamentoPCampus,MatWebGlobals,$routeParams) {
         this.formulario = {'id_campus': $routeParams.id_campus, 'nome': '', 'pagina':'0', 'quantidade':'1000'};
+        var ctrl = this;
         this.listar = function()
         {
             ApiDepartamentoPCampus.Listar(this.formulario,function(resultado) {

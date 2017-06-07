@@ -19,7 +19,7 @@ angular.
         console.log("Se n foi cadastrado")
       });
 
-}
+      }
   }]
 }).
   component ('ofertaDisciplina', {

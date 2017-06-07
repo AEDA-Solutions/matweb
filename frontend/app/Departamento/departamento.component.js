@@ -28,7 +28,7 @@ angular.
         {
             ApiDepartamentoPCampus.Listar(this.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;
-                console.log(MatWebGlobals.campus);
+                console.log(MatWebGlobals);
                 console.log(ctrl.departamentos);
             }, function(error){
                 ctrl.error = error.data.mensagem;

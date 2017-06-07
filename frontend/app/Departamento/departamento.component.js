@@ -21,14 +21,14 @@ angular.
   component('listarDepartpcampus', {
     templateUrl: '/app/Departamento/departPcampus.template.html',
     controller: ['ApiDepartamentoPCampus', 'MatWebGlobals', '$routeParams', function Listar(ApiDepartamentoPCampus,MatWebGlobals,$routeParams) {
-        this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
+        this.formulario = {id_campus: "$routeParams.Id_campus".slice(1) , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         console.log($routeParams.Id_campus);
         var ctrl = this;
         this.listar = function()
         {
             ApiDepartamentoPCampus.Listar(this.formulario,function(resultado) {
-                ctrl.Departamentos = resultado.corpo;
-                console.log(MatWebGlobals);
+                ctrl.departamentos = resultado.corpo;
+                console.log(ctrl.departamentos);
             }, function(error){
                 ctrl.error = error.data.mensagem;
             });

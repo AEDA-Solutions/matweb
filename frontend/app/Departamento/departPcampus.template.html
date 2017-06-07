@@ -20,11 +20,10 @@
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
             <tbody>
-                    <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
-                            <td> {{departamento.sigla}} </td>
-                            <td> {{departamento.nome}} </td>
-                            <td><input type="button" value="Oferta" onClick="history.go(0)"></td>
-                    </tr>
+                <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
+                    <td> {{departamento.sigla}} </td>
+                    <td><a ng-href="/Departamento/{{departamento.id}}">{{departamento.nome}}</a></td>
+                </tr>
             </tbody>
     </table>
 </div>

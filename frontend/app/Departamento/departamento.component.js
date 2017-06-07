@@ -21,8 +21,8 @@ angular.
   component('listarDepartpcampus', {
     templateUrl: '/app/Departamento/departPcampus.template.html',
     controller: ['ApiDepartamentoPCampus', 'MatWebGlobals', '$routeParams', function Listar(ApiDepartamentoPCampus,MatWebGlobals,$routeParams) {
-        this.formulario = {id_campus: $routeParams.id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
-        console.log($routeParams.id_campus);
+        this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
+        console.log($routeParams.Id_campus);
         var ctrl = this;
         this.listar = function()
         {

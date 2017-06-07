@@ -9,7 +9,7 @@ angular.
   ]).
   factory('ApiDepartamentoPCampus', ['$resource',
     function($resource) {
-        return $resource('/api/Departamento/Listar:idCampus', {}, {
+        return $resource('/api/Departamento/Listar', {}, {
           Listar: { method: 'POST'},
         });
     }                                                                      

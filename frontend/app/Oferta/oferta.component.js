@@ -20,7 +20,7 @@ angular.
   }).
   component('ofertaDiscpdepart',{
     templateUrl: '/app/Oferta/oferta.template2.html',
-    controller: ['ApiOfertaPDepart', 'MatWebGlobals', '$routeParams', function Listar(ApiOfertapdepart,MatWebGlobals,$routeParams) {
+    controller: ['ApiOfertaPDepart', 'MatWebGlobals', '$routeParams', function Listar(ApiOfertaPDepart,MatWebGlobals,$routeParams) {
         this.formulario = {'id_departamento': $routeParams.Id_departamento , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         var ctrl = this;
         this.listar = function()

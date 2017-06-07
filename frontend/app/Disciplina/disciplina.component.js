@@ -24,14 +24,14 @@ angular.
 }).
   component ('ofertaDisciplina', {
     templateUrl: '/app/Disciplina/oferta.template.html',
-    controller: ['ApiDisciplina', 'MatWebGlobals',function Pesquisar(ApiDisciplina,MatWebGlobals) {
+    controller: ['ApiDisciplinaListar', 'MatWebGlobals',function Pesquisar(ApiDisciplinaListar,MatWebGlobals) {
       this.nome_disciplina = "";
       this.i_departamento = "";
   var ctrl = this;
   ctrl.disciplinas = [];
       this.pesquisar = function()
       {
-        ApiDisciplina.Listar({id_departamento: ctrl.i_departamento , nome: ctrl.nome_disciplina, pagina: 0, quantidade: 1000 },function(resultado) {
+        ApiDisciplinaListar.Listar({id_departamento: ctrl.i_departamento , nome: ctrl.nome_disciplina, pagina: 0, quantidade: 1000 },function(resultado) {
               ctrl.disciplinas = resultado.corpo
       console.log(ctrl.disciplinas)
     }, function(erro){

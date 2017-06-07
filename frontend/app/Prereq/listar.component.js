@@ -6,7 +6,7 @@ angular.
       this.formulario = {'disciplina':'','pagina':'','quantidade':''};
       this.listar = function()
       {
-       	ApiDisciplina.Listar(this.formulario,function(resultado) {
+       	ApiPrereq.Listar(this.formulario,function(resultado) {
           MatWebGlobals.disciplinasListadas = resultado.corpo.disciplina;
           cosole.log(MatWebGlobals);
    		}, function(error){

@@ -45,6 +45,7 @@ angular.
       $uibModal.open({
       animation: 'true',
       component: 'modalDisciplina',
+      size: 'lg',
       });
 
       }

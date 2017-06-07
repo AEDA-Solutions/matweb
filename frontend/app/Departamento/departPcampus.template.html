@@ -23,7 +23,7 @@
                 <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
                     <td> {{departamento.sigla}} </td>
                     <td> {{departamento.nome}} </td>
-                    <td><input type="button" value="Oferta" ng-click="$location.path('/Oferta/{{departamento.id}}');"></td>
+                    <td><a ng-href="/Oferta/{{departamento.id}}">Oferta</a></td>
                 </tr>
             </tbody>
     </table>

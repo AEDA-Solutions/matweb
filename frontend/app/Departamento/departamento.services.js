@@ -6,4 +6,11 @@ angular.
         Listar: { method: 'POST' },
       });
     }
+  ]).
+  factory('ApiDepartamentoPCampus', ['$resource',
+    function($resource) {
+        return $resource('/api/Departamento/Listar:idCampus', {}, {
+          Listar: { method: 'POST'},
+        });
+    }                                                                      
   ]);

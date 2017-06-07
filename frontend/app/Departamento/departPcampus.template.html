@@ -1,5 +1,15 @@
 <menu-principal></menu-principal>
 <h><center>Campus por Departamento</center></h>
+
+<form role="form" ng-submit="$ctrl.listar()">
+    <fieldset>
+        <div class="form-group">
+            <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
+        </div>
+        <button class="btn btn-lg btn btn-block">Pesquisar</button>
+    </fieldset>
+</form>
+
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
             <tbody>

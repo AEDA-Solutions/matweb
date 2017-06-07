@@ -1820,7 +1820,7 @@
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background-color: #b93653;
+			background-color: #3B5999;
 		}
 
 		input[type="button"].alt,

@@ -8,6 +8,15 @@
                                 <h2><p>Departamentos em {{$ctrl.campus_nome}}</p></h2>
                             </header>
 <div>
+    <div class="panel-body">
+        <form role="form" ng-submit="$ctrl.pesquisar()">
+            <fieldset>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
+                </div>
+                <button class="btn btn-lg btn btn-block">Pesquisar</button>
+            </fieldset>
+        </form>
     <div>
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
@@ -23,4 +32,5 @@
     </div>
 </div>
                 </div>
+</div>
 </div>

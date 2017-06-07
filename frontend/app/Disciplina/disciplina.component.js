@@ -24,7 +24,7 @@ angular.
 }).
   component ('ofertaDisciplina', {
     templateUrl: '/app/Disciplina/oferta.template.html',
-    controller: ['ApiDisciplinaListar', 'MatWebGlobals',function Pesquisar(ApiDisciplinaListar,MatWebGlobals) {
+    controller: ['ApiDisciplinaListar', '$uibModal', 'MatWebGlobals',function Pesquisar(ApiDisciplinaListar,$uibModal,MatWebGlobals) {
       this.nome_disciplina = "";
       this.i_departamento = "";
   var ctrl = this;
@@ -39,5 +39,15 @@ angular.
       console.log(ctrl.erro)
       } );
       }
+
+      this.abrir = function(){
+
+      $uibModal.open({
+      animation: 'true',
+      component: 'modalDisciplina',
+      });
+
+      }
+
     }]
   });

@@ -1,0 +1,13 @@
+<menu-principal></menu-principal>
+<h><center>Campus por Departamento</center></h>
+<div class="table-responsive">
+     <table class = "table table-bordered table-hover">
+            <tbody>
+                    <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
+                            <td> {{departamento.sigla}} </td>
+                            <td> {{departamento.nome}} </td>
+                            <td><input type="button" value="Oferta" onClick="history.go(0)"></td>
+                    </tr>
+            </tbody>
+    </table>
+</div>

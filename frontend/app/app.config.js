@@ -13,8 +13,8 @@ angular.
       $routeProvider.when('/', {
           template: '<tela-principal></tela-principal>'
         })
-      $routeProvider.when('/Oferta', {
-          template: '<oferta-cursos></oferta-cursos>'
+      $routeProvider.when('/Disciplina/Oferta', {
+          template: '<oferta-disciplina></oferta-disciplina>'
         })
       $routeProvider.when('/Campus', {
           template: '<oferta-campus></oferta-campus>'

@@ -33,7 +33,7 @@ angular.
                         campi = MatWebGlobals.campus[i];
                         break;
                     }
-                };
+                }
                 console.log(campi);
             }, function(error){
                 ctrl.error = error.data.mensagem;

@@ -28,12 +28,12 @@ angular.
         {
             ApiDepartamentoPCampus.Listar(this.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;
-                for(var i = 0; campi = null; i < MatWebGlobals.campus.length; i++) {
+                for(var i = 0, campi = null; i < MatWebGlobals.campus.length; i++) {
                     if (MatWebGlobals.campus[i].id = $routeParams.Id_campus) {
                         campi = MatWebGlobals.campus[i];
                         break;
                     }
-                }
+                };
                 console.log(campi);
             }, function(error){
                 ctrl.error = error.data.mensagem;

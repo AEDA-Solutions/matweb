@@ -53,8 +53,6 @@ h3 {
 .parallax textarea:hover {
   font-weight: 300;
   color: #fff;
-  margin: 50px;
-  border: 10px;
 }
 
 .btn {
@@ -867,6 +865,7 @@ section {
   border-color: rgba(255,255,255,.1);
   height: 50px;
   border-radius: 0;
+  box-shadow: none;
 }
 
 textarea.form-control {

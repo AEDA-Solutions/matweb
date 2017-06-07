@@ -1,0 +1,23 @@
+<menu-principal></menu-principal>
+<h><center>Campus por Departamento</center></h>
+
+<form role="form" ng-submit="$ctrl.listar()">
+    <fieldset>
+        <div class="form-group">
+            <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
+        </div>
+        <button class="btn btn-lg btn btn-block">Pesquisar</button>
+    </fieldset>
+</form>
+
+<div class="table-responsive">
+     <table class = "table table-bordered table-hover">
+            <tbody>
+                    <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
+                            <td> {{departamento.sigla}} </td>
+                            <td> {{departamento.nome}} </td>
+                            <td><input type="button" value="Oferta" onClick="history.go(0)"></td>
+                    </tr>
+            </tbody>
+    </table>
+</div>

@@ -7,8 +7,10 @@ angular.
   var ctrl = this;
   ctrl.campus = [];
         ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
-              ctrl.campus = resultado.corpo
-      console.log(ctrl.campus)
+            ctrl.campus = resultado.corpo;
+            MatWebGlobals.campus = resultado.corpo;
+            console.log(ctrl.campus);
+            console.log(MatWebGlobals.campus);
     }, function(erro){
         ctrl.erro = erro.data.mensagem
       console.log(ctrl.erro)

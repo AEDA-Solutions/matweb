@@ -33,6 +33,7 @@ angular.
                 ctrl.error = error.data.mensagem;
             });
         }
+        this.listar();
     }]
 });
 

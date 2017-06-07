@@ -32,7 +32,7 @@ angular.
                     if (MatWebGlobals.campus[i].id = $routeParams.Id_campus) {
                         campi = MatWebGlobals.campus[i];
                         console.log(campi);
-                        console.log(MatWebGlobals.campus[i].id);
+                        console.log(MatWebGlobals.campus);
                         break;
                     }
                 };

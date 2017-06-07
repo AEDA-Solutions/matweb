@@ -2,7 +2,7 @@
 <h><center>Campus por Departamento</center></h>
 
 
-<div class="table-responsive" ng-init="listar()">
+<div class="table-responsive" ng-init="ctrl.listar()">
      <table class = "table table-bordered table-hover">
             <tbody>
                     <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">

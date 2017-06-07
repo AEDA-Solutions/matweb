@@ -34,7 +34,8 @@ angular.
                         break;
                     }
                 };
-                console.log(campi);
+                ctrl.campus_nome = campi.nome;
+                console.log(ctrl.campus_nome);
             }, function(error){
                 ctrl.error = error.data.mensagem;
             });

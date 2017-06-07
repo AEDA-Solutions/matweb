@@ -22,7 +22,6 @@
             <tbody>
                 <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
                     <td> {{disciplina.nome}} </td>
-                    <td><input type="button" value="Oferta" ng-click="$location.path('/Oferta/{{departamento.id}}');"></td>
                     <td><a href="/Disciplina/Info?{{disciplina.nome}}&CODIGO?{{disciplina.id}}" target="_blank" >Detalhes</a></td>
                 </tr>
             </tbody>

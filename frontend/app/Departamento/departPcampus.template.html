@@ -22,7 +22,8 @@
             <tbody>
                 <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
                     <td> {{departamento.sigla}} </td>
-                    <td><a ng-href="/Curso/{{departamento.id}}">{{departamento.nome}}</a></td>
+                    <td> {{departamento.nome}} </td>
+                    <td><input type="button" value="Oferta" onClick="/Disciplina/Listar/{{departamento.id}}"></td>
                 </tr>
             </tbody>
     </table>

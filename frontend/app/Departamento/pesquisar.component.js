@@ -4,11 +4,12 @@ angular.
     templateUrl: '/app/Departamento/pesquisar.template.html',
     controller: ['ApiDepartamento', 'MatWebGlobals',function Dep(ApiDepartamento,MatWebGlobals) {
       this.nome_departamento = "";
+      this.campi = "";
   var ctrl = this;
   ctrl.departamento = [];
       this.pesquisar = function()
       {
-        ApiDepartamento.Listar({id_campus: 1 , nome: ctrl.nome_departamento, pagina: 0, quantidade: 1000 },function(resultado) {
+        ApiDepartamento.Listar({id_campus: ctrl.campi , nome: ctrl.nome_departamento, pagina: 0, quantidade: 1000 },function(resultado) {
               ctrl.departamento = resultado.corpo
       console.log(ctrl.departamento)
     }, function(erro){

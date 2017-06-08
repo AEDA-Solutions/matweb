@@ -6,8 +6,7 @@
                         <h3 class="panel-title">Pesquisa de Departamentos</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" ng-submit="$ctrl.pesquisar()">
-                                <div clas = "form-group">
+                       <div clas = "form-group">
                                     <select ng-model = "$ctrl.campi" name="campi" required>
                                     <option value="1">Darcy Ribeiro</option>
                                     <option value="2">Planaltina</option>
@@ -15,7 +14,7 @@
                                     <option value="4">Gama</option>
                                     </select>
                                 </div>
-
+                        <form role="form" ng-submit="$ctrl.pesquisar()">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>

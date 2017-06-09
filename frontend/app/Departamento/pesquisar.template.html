@@ -6,8 +6,10 @@
                         <h3 class="panel-title">Departamentos</h3>
                     </div>
                     <div class="panel-body">
+                        <center> 
                         <fieldset>
                        <div clas = "form-group">
+                                    <strong> Selecione o seu campus </strong>
                                     <select ng-model = "$ctrl.campi" name="campi" size="4" required>
                                     <option value="1">Darcy Ribeiro</option>
                                     <option value="2">Planaltina</option>
@@ -16,6 +18,7 @@
                                     </select>
                         </div>
                          </fieldset>
+                         </center>
                         <form role="form" ng-submit="$ctrl.pesquisar()">
                             <fieldset>
                                 <div class="form-group">

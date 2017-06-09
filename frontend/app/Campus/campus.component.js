@@ -2,7 +2,7 @@ angular.
   module('Campus').
   component('ofertaCampus', {
     templateUrl: '/app/Campus/campus.template.html',
-    controller: ['ApiCampus', 'MatWebGlobals',function Entrar(ApiCampus,MatWebGlobals) {
+    controller: ['ApiCampus', '$uibModal', 'MatWebGlobals',function Entrar($uibModal, ApiCampus,MatWebGlobals) {
   var ctrl = this;
   ctrl.campus = [];
   
@@ -13,6 +13,16 @@ angular.
         ctrl.erro = erro.data.mensagem
       console.log(ctrl.erro)
       } );
+
+      this.abrir = function(){
+
+      $uibModal.open({
+      animation: 'true',
+      component: 'modalCampus',
+      size: 'sm',
+      });
+
+      }
       
     }]
   });

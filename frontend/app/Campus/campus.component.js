@@ -20,7 +20,7 @@ angular.
       $uibModal.open({
       animation: 'true',
       component: 'modalCampus',
-      size: 'sm',
+      size: 'lg',
       });
 
       }

@@ -16,8 +16,8 @@ class PedidoListar(Pedido):
 	def getNome(self):
 		return self.nome
 	
-	def getQuantidade(self)
-	        return self.quantidade
+	def getQuantidade(self):
+		return self.quantidade
 	
-	def getPagina(self)
+	def getPagina(self):
 	        return self.pagina

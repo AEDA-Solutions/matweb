@@ -1,7 +1,7 @@
 from Framework.Resposta import Resposta
-from Models.Disciplina.Disciplina import Disciplina as ModelDisciplina
+from Models.Sala.Sala import Sala as ModelSala
 
 class RespostaVer(Resposta):
 
-	def __init__(self,disciplina):
-		self.corpo = ModelDisciplina(disciplina)
+	def __init__(self,sala):
+		self.corpo = ModelSala(sala)

@@ -2,17 +2,28 @@ angular.
   module('Campus').
   component('ofertaCampus', {
     templateUrl: '/app/Campus/campus.template.html',
-    controller: ['ApiCampus', 'MatWebGlobals',function Entrar(ApiCampus,MatWebGlobals) {
+    controller: ['ApiCampus', '$uibModal', 'MatWebGlobals',function Entrar(ApiCampus,$uibModal,MatWebGlobals) {
   var ctrl = this;
   ctrl.campus = [];
-  
-        ApiCampus.Listar({ nome:"", pagina: 0, quantidade: 1000 },function(resultado) {
+
+
+    ApiCampus.Listar({ nome:"", pagina: 0, quantidade: 1000 },function(resultado) {
               ctrl.campus = resultado.corpo
       console.log(ctrl.campus)
     }, function(erro){
         ctrl.erro = erro.data.mensagem
       console.log(ctrl.erro)
       } );
+
+      this.abrir = function(){
+
+      $uibModal.open({
+      animation: 'true',
+      component: 'modalCampus',
+      size: 'sm',
+      });
+
+      }
       
     }]
   });

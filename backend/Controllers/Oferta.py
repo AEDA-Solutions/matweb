@@ -20,7 +20,7 @@ class Oferta(Controller):
 
 	
 	def buscaturmas(self,oferta):
-		associacoes = BDAssof.pegarAss_oferta_turmas('where id_oferta = %s',(str(oferta.getId())))
+		associacoes = BDAssof().pegarAss_oferta_turmas('where id_oferta = %s',(str(oferta.getId())))
 		self.turmas = []
 		for associacao in associacoes:
 			turma = BDTurma().pegarTurma('where id = %s',(str(associacao.getId_turma()),))
@@ -30,7 +30,7 @@ class Oferta(Controller):
 			
 			
 	def buscahorarios(self,turma):
-		associacoes = BDassoc.pegarAss_turma_sala_horarios('where id_turma = %s',(str(turma.getId(),)))
+		associacoes = BDassoc().pegarAss_turma_sala_horarios('where id_turma = %s',(str(turma.getId(),)))
 		self.horarios = []
 		for associacao in associacoes:
 			sala = BDsala().pegarSala('where id = %s',(str(associacao.getId_sala()))).pegarCodigo()

@@ -15,8 +15,8 @@ class Ass_turma_sala_horario(object):
 	def getId(self):
 		return self.id
 
-	def setId_sala(self,codigo_sala):
-		self.id_sala = (Sala().pegarSala('codigo = %s',(codigo_sala,))).getId()
+	def setId_sala(self,id_sala):
+		self.id_sala = id_sala
 
 	def getId_sala(self):
 		return self.id_sala

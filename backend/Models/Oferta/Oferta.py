@@ -8,4 +8,4 @@ class Oferta(object):
 		self.id_ementa = oferta.getId_ementa()
 		self.turmas = []
 		for turma in turmas:
-			self.turmas.append(ModelTurma(turma))
+			self.turmas.append(turma)

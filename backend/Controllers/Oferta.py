@@ -1,4 +1,5 @@
 # coding=utf-8
+from Models.Oferta.RespostaDetalhar import RespostaDetalhar
 from Framework.Controller import Controller
 from Database.Controllers.Oferta import Oferta as BDOferta
 from Database.Controllers.Ass_oferta_turma import Ass_oferta_turma as BDAssof
@@ -8,7 +9,7 @@ from Database.Controllers.Sala import Sala as BDSala
 from Database.Controllers.Horario import Horario as BDHorario
 from Models.Horario.Horario import Horario as ModelHorario
 from Models.Turma.Turma import Turma as ModelTurma
-from Models.Oferta.RespostaDetalhar import RespostaDetalhar
+
 
 class Oferta(Controller):
 

@@ -26,7 +26,7 @@ class Oferta(object):
 		return self.id_disciplina
 		
 	def getDisciplina(self):
-		return (Disciplina().pegarDisciplina('where id = %s',(id_disciplina,))).getNome()
+		return (Disciplina().pegarDisciplina('where id = %s',(self.id_disciplina,))).getNome()
 		
 	def setId_ementa(self,id_ementa):
 		self.id_ementa = id_ementa

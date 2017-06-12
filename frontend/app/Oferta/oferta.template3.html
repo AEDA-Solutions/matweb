@@ -17,7 +17,6 @@
                     <td>{{$ctrl.oferta.creditos}}</td>
                 <tr><b>Ementa</b></tr>
                     <td>{{$ctrl.oferta.id_ementa}}</td>
-                <tr>adffsad</tr>
                 <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
                     <td> {{disciplina.nome}} </td>
                     <td><a href="/Disciplina/Info?{{disciplina.nome}}&CODIGO?{{disciplina.id}}" target="_blank" >Detalhes</a></td>

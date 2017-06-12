@@ -63,4 +63,4 @@ class Turma(object):
 		return self.id_professor
 		
 	def getProfessor(self):
-		return (Professor().pegarProfessor('id = %s',(self.id_professor,))).getNome()
+		return (Professor().pegarProfessor('where id = %s',(self.id_professor,))).getNome()

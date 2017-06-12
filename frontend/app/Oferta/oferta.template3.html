@@ -29,11 +29,12 @@
                     <td>Vagas </td>
                     <td>Total: {{turma.vagas}} </td>
                     <td>Ocupadas: {{turma.ocupadas}} </td>
-                    <td>Restantes: {{turma.restantes}}<br></td>
-                    <div ng-repeat="horario in turma.horarios">
-                        <td>{{horario.inicio}}</td>
-                    </div>
+                    <td>Restantes: {{turma.restantes}}</td>
+                    <tr>
+                        <td>{{turma.horarios[0].inicio}}</td>
+                    </tr>
                 </tr>
+                
             </tbody>
     </table>
 </div>

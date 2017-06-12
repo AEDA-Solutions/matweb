@@ -51,7 +51,7 @@ angular.
         {
             ApiOfertaDetalhar.Detalhar(this.formulario,function(resultado) {
                 ctrl.oferta = resultado.corpo;
-                console.log(ctrl.oferta);
+                console.log(ctrl.oferta.turmas);
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
                 console.log(error.data.mensagem);

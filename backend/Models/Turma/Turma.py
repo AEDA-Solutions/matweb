@@ -1,4 +1,3 @@
-from Models.Horario.Horario import Horario as ModelHorario
 
 class Turma(object):
 	def __init__(self, turma, horarios):
@@ -13,4 +12,4 @@ class Turma(object):
 		self.professor = turma.getProfessor()
 		self.turno = turma.getTurno()
 		for horario in horarios:
-			self.horarios.append(ModelHorario(horario))
+			self.horarios.append(horario)

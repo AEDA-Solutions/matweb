@@ -44,8 +44,7 @@ angular.
 }).
   component('ofertaDetalhar', {
     templateUrl: '/app/Oferta/oferta.template3.html',
-    controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams', function 
-Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams) {
+    controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;
         this.detalhar = function()

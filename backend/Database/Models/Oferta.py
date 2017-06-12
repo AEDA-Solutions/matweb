@@ -30,4 +30,7 @@ class Oferta(object):
 		
 	def setId_ementa(self,id_ementa):
 		self.id_ementa = id_ementa
+		
+	def getId_ementa(self):
+		return self.id_ementa
 	

@@ -54,6 +54,10 @@ angular.
                 console.log(ctrl.oferta.turmas);
                 for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){
                     console.log(ctrl.oferta.turmas[i].horarios);
+                    for(var j=0; j < ctrl.oferta.turmas[i].horarios[j]; j++) {
+                        console.log(ctrl.oferta.turmas[i].horarios[j].inicio);
+                        console.log(ctrl.oferta.turmas[i].horarios[j].fim);
+                    }
                 }
             }, function(erro) {
                 ctrl.error = error.data.mensagem;

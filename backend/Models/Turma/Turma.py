@@ -12,5 +12,5 @@ class Turma(object):
 		self.id_professor = turma.getId_professor()
 		self.professor = turma.getProfessor()
 		self.turno = turma.getTurno()
-      for horario in horarios:
-      	self.horarios.append(ModelHorario(horario))
+		for horario in horarios:
+			self.horarios.append(ModelHorario(horario))

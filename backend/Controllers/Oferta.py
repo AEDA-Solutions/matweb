@@ -14,7 +14,7 @@ from Models.Turma.Turma import Turma as ModelTurma
 class Oferta(Controller):
 
 	def Detalhar(self,pedido_detalhar):
-		oferta = BDOferta().pegarOferta('where id_disciplina = %s',(str(pedido_detalhar.getId_disciplina)))
+		oferta = BDOferta().pegarOferta('where id_disciplina = %s',(str(pedido_detalhar.getId_disciplina())))
 		turmas = self.buscaturmas(oferta)
 		return RespostaDetalhar(oferta,turmas)
 

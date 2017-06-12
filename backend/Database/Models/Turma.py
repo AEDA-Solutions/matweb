@@ -1,4 +1,5 @@
 from Database.Controllers.Disciplina import Disciplina
+from Database.Controllers.Professor import Professor
 
 class Turma(object):
 

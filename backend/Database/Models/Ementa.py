@@ -5,8 +5,6 @@ class Ementa(object):
 		if dados is not None:
 			self.id = dados ['id']
 			self.arquivo = dados ['arquivo']
-			self.id_disciplina = dados ['id_disciplina']
-			self.id_ementa = dados ['id_ementa']
 			
 	def getId(self):
 		return self.id

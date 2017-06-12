@@ -11,7 +11,7 @@ class Ementa(object):
 		return ementas
 	
 	def pegarEmenta(self, condicao, valores):
-		return ModelSala(BancoDeDados().consultarUnico("SELECT * FROM ementa %s" % (condicao), valores))
+		return ModelEmenta(BancoDeDados().consultarUnico("SELECT * FROM ementa %s" % (condicao), valores))
 	
 	def inserirEmenta(self, ementa):
 		BancoDeDados().executar("INSERT INTO ementa (arquivo) VALUES (%s) RETURNING id", (ementa.arquivo,))

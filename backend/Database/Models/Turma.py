@@ -7,6 +7,11 @@ class Turma(object):
 			self.id = dados ['id']
 			self.letra = dados ['letra']
 			self.id_disciplina = dados ['id_disciplina']
+			self.vagas = dados['vaga']
+			self.ocupadas = dados['ocupadas']
+			self.restantes = dados['restantes']
+			self.turno = dados['turno']
+			self.id_professor = dados['id_professor']
 			
 	def getId(self):
 		return self.id
@@ -17,6 +22,30 @@ class Turma(object):
 	def getLetra(self):
 		return self.letra
 		
+	def setVagas(self,vagas):
+		self.vagas = vagas
+	
+	def getVagas(self):
+		return self.vagas
+	
+	def setOcupadas(self,ocupadas):
+		self.ocupadas = ocupadas
+		
+	def getOcupadas(self):
+		return self.ocupadas
+		
+	def setRestantes(self,restantes):
+		self.restantes = restantes
+		
+	def getRestantes(self):
+		return self.restantes
+		
+	def setTurno(self,turno):
+		self.turno = turno
+		
+	def getTurno(self):
+		return self.turno
+		
 	def setId_disciplina(self,disciplina):
 		self.id_disciplina = (Disciplina().pegarDisciplina('nome = %s',(disciplina,))).getId()
 	
@@ -25,3 +54,12 @@ class Turma(object):
 		
 	def getDisciplina(self):
 		return (Disciplina().pegarDisciplina('id = %s',(self.id_disciplina,))).getNome()
+		
+	def setId_professor(self,professor):
+		self.id_professor = (Professor().pegarProfessor('nome = %s',(professor,))).getId()
+	
+	def getId_professor(self):
+		return self.id_professor
+		
+	def getProfessor(self):
+		return (Professor().pegarProfessor('id = %s',(self.id_professor,))).getNome()

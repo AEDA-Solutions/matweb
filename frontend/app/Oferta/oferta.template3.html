@@ -11,15 +11,28 @@
     <div class="panel-body">
     <div>
 <div class="table-responsive">
+    <table>
+        <tr>
+            <td>Ementa: {{$ctrl.oferta.id_ementa}}</td>
+            <td>Creditos: {{$ctrl.oferta.creditos}}</td>
+        </tr>
+    </table>
+</div>
+<div class="table-responsive">
      <table class = "table table-bordered table-hover">
             <tbody>
-                <tr><b>Creditos</b></tr>
-                    <td>{{$ctrl.oferta.creditos}}</td>
-                <tr><b>Ementa</b></tr>
+                    <b>Turmas</b>
                     <td>{{$ctrl.oferta.id_ementa}}</td>
-                <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
-                    <td> {{disciplina.nome}} </td>
-                    <td><a href="/Disciplina/Info?{{disciplina.nome}}&CODIGO?{{disciplina.id}}" target="_blank" >Detalhes</a></td>
+                <tr ng-repeat="turma in $ctrl.oferta.turmas">
+                    <td>Turma {{oferta.letra}} <br></td>
+                    <td>Turno {{oferta.turno}} <br></td>
+                    <td>Professor {{oferta.professor}} <br></td>
+                    <div ng-repeat="horario in turma.horarios">
+                        <td>{{horario.dia}} </td>
+                        <td>Inicio: {{horario.inicio}} </td>
+                        <td>Fim: {{horario.fim}} </td>
+                        <td>Sala:{{horario.sala}}<br></td>
+                    </div>
                 </tr>
             </tbody>
     </table>

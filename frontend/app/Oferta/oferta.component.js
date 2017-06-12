@@ -58,5 +58,6 @@ angular.
                 console.log(error.data.mensagem);
             });
         }
+        this.detalhar();
     }]
 });

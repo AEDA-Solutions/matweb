@@ -26,11 +26,12 @@
                     <td>Turma {{turma.letra}} <br></td>
                     <td>Turno {{turma.turno}} <br></td>
                     <td>Professor {{turma.professor}} <br></td>
+                    <td>Vagas </td>
+                    <td>Total: {{turma.vagas}} </td>
+                    <td>Ocupadas: {{turma.ocupadas}} </td>
+                    <td>Restantes: {{turma.restantes}}<br></td>
                     <div ng-repeat="horario in turma.horarios">
-                        <td>Vagas </td>
-                        <td>Total: {{turma.vagas}} </td>
-                        <td>Ocupadas: {{turma.ocupadas}} </td>
-                        <td>Restantes: {{turma.restantes}}<br></td>
+                        <td>{{horario.inicio}}</td>
                     </div>
                 </tr>
             </tbody>

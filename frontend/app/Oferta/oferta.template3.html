@@ -27,10 +27,10 @@
                     <td>Turno {{turma.turno}} <br></td>
                     <td>Professor {{turma.professor}} <br></td>
                     <div ng-repeat="horario in turma.horarios">
-                        <td>{{horario.dia}} </td>
-                        <td>Inicio: {{horario.inicio}} </td>
-                        <td>Fim: {{horario.fim}} </td>
-                        <td>Sala:{{horario.sala}}<br></td>
+                        <td>Vagas </td>
+                        <td>Total: {{turma.vagas}} </td>
+                        <td>Ocupadas: {{turma.ocupadas}} </td>
+                        <td>Restantes: {{turma.restantes}}<br></td>
                     </div>
                 </tr>
             </tbody>

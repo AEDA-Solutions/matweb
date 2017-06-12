@@ -13,5 +13,12 @@ angular.
           Listar: { method: 'POST'},
         });
     }                                                                      
-  ]);
+  ]).
+  factory('ApiOfertaDetalhar',['$resource',
+    function($resource) {
+        return $resource('/api/Oferta/Detalhar',{}, {
+            Detalhar: { method: 'POST'},
+        });
+    }                                
+]);
 

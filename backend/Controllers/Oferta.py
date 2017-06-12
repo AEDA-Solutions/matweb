@@ -33,7 +33,7 @@ class Oferta(Controller):
 		associacoes = BDAssoc().pegarAss_turma_sala_horarios('where id_turma = %s',(str(turma.getId()),))
 		self.horarios = []
 		for associacao in associacoes:
-			sala = BDSala().pegarSala('where id = %s',(str(associacao.getId_sala()))).getCodigo()
+			sala = BDSala().pegarSala('where id = %s',(str(associacao.getId_sala()),)).getCodigo()
 			horario = BDHorario().pegarHorario('where id = %s',(str(associacao.getId_horario()),))
 			self.horarios.append(ModelHorario(horario,sala))
 		return self.horarios

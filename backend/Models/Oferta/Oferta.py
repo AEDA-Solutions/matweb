@@ -5,7 +5,7 @@ class Oferta(object):
 		self.id = oferta.getId()
 		self.id_disciplina = oferta.getId_disciplina()
 		self.disciplina = oferta.getDisciplina()
-		self.id_emertan = oferta.getId_ementa()
+		self.id_emerta = oferta.getId_ementa()
 		self.turmas = []
 		for turma in turmas:
 			self.turmas.append(ModelTurma(turma))

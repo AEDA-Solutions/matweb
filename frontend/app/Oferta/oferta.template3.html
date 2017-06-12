@@ -23,9 +23,9 @@
             <tbody>
                     <b>Turmas</b>
                 <tr ng-repeat="turma in $ctrl.oferta.turmas">
-                    <td>Turma {{oferta.letra}} <br></td>
-                    <td>Turno {{oferta.turno}} <br></td>
-                    <td>Professor {{oferta.professor}} <br></td>
+                    <td>Turma {{turma.letra}} <br></td>
+                    <td>Turno {{turma.turno}} <br></td>
+                    <td>Professor {{turma.professor}} <br></td>
                     <div ng-repeat="horario in turma.horarios">
                         <td>{{horario.dia}} </td>
                         <td>Inicio: {{horario.inicio}} </td>

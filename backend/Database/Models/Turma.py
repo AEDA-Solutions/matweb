@@ -7,7 +7,7 @@ class Turma(object):
 			self.id = dados ['id']
 			self.letra = dados ['letra']
 			self.id_disciplina = dados ['id_disciplina']
-			self.vagas = dados['vaga']
+			self.vagas = dados['vagas']
 			self.ocupadas = dados['ocupadas']
 			self.restantes = dados['restantes']
 			self.turno = dados['turno']

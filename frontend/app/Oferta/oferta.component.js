@@ -52,6 +52,9 @@ angular.
             ApiOfertaDetalhar.Detalhar(this.formulario,function(resultado) {
                 ctrl.oferta = resultado.corpo;
                 console.log(ctrl.oferta.turmas);
+                for(var i=0, horario = null, i < ctrl.oferta.turmas.length; i++){
+                    console.log(ctrl.oferta.turmas[i].horarios);
+                }
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
                 console.log(error.data.mensagem);

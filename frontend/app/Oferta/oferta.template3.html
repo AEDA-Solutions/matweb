@@ -26,9 +26,11 @@
                     <td>Turma {{turma.letra}} <br></td>
                     <td>Turno {{turma.turno}} <br></td>
                     <td>Professor {{turma.professor}}</td>
-                    <td>Vagas </td>
+                    <th rowspan="3">Vagas </th>
                     <td>Total: {{turma.vagas}} </td>
+                </tr><tr>
                     <td>Ocupadas: {{turma.ocupadas}} </td>
+                </tr><tr>
                     <td>Restantes: {{turma.restantes}}</td>
                 </tr>
                 <tr ng-repeat="horario in turma.horarios">

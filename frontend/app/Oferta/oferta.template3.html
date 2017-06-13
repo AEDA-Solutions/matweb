@@ -23,14 +23,13 @@
             <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                     <b>Turmas</b>
                 <tr>
-                    <th rowspan="3">Turma {{turma.letra}} </th>
-                    <th rowspan="3">Turno {{turma.turno}} </th>
-                    <th rowspan="3">Professor {{turma.professor}}</th>
-                    <th rowspan="3">Vagas </th>
+                    <th rowspan="2">Turma {{turma.letra}} </th>
+                    <th rowspan="2">Turno {{turma.turno}} </th>
+                    <th rowspan="2">Professor {{turma.professor}}</th>
+                    <td>Vagas</td>
+                </tr><tr>
                     <td>Total: {{turma.vagas}} </td>
-                </tr><tr>
                     <td>Ocupadas: {{turma.ocupadas}} </td>
-                </tr><tr>
                     <td>Restantes: {{turma.restantes}}</td>
                 </tr>
                 <tr ng-repeat="horario in turma.horarios">

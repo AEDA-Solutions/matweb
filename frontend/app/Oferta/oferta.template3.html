@@ -20,9 +20,9 @@
 </div>
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
-            <tbody>
+            <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                     <b>Turmas</b>
-                <tr ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
+                <tr>
                     <td>Turma {{turma.letra}} <br></td>
                     <td>Turno {{turma.turno}} <br></td>
                     <td>Professor {{turma.professor}}</td>
@@ -30,8 +30,9 @@
                     <td>Total: {{turma.vagas}} </td>
                     <td>Ocupadas: {{turma.ocupadas}} </td>
                     <td>Restantes: {{turma.restantes}}</td>
-                    <td>{{$index}}</td>
-                    <div>
+                </tr>
+                <tr>
+                    <td>{{turma.horarios[$index].dia</td>
                     <li ng-repeat="horario in turma.horarios">
                         {{$index}}
                         {{horario.dia}}
@@ -40,6 +41,7 @@
                         {{horario.sala}}
                     </li>
                     </div>
+
                 </tr>
                 
             </tbody>

@@ -32,6 +32,7 @@
                     <td>Restantes: {{turma.restantes}}</td>
                     <div>
                     <li ng-repeat="horario in turma.horarios">
+                        {{$index}}
                         {{horario.dia}}
                         {{horario.inicio}}
                         {{horario.fim}}

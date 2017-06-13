@@ -22,7 +22,7 @@
             <tbody>
                 <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
                     <td> {{disciplina.nome}} </td>
-                    <td><a href="/Disciplina/Info?{{disciplina.nome}}&CODIGO?{{disciplina.id}}" target="_blank" >Detalhes</a></td>
+                    <td><a href="/Oferta/Detalhar/{{disciplina.id}}">Detalhes</a></td>
                 </tr>
             </tbody>
     </table>

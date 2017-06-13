@@ -23,9 +23,9 @@
             <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                     <b>Turmas</b>
                 <tr>
-                    <td>Turma {{turma.letra}} <br></td>
-                    <td>Turno {{turma.turno}} <br></td>
-                    <td>Professor {{turma.professor}}</td>
+                    <th rowspan="3">Turma {{turma.letra}} </th>
+                    <th rowspan="3">Turno {{turma.turno}} </th>
+                    <th rowspan="3">Professor {{turma.professor}}</th>
                     <th rowspan="3">Vagas </th>
                     <td>Total: {{turma.vagas}} </td>
                 </tr><tr>

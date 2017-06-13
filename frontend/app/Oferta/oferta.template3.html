@@ -22,17 +22,22 @@
      <table class = "table table-bordered table-hover">
             <tbody>
                     <b>Turmas</b>
-                <tr ng-repeat="turma in $ctrl.oferta.turmas">
+                <tr ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                     <td>Turma {{turma.letra}} <br></td>
                     <td>Turno {{turma.turno}} <br></td>
-                    <td>Professor {{turma.professor}} <br></td>
+                    <td>Professor {{turma.professor}}</td>
                     <td>Vagas </td>
                     <td>Total: {{turma.vagas}} </td>
                     <td>Ocupadas: {{turma.ocupadas}} </td>
                     <td>Restantes: {{turma.restantes}}</td>
-                    <tr>
-                        <td>{{turma.horarios[0].inicio}}</td>
-                    </tr>
+                    <div>
+                    <li ng-repeat="horario in turma.horarios">
+                        {{horario.dia}}
+                        {{horario.inicio}}
+                        {{horario.fim}}
+                        {{horario.sala}}
+                    </li>
+                    </div>
                 </tr>
                 
             </tbody>

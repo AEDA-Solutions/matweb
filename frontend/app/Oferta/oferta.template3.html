@@ -31,11 +31,12 @@
                     <td>Ocupadas: {{turma.ocupadas}} </td>
                     <td>Restantes: {{turma.restantes}}</td>
                 </tr>
-                <tr>
+                <tr ng-repeat="horario in turma.horarios">
                     <td>{{turma.horarios[$index].dia}}</td>
                     <td>{{turma.horarios[$index].inicio}}</td>
                     <td>{{turma.horarios[$index].fim}}</td>
                     <td>{{turma.horarios[$indes].sala}}</td>
+                    <td>{{horario.dia}}</td>
                 </tr>
                 <br>
             </tbody>

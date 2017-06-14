@@ -6,13 +6,15 @@ angular.
     dismiss: '&'
     }, 
     controller: [ 'MatWebGlobals',function (MatWebGlobals) {
-    this.id = "";
-    id = MatWebGlobals.campus.id
     var ctrl = this;
 
     ctrl.cancel = function () {
       ctrl.dismiss({$value: 'cancel'});
     };
+
+    ctrl.id = "";
+    id = MatWebGlobals.campus.id
+    
   }]
 });
 

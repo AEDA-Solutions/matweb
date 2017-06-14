@@ -13,13 +13,13 @@
 <div class="table-responsive">
     <table>
         <tr>
-            <td><button ng-click="ementapage=$ctrl.oferta.ementa;ementa=true">Ementa</button></td>
+            <td>Ementa<input type="checkbox" ng-click="ementapage=$ctrl.oferta.ementa;ementa=true"></input></td>
             <td>Creditos: {{$ctrl.oferta.creditos}}</td>
         </tr>
     </table>
 </div>
         <div  ng-if="ementa">
-        <a href="" ng-click="ementa=false">Ocultar</a>
+        <a>{{ementa}}</a>
         <ng-include src="ementapage"></ng-include>
         </div>
 <div class="table-responsive">

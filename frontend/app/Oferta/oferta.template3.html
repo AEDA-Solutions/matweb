@@ -18,7 +18,9 @@
         </tr>
     </table>
 </div>
-<ng-include src="ementapage" ng-if='mostra=true'></ng-include>
+        <div  ng-if='mostra'>
+        <ng-include src="ementapage"></ng-include>
+        </div>
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
             <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">

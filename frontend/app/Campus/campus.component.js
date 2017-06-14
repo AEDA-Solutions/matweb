@@ -5,8 +5,7 @@ angular.
     controller: ['ApiCampus', '$uibModal', 'MatWebGlobals',function Entrar(ApiCampus,$uibModal,MatWebGlobals) {
   var ctrl = this;
   ctrl.campus = [];
-
-
+  
     ApiCampus.Listar({ nome:"", pagina: 0, quantidade: 1000 },function(resultado) {
               ctrl.campus = resultado.corpo
       console.log(ctrl.campus)

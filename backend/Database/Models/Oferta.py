@@ -34,3 +34,5 @@ class Oferta(object):
 	def getId_ementa(self):
 		return self.id_ementa
 	
+	def getEmenta(self):
+		return (Ementa().pegarEmenta('where id = %s',(self.id_ementa,))).getArquivo()

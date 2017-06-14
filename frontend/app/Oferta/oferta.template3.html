@@ -13,12 +13,12 @@
 <div class="table-responsive">
     <table>
         <tr>
-            <td><button ng-click="ementapage=$ctrl.oferta.ementa">Ementa</buttorn></td>
+            <td><button ng-click="ementapage=$ctrl.oferta.ementa ; mostra=true">Ementa</buttorn></td>
             <td>Creditos: {{$ctrl.oferta.creditos}}</td>
         </tr>
     </table>
 </div>
-<ng-include src="ementapage"></ng-include>
+<ng-include src="ementapage" ng-if='mostra=true'></ng-include>
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
             <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">

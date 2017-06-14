@@ -6,6 +6,7 @@ class Oferta(object):
 		self.id_disciplina = oferta.getId_disciplina()
 		self.disciplina = oferta.getDisciplina()
 		self.id_ementa = oferta.getId_ementa()
+		self.ementa = oferta.getEmenta()
 		self.creditos = oferta.getCreditos()
 		self.turmas = []
 		for turma in turmas:

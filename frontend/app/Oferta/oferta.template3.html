@@ -8,18 +8,17 @@
                                 <h2><p>{{$ctrl.oferta.disciplina}}</p></h2>
                             </header>
 <div>
-    <div class="panel-body">
+    <div class="panel-body" ng-model="ementa">
     <div>
 <div class="table-responsive">
     <table>
         <tr>
-            <td><button ng-click="ementapage=$ctrl.oferta.ementa ; $scope=mostra=true">Ementa</buttorn></td>
+            <td><input type=checkbox ng-init="ementapage=$ctrl.oferta.ementa;ementa=true">Ementa</input></td>
             <td>Creditos: {{$ctrl.oferta.creditos}}</td>
         </tr>
     </table>
 </div>
-        <div  ng-if='$scope.mostra==true'>
-        <center><button ng_click="$scople.mostra=false">Esconde</button></center>
+        <div  ng-if="ementa">teste
         <ng-include src="ementapage"></ng-include>
         </div>
 <div class="table-responsive">

@@ -13,13 +13,13 @@
 <div class="table-responsive">
     <table>
         <tr>
-            <td><button ng-click="ementapage=$ctrl.oferta.ementa ; mostra=true">Ementa</buttorn></td>
+            <td><button ng-click="ementapage=$ctrl.oferta.ementa ; $scope=mostra=true">Ementa</buttorn></td>
             <td>Creditos: {{$ctrl.oferta.creditos}}</td>
         </tr>
     </table>
 </div>
-        <div  ng-if='mostra==true'>
-        <center><button ng_click="mostra=false">Esconde</button></center>
+        <div  ng-if='$scope.mostra==true'>
+        <center><button ng_click="$scople.mostra=false">Esconde</button></center>
         <ng-include src="ementapage"></ng-include>
         </div>
 <div class="table-responsive">

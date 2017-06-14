@@ -25,6 +25,9 @@ angular.
       $routeProvider.when('/Departamento/Listar', {
           template: '<listar-departamento></listar-departamento>'
         })
+      $routeProvider.when('/Departamento/Listar/:Id_campus', {
+          template: '<listar-departamentoc></listar-departamentoc>'
+        })
       .otherwise('/');
     }
   ]).value('MatWebGlobals', {});

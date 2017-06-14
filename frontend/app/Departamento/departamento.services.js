@@ -6,6 +6,13 @@ angular.
         Listar: { method: 'POST', params: {'operacao': "Listar"} }
       });
     }
-  ]);
+  ]).
+ factory('ApiDepartamentoc', ['$resource',
+    function($resource) {
+      return $resource('/api/Departamento/:operacao', {}, {
+        Listar: { method: 'POST', params: {'operacao': "Listar"} }
+      });
+    }
+  ])
 
   

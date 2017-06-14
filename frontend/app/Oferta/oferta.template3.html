@@ -13,12 +13,12 @@
 <div class="table-responsive">
     <table>
         <tr>
-            <td><input type=checkbox ng-init="ementapage=$ctrl.oferta.ementa;ementa=true">Ementa</input></td>
+            <td><button ng-click="ementapage=$ctrl.oferta.ementa;ementa=true">Ementa</button></td>
             <td>Creditos: {{$ctrl.oferta.creditos}}</td>
         </tr>
     </table>
 </div>
-        <div  ng-if="ementa">teste
+        <div  ng-if="ementa">
         <ng-include src="ementapage"></ng-include>
         </div>
 <div class="table-responsive">

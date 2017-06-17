@@ -16,7 +16,7 @@
                 <td> <strong> Nome </strong> </td>
             </tr>
             <tr ng-repeat="campus in $ctrl.campus">
-                <td>  <button type="button" class="btn btn-warning" ng-click="$ctrl.abrir()"> {{campus.id}} </button> </td>
+                <td>  <button type="button" class="btn btn-warning" ng-click="$ctrl.abrir() $ctrl.id = campus.id "> {{campus.id}} </button> </td>
                 <td> {{campus.nome}} </td>
             </tr>
         </tbody>

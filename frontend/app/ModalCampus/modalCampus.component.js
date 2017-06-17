@@ -7,13 +7,13 @@ angular.
     }, 
     controller: [ 'MatWebGlobals',function (MatWebGlobals) {
     var ctrl = this;
-
+    ctrl.inter = "";
     ctrl.cancel = function () {
       ctrl.dismiss({$value: 'cancel'});
     };
 
-    ctrl.id = "";
-    id = MatWebGlobals.campus.id
+
+    MatWebGlobals.Id = ctrl.inter;
     
   }]
 });

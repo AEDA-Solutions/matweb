@@ -4,9 +4,9 @@ angular.
     templateUrl: '/app/nucleo/menu-principal.template.html',
     controller: ['MatWebGlobals', function Menu(MatWebGlobals) {
       if (typeof MatWebGlobals.usuarioLogado !== 'undefined') {
-        this.perfil = MatWebGlobals.usuarioLogado.perfil;
+        this.usuario = MatWebGlobals.usuarioLogado.usuario;
       }else{
-        this.perfil = ""
+        this.usuario = ""
       }
     }]
   });

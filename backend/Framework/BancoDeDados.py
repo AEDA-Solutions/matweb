@@ -13,7 +13,7 @@ class BancoDeDados(object):
 		if(BancoDeDados.conexao == None or BancoDeDados.cursor == None):
 			self.abrir()
 		elif(BancoDeDados.cursor.closed or BancoDeDados.conexao.closed != 0):
-			self.fechar()
+			self.fechar
 			self.abrir()
 
 	def abrir(self):

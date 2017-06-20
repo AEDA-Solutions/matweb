@@ -33,9 +33,15 @@ class Usuario(Controller):
 	def Cadastrar(self,pedido_cadastrar):
 		usuario = ModelUsuario()
 		usuario.setNome(pedido_cadastrar.getNome())
-		usuario.setMatricula(pedido_cadastrar.getMatricula())
+		usuario.setMatricula(pedido_cadastrar.getMatricula())		
 		usuario.setCpf(pedido_cadastrar.getCpf())
 		usuario.setPerfil(pedido_cadastrar.getPerfil())
+		usuario.setEmail(pedido_cadastrar.getEmail())
+		usuario.setSexo(pedido_cadastrar.getSexo())
+		usuario.setNome_pai(pedido_cadastrar.getNome_pai())
+		usuario.setNome_mae(pedido_cadastrar.getNome_mae())
+		usuario.setAno_conclusao(pedido_cadastrar.getAno_conclusao())
+		usuario.setIdentidade(pedido_cadastrar.getIdentidade())
 		usuario.setSenhaHashed(bcrypt.hashpw(pedido_cadastrar.getSenha().encode('utf-8'), bcrypt.gensalt()))
 		return RespostaCadastrar(BDUsuario().inserirUsuario(usuario))
 

@@ -1,120 +1,74 @@
 <!DOCTYPE HTML>
+
 <html>
 	<head>
 		<title>Admin</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="app/Menuprincipaladmin/assets/css/main.css" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="app/Home/assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body>
 
-		<!-- Header -->
-			<div id="header">
+			<div id="content">
+				<div class="inner">
 
-				<div class="top">
+						<article class="box post post-excerpt">
+							<header>
+								<h2><p>Seja Bem-Vindo, {{nomeUsuario}}!!</p></h2>
+								<p>Um novo jeito de se matricular!</p>
+							</header>
+							<a class="image featured"><img src="app/Home/images/UnB1.jpg" alt="" /></a>
+							<p>
+								<strong>Prezado  <a href='/Usuario/Dados'>{{nomeUsuario}}</a>!</strong> Neste sistema, você tem acesso total(ou quase total).
+							</p>
+							<p>
+								
+							</p>
+						</article>
+				</div>
+			</div>
 
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image avatar48"><img src="app/Menuprincipaladmin/images/avatar.jpg" alt="" /></span>
-							<h1 id="title">Administrador</h1>
-							<p>UnB</p>
-						</div>
+		<!-- Sidebar -->
+			<div id="sidebar">
 
-					<!-- Nav -->
-						<nav id="nav">
-							
-							<ul>
+				<!-- Logo -->
+					<h1 id="logo"><a href="#">Matweb</a></h1>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
 								<li><a href="/Admin" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Inicial</span></a></li>
 								<li><a href="/Curso/Registrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Curso</span></a></li>
 								<li><a href="/Usuario/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Usuário</span></a></li>
-								<li><a href="/Cadastrar/Disciplina" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Matéria</span></a></li>
+								<li><a href="/Oferta/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Matéria</span></a></li>
 								<li><a href="/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Depart</span></a></li>
 								<li><a href="/Predio/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Prédio</span></a></li>
 								<li><a href="/Registrodesala/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Sala</span></a></li>
-                                <li>
                                 <li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Matricular</span></a></li>
-                                <li>
                                 <li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Alunos</span></a></li>
-                                <li>
                                 <li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Central</span></a></li>
-							</ul>
-						</nav>
 
-				</div>
+						</ul>
+					</nav>
+
+                    <section>
+						<form>  
+							<input type="button" value="LogOut" onClick="history.go(0)"> 
+							<br></br>
+						</form>
+                    </section>
+
 
 			</div>
 
-		<!-- Main -->
-			<div id="main">
-
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
-
-							<header>
-								<h2 class="alt"><span>Olá! Senhor <strong>Administrador</strong>, seja  Bem vindo<br />
-								Ao comando do MatWeb.</span></h2>
-								<p>Prezado Administrador,
-
- 
-1.   <p>   Neste sistema, você tem acesso ao resultado da pré-matrícula, opta por confirmar ou retirar cada disciplina e pode solicitar outras disciplinas que queira cursar. Você também pode obter seu histórico escolar, a grade horária e um quadro-resumo de sua situação no curso.</p></br>
-<p>
-2.      Antes de retirar qualquer disciplina, recomendamos que entre em contato com o Coordenador de seu curso. Alertamos que, ao retirar uma disciplina ou turma, não há mais garantia de vaga.</br></p>
-<p>
-Caso você tenha dúvidas, sugerimos buscar orientação com o Coordenador de seu curso.
-</br><strong>
-PROCEDIMENTOS DE AJUSTE DE MATRÍCULA</br></strong></p>
-<p>
-1.      Disciplinas que ainda possuem vagas
-Você pode solicitar matrícula ou ajuste de matrícula diretamente via internet, nos links “Matrícula” e “Matrícula Vinculada”, respectivamente.</br></p>
-<p>
-Os pedidos de matrícula só serão aceitos até o limite máximo de créditos do seu curso.
-Pedidos de matrícula para uma mesma disciplina deverão ter prioridades distintas para as turmas solicitadas.</br></p>
-<strong><p>
-<p>2.      Disciplinas sem vagas no sistema</strong></p>
-<p>i)        A lista de espera para matrícula em disciplinas contém a demanda ordenada por prioridade, sendo disponibilizada no Matrícula Web.</br></p>
-<p>ii)      A “RELAÇÃO DE ALUNOS NÃO ATENDIDOS POR FALTA DE VAGAS” informa a relação de alunos não atendidos na fase de Matrícula, ordenados pelo tipo (obrigatória, obrigatória seletiva, optativa ou módulo livre) da disciplina nos currículos dos cursos e pelo percentual de créditos que faltam para a conclusão do curso.</br></p>
-<p>iii)    O ajuste de matrícula será iniciado pelo Coordenador após a geração da “RELAÇÃO DE ALUNOS NÃO ATENDIDOS POR FALTA DE VAGAS”, obedecendo à ordem estabelecida nesse relatório. O aumento de vagas nas disciplinas/turmas, caso ocorra, é de responsabilidade do Coordenador da unidade acadêmica da disciplina.</br></p>
-<p>iv)    Caso seu nome conste no relatório “RELAÇÃO DE ALUNOS NÃO ATENDIDOS POR FALTA DE VAGAS” e você não queira mais participar da lista de espera da disciplina, solicitamos a gentileza de retirar seu nome da relação, para que a fase de ajuste de matrícula seja direcionada àqueles realmente interessados em cursar a disciplina</br>v)    Confirmação do interesse de permanecer na lista de espera: o estudante deverá confirmar o interesse de permanecer na Lista de Espera; a não confirmação implicará a exclusão automática da Lista de Espera.</br></p>
-<p>3.    <strong>  Retirada de disciplinas</strong>
-Caso mude de ideia ou desista de cursar uma disciplina em que já esteja matriculado, você poderá retirá-la diretamente via internet, no Matrícula Web, durante a fase de ajuste.
-É de sua exclusiva responsabilidade verificar em quais disciplinas está matriculado, após o término do período de matrícula e ajuste.</p>
-<p>
-Somente os estudantes regularmente matriculados em disciplina/turma podem participar das atividades acadêmicas da disciplina. Alunos que não constam na relação de acompanhamento de aulas deverão ter sua situação regularizada junto à Coordenação do Curso de Graduação.</br></p>
-<p>
-4.     <strong> Risco de desligamento </strong>
-De acordo com o Art. 125, Inciso II, do Regimento Geral da UnB, o estudante que for reprovado 3 (três) vezes em uma mesma disciplina obrigatória de seu curso será automaticamente desligado. O estudante também precisa cursar, com aproveitamento, 4 (quatro) disciplinas do seu curso em 2 (dois) períodos letivos regulares consecutivos. Caso isso não ocorra, o estudante é considerado em risco de desligamento e precisa cursar, com aproveitamento, no semestre seguinte, a quantidade mínima de créditos por período estabelecida para seu curso.</p>
-<p>
-O Decanato de Ensino de Graduação (DEG), por meio da Comissão de Avaliação e Orientação (CAO), acompanha o desempenho acadêmico dos estudantes, indicando orientação específica para aqueles em risco de desligamento. Por esse motivo, solicitamos que o estudante nessa condição procure o coordenador de seu curso na fase de ajuste de matrícula, para receber a devida orientação acadêmica. No entanto, também é facultado ao estudante em risco de desligamento realizar sua matrícula diretamente no Matrícula Web.</br></p>
-<strong><p>
-5.      Atualização de dados cadastrais e participação no ENADE </strong>
-Você deve manter seus dados atualizados junto à UnB, principalmente no que se refere a endereço residencial, telefone, endereço eletrônico (e-mail) e CPF. Essa atualização, fundamental para encaminhamentos frequentemente solicitados pelo Ministério da Educação, permite maior agilidade na comunicação entre o estudante e a universidade.</p>
-</br><p>
-Desfrutem ao máximo de todas as oportunidades oferecidas pela UnB.
-</br></p><p>
-Bom semestre letivo a todos.
-</p>
-</br>
-<p>
-ORIENTAÇÕES GERAIS
-</p>
-</body>
-</html></p>
-							</header>
-
-							<footer>
-								<a class="button scrolly">Universidade de Brasília</a>
-							</footer>
-
-						</div>
-					</section>
 		<!-- Scripts -->
-			<script src="app/Menuprincipaladmin/assets/js/jquery.min.js"></script>
-			<script src="app/Menuprincipaladmin/assets/js/jquery.scrolly.min.js"></script>
-			<script src="app/Menuprincipaladmin/assets/js/jquery.scrollzer.min.js"></script>
-			<script src="app/Menuprincipaladmin/assets/js/skel.min.js"></script>
-			<script src="app/Menuprincipaladmin/assets/js/util.js"></script>-->
-			<script src="app/Menuprincipaladmin/assets/js/main.js"></script>
+			<script src="app/Home/assets/js/jquery.min.js"></script>
+			<script src="app/Home/assets/js/main.js"></script>
+			<script src="app/Home/assets/js/skel.min.js"></script>
+			<script src="app/Home/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 
 	</body>
 </html>

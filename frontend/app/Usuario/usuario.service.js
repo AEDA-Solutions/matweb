@@ -6,4 +6,4 @@ angular.
         Entrar: { method: 'POST' },
       });
     }
-  ]);
+]);

@@ -14,7 +14,7 @@ class Horario(object):
 		return ModelHorario(BancoDeDados().consultarUnico("SELECT * FROM horario %s" % (condicao), valores))
 	
 	def inserirHorario(self, horario):
-		BancoDeDados().executar("INSERT INTO horario (turno,inicio,fim,dia) VALUES (%s,%s,%s,%s) RETURNING id", (horario.turno,horario.inicio,horario.fim,horario.dia))
+		BancoDeDados().executar("INSERT INTO horario (inicio,fim,dia) VALUES (%s,%s,%s) RETURNING id", (horario.inicio,horario.fim,horario.dia))
 		horario.id = BancoDeDados().pegarUltimoIDInserido()
 		return horario
 		
@@ -22,5 +22,5 @@ class Horario(object):
 		BancoDeDados().executar("DELETE FROM horario WHERE id = %s", (str(horario.id)))
 		
 	def alterarHorario(self, horario):
-		SQL = "UPDATE horario SET turno = %s, inicio = %s, fim = %s, dia = %s WHERE id = %s"
-		BancoDeDados().executar(SQL, (horario.turno,horario.inicio,horario.fim,horario.dia,horario.id))
+		SQL = "UPDATE horario SET inicio = %s, fim = %s, dia = %s WHERE id = %s"
+		BancoDeDados().executar(SQL, (horario.inicio,horario.fim,horario.dia,horario.id))

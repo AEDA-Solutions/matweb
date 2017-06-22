@@ -14,4 +14,20 @@ angular.
       console.log(ctrl.erro)
       } );
     }]
+  }).
+  component('CadastrarCampus', {
+    templateUrl: '/app/Campus/campus.template.html',
+    controller: ['ApiCampus', 'MatWebGlobals',function Cadastrar(ApiCampus,MatWebGlobals) {
+      this.nome_campus = "";
+  var ctrl = this;
+  ctrl.campus = [];
+        ApiCampus.Cadastrar({ nome: ""},function(resultado) {
+              ctrl.campus = resultado.corpo
+      console.log(ctrl.campus)
+    }, function(erro){
+        ctrl.erro = erro.data.mensagem
+      console.log(ctrl.erro)
+      } );
+    }]
   });
+  

@@ -6,7 +6,7 @@ angular.
         if (window.sessionStorage.hasOwnProperty('usuarioLogado')) {
             $scope.nomeUsuario = window.sessionStorage.usuarioLogado.nome;
             $scope.cpfUsuario = window.sessionStorage.usuarioLogado.cpf;
-            console.log(window.sessionStorage.getItem('usuarioLogado.nome'));
+            console.log(window.sessionStorage.getItem('usuarioLogado'));
         } else {
             $location.path('/Usuario/Entrar');
         }

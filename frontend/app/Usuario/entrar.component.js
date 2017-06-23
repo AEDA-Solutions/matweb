@@ -10,7 +10,9 @@ angular.
           MatWebGlobals.usuarioLogado = resultado.corpo.usuario;
           $http.defaults.headers.common.Authorization = resultado.corpo.token;
           window.sessionStorage.setItem('token_de_acesso', resultado.corpo.token);
-          window.sessionStorage.setItem('usuarioLogado',resultado.corpo.token);
+          window.sessionStorage.setItem('UserName',MatWebGlobals.usuarioLogado.nome);
+          window.sessionStorage.setItem('UserCPF',MatWebGlobals.usuarioLogado.cpf);
+          window.sessionStorage.setItem('UserProfile',MatWebGlobals.usuarioLogado.perfil);
           //$location.path('/Usuario/Home')
           window.top.location.href = '/Usuario/Home';
       }, function(error){

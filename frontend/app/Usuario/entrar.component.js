@@ -16,5 +16,6 @@ angular.
             $scope.$digest();
       } );
       }
+      console.log($scope);
     }]
 });

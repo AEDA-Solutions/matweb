@@ -3,9 +3,9 @@ angular.
   component('casaUsuario', {
     templateUrl: '/app/Home/index.html',
     controller: ['ApiHome', 'MatWebGlobals', '$scope', '$location', function Entrar(ApiHome,MatWebGlobals,$scope,$location) {
-        if (MatWebGlobals.hasOwnProperty('usuarioLogado')) {
-            $scope.nomeUsuario = MatWebGlobals.usuarioLogado.nome;
-            $scope.cpfUsuario = MatWebGlobals.usuarioLogado.cpf;
+        if (window.sessionStorage.hasOwnProperty('usuarioLogado')) {
+            $scope.nomeUsuario = window.sessionStorage.usuarioLogado.nome;
+            $scope.cpfUsuario = window.sessionStorage.usuarioLogado.cpf;
         } else {
             $location.path('/Usuario/Entrar');
         }

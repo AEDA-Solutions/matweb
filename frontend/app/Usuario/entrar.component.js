@@ -11,7 +11,7 @@ angular.
           $http.defaults.headers.common.Authorization = resultado.corpo.token;
           window.localStorage.setItem('token_de_acesso', resultado.corpo.token);
           //$location.path('/Usuario/Home')
-          window.parent.location.pathname('/Usuario/Home');
+          $window.location.pathname('/Usuario/Home');
       }, function(error){
             $scope.erro = error.data.mensagem;
             $scope.$digest();

@@ -13,15 +13,11 @@ angular.
               $scope.aluno = true;
           }
           console.log(window.sessionStorage.getItem('UserName'));
-          window.sessionStorage.setItem('UserName','');
-          if (window.sessionStorage.getItem('UserName') == '' ){
-              console.log("cheguei aqui");
-          }
       } else {
           $scope.pefilUsuario = "";
       };
         $scope.logout = function (){
-          $sessionStorage.empty()
+          window.sessionStorage.setItem('token_de_acesso','');
           $scope.perfilUsuario = "";
           window.location.href = "/";
         }

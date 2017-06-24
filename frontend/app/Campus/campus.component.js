@@ -44,6 +44,7 @@ angular.
                     ApiCampusCadastrar.Cadastrar(ctrl.formulario,function(resultado) {
                         ctrl.campus = resultado.corpo;
                         MatWebGlobals.campus = resultado.corpo;
+                        $scope.erro = 'Campus Gravado Com Sucesso';
                     }, function(erro){
                         $scope.erro = erro.data.mensagem;
                         console.log($scope.erro);

@@ -15,11 +15,11 @@ angular.
           console.log($scope);
       } else {
           $scope.pefilUsuario = "";
+      };
+      var logout = function ($scope){
+          sessionStorage.removeAll();
+          $scope.perfilUsuario = "";
+          window.location.href = "/";
       }
-    },
-                 function Logout(MatWebGlobals, $scope){
-                    window.sessionStorage.removeAll;
-                    $scope.perfilUsuario = "";
-                    window.location.href = "/";
-                 }]
+    }]
   });

@@ -31,6 +31,11 @@ angular.
                 ctrl.erro = erro.data.mensagem
                 console.log(ctrl.erro)
             } );
+        };
+        $scope.Gravar = function() {
+            $scope.listando = false;
+            $scope.editando = true;
+            $scope.gravando = false;
         }
     }]
 });

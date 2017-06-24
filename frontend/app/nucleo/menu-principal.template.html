@@ -33,7 +33,7 @@
 
 
                 <!-- Recent Posts -->
-            <section ng-if='$scope.perfilUsuario = "Aluno"' >
+            <section ng-if='$scope.perfilUsuario == "Aluno"' >
                 <header>
                     <h2>Menu do Aluno</h2>
                 </header>
@@ -47,7 +47,7 @@
                 </nav>
             </section>
                     
-            <section ng-if='$scope.perfilUsuario = "Admin"'>
+            <section ng-if='$scope.perfilUsuario == "Admin"'>
                 <header>
                     <h2>Menu do Administrador</h2>
                 </header>

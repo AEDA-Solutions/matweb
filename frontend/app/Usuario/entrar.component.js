@@ -13,13 +13,11 @@ angular.
           window.sessionStorage.setItem('UserName',MatWebGlobals.usuarioLogado.nome);
           window.sessionStorage.setItem('UserCPF',MatWebGlobals.usuarioLogado.cpf);
           window.sessionStorage.setItem('UserProfile',MatWebGlobals.usuarioLogado.perfil);
-          //$location.path('/Usuario/Home')
           window.top.location.href = '/Usuario/Home';
       }, function(error){
             $scope.erro = error.data.mensagem;
             $scope.$digest();
       } );
       }
-      console.log($scope);
     }]
 });

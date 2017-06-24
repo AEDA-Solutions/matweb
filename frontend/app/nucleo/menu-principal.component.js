@@ -2,7 +2,7 @@ angular.
   module('nucleo').
   component('menuPrincipal', {
     templateUrl: '/app/nucleo/menu-principal.template.html',
-    controller: ['MatWebGlobals', '$scope', function Menu(MatWebGlobals, $scope) {
+    controller: ['MatWebGlobals', '$scope', '$window', function Menu(MatWebGlobals, $scope, $window) {
       if ( window.sessionStorage.hasOwnProperty('UserName')) {
           $scope.NomeUsuario = window.sessionStorage.getItem('UserName');
           $scope.CPFUsuario = window.sessionStorage.getItem('UserCPF');
@@ -17,7 +17,7 @@ angular.
           $scope.pefilUsuario = "";
       };
         $scope.logout = function (){
-          delete window.sessionStorage;
+          $window.sessionstorage.clear();
           $scope.perfilUsuario = "";
           window.location.href = "/";
           console.log('cheguei aqui');

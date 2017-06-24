@@ -13,52 +13,66 @@
 
  
         <!-- Sidebar -->
-            <div id="sidebar">
+        <div id="sidebar">
 
                 <!-- Logo -->
-                    <h1 id="logo"><a href="/Usuario/Home">Matweb</a></h1>
+            <h1 id="logo"><a href="/Usuario/Home">Matweb</a></h1>
 
                 <!-- Nav -->
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="Campus">Campus</a></li>
-                            <li><a href="Departamento">Departamento</a></li>
-                            <li><a href="Curso">Cursos</a></li>
-                            <li><a href="Oferta">Disciplinas</a></li>
-                            <li><a href="Predio">Predios</a></li>
-                            <li><a href="Salas">Salas</a></li>
+            <nav id="nav">
+                <ul>
+                    <li><a href="Campus">Campus</a></li>
+                    <li><a href="Departamento">Departamento</a></li>
+                    <li><a href="Curso">Cursos</a></li>
+                    <li><a href="Oferta">Disciplinas</a></li>
+                    <li><a href="Predio">Predios</a></li>
+                    <li><a href="Salas">Salas</a></li>
 
-                        </ul>
-                    </nav>
+                </ul>
+            </nav>
 
                 <!-- Search -->
 
 
                 <!-- Recent Posts -->
-                <section>
-                        <header>
-                            <h2>Menu do Aluno</h2>
-                        </header>
-                </section>
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="#">Histórico escolar</a></li>
-                            <li><a href="/Usuario/Grade">Grade Horária</a></li>
-                            <li><a href="#">Quadro-resumo</a></li>
-                            <li><a href="/Usuario/Dados">Dados pessoais</a></li>
-                        </ul>
-                    </nav>
+            <section ng-if='$scope.perfilUsuario = "Aluno"' >
+                <header>
+                    <h2>Menu do Aluno</h2>
+                </header>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#">Histórico escolar</a></li>
+                        <li><a href="/Usuario/Grade">Grade Horária</a></li>
+                        <li><a href="#">Quadro-resumo</a></li>
+                        <li><a href="/Usuario/Dados">Dados pessoais</a></li>
+                    </ul>
+                </nav>
+            </section>
+                    
+            <section ng-if='$scope.perfilUsuario = "Admin"'>
+                <header>
+                    <h2>Menu do Administrador</h2>
+                </header>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#">Gerenciar Campus</a></li>
+                        <li><a href="#">Gerenciar Departamento</a></li>
+                        <li><a href="#">Gerenciar Curso</a></li>
+                        <li><a href="#">Gerenciar Disciplina</a></li>
+                        <li><a href="#">Gerenciar Usuario</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section>
+                <form>  
+                    <input type="button" value="LogOut" onClick="history.go(0)"> 
+                    <br></br>
+                </form>
+            </section>
 
 
-                    <section>
-                        <form>  
-                            <input type="button" value="LogOut" onClick="history.go(0)"> 
-                            <br></br>
-                        </form>
-                    </section>
-
-
-            </div>
+        </div>
 
         <!-- Scripts -->
             <script src="app/Home/assets/js/jquery.min.js"></script>

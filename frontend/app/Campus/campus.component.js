@@ -21,7 +21,6 @@ angular.
         var ctrl = this;
         ctrl.campus = [];
         $scope.Listar = function() {
-            console.log('cheguei aqui');
             $scope.listando = true;
             $scope.editando = false;
             $scope.gravando = false;
@@ -32,7 +31,6 @@ angular.
                 ctrl.erro = erro.data.mensagem
                 console.log(ctrl.erro)
             } );
-            console.log($scope.listando);
         }
     }]
 });

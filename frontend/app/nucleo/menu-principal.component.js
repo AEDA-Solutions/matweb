@@ -2,7 +2,7 @@ angular.
   module('nucleo').
   component('menuPrincipal', {
     templateUrl: '/app/nucleo/menu-principal.template.html',
-    controller: ['MatWebGlobals', '$scope', function Menu(MatWebGlobals, $scope) {
+    controller: ['MatWebGlobals', '$scope', '$sessionStorage', function Menu(MatWebGlobals, $scope, $sessionStorage) {
       if ( window.sessionStorage.hasOwnProperty('UserName')) {
           $scope.NomeUsuario = window.sessionStorage.getItem('UserName');
           $scope.CPFUsuario = window.sessionStorage.getItem('UserCPF');

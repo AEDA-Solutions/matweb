@@ -20,6 +20,7 @@ angular.
           sessionStorage.removeAll();
           $scope.perfilUsuario = "";
           window.location.href = "/";
+          console.log('cheguei aqui');
       }
     }]
   });

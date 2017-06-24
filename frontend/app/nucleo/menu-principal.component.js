@@ -7,6 +7,7 @@ angular.
           $scope.NomeUsuario = window.sessionStorage.getItem('UserName');
           $scope.CPFUsuario = window.sessionStorage.getItem('UserCPF');
           $scope.perfilUsuario = window.sessionStorage.getItem('UserProfile');
+          console.log($scope.NomeUsuario);
       } else {
           $scope.pefilUsuario = "";
       }

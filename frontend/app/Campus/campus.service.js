@@ -11,8 +11,7 @@ angular.
 factory('ApiCampusCadastrar', ['$resource',
     function($resource) {
       return $resource('/api/Campus/Cadastrar', {}, {
-        Listar: { method: 'POST' }
-
+        Cadastrar: { method: 'POST' }
       });
     }
   ]);

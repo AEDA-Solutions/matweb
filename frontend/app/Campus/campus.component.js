@@ -20,6 +20,7 @@ angular.
     controller: ['ApiCampus', 'MatWebGlobals', '$scope', function Gerenciar(ApiCampus,MatWebGlobals,$scope) {
         var ctrl = this;
         ctrl.campus = [];
+        this.formulario = { 'nome': '' };
         $scope.Listar = function() {
             $scope.listando = true;
             $scope.editando = false;

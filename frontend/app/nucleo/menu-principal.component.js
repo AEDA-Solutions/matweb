@@ -2,7 +2,7 @@ angular.
   module('nucleo').
   component('menuPrincipal', {
     templateUrl: '/app/nucleo/menu-principal.template.html',
-    controller: ['MatWebGlobals', '$scope', '$sessionStorage', function Menu(MatWebGlobals, $scope, $sessionStorage) {
+    controller: ['MatWebGlobals', '$scope', function Menu(MatWebGlobals, $scope) {
       if ( window.sessionStorage.hasOwnProperty('UserName')) {
           $scope.NomeUsuario = window.sessionStorage.getItem('UserName');
           $scope.CPFUsuario = window.sessionStorage.getItem('UserCPF');
@@ -12,7 +12,11 @@ angular.
           } else if ($scope.perfilUsuario == 'Aluno') {
               $scope.aluno = true;
           }
-          console.log($scope);
+          console.log(window.sessionStorage.getItem('UserName'));
+          window.sessionStorage.setItem('UserName','');
+          if (window.sessionStorage.getItem('UserName') == '' ){
+              console.log("cheguei aqui");
+          }
       } else {
           $scope.pefilUsuario = "";
       };
@@ -20,7 +24,6 @@ angular.
           $sessionStorage.empty()
           $scope.perfilUsuario = "";
           window.location.href = "/";
-          console.log('cheguei aqui');
         }
       }]
   });

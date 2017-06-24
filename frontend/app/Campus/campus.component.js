@@ -37,21 +37,19 @@ angular.
             $scope.listando = false;
             $scope.editando = false;
             $scope.gravando = true;
+            $scope.logCadastro = '';
             ctrl.Cadastrar = function() {
                 if (ctrl.formulario.nome == '' || typeof ctrl.formulario.nome === 'undefined') {
-                    $scope.erro = 'Nome não Preenchido';
+                    $scope.logCadastro = 'Nome não Preenchido';
                 } else {
                     ApiCampusCadastrar.Cadastrar(ctrl.formulario,function(resultado) {
                         ctrl.campus = resultado.corpo;
                         MatWebGlobals.campus = resultado.corpo;
-                        $scope.erro = 'Campus Gravado Com Sucesso';
+                        $scope.logCadastro = 'Campus Gravado Com Sucesso';
                     }, function(erro){
-                        $scope.erro = erro.data.mensagem;
-                        console.log($scope.erro);
+                        $scope.logCadastro = erro.data.mensagem;
                     });
-                    $scope.erro = '';
-                    console.log('cheguei aqui');
-                    console.log(ctrl.formulario);
+                    $scope.logCadastro = '';
                 }
             }
             console.log()

@@ -14,7 +14,7 @@ class Campus(object):
 		return ModelCampus(BancoDeDados().consultarUnico("SELECT * FROM campus %s" % (condicao), valores))
 	
 	def inserirCampus(self, campus):
-		BancoDeDados().executar("INSERT INTO campus ( nome , codigo ) VALUES ( %s, %s ) RETURNING id", (campus.nome,campus.codigo))
+		BancoDeDados().executar("INSERT INTO campus ( nome ) VALUES ( %s ) RETURNING id", (campus.nome,))
 		campus.id = BancoDeDados().pegarUltimoIDInserido()
 		return campus
 		
@@ -22,5 +22,5 @@ class Campus(object):
 		BancoDeDados().executar("DELETE FROM campus WHERE id = %s", (str(campus.id)))
 		
 	def alterarCampus(self, campus):
-		SQL = "UPDATE campus SET nome = %s, campus = %s WHERE id = %s"
-		BancoDeDados().executar(SQL, (campus.nome,campus.codigo,campus.id))
+		SQL = "UPDATE campus SET nome = %s WHERE id = %s"
+		BancoDeDados().executar(SQL, (campus.nome,campus.id))

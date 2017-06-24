@@ -9,7 +9,7 @@ angular.
             $scope.perfilUsuario = window.sessionStorage.getItem('UserProfile');
             console.log($scope.perfilUsuario);
         } else {
-            $location.path('/Usuario/Entrar');
+            $location.path('/');
         }
         
   var ctrl = this;

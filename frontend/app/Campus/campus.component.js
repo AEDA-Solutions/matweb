@@ -17,7 +17,7 @@ angular.
   }).
   component('gerenciarCampus', {
     templateUrl: '/app/Campus/campus.adm.template.html',
-    controller: ['ApiCampus', 'MatWebGlobals', '$scope', function Gerenciar(ApiCampus,MatWebGlobals,$scope) {
+    controller: ['ApiCampus', 'ApiCampusCadastrar', 'MatWebGlobals', '$scope', function Gerenciar(ApiCampus,ApiCampusCadastrar,MatWebGlobals,$scope) {
         var ctrl = this;
         ctrl.campus = [];
         this.formulario = { 'nome': '' };
@@ -40,11 +40,17 @@ angular.
             ctrl.Cadastrar = function() {
                 if (ctrl.formulario.nome == '' || typeof ctrl.formulario.nome === 'undefined') {
                     $scope.erro = 'Nome não Preenchido';
-                    console.log('vazio');
                 } else {
-                $scope.erro = '';
-                console.log('cheguei aqui');
-                console.log(ctrl.formulario);
+                    ApiCampusCadastrar.Cadastrar(ctrl.formulario,function(resultado) {
+                        ctrl.campus = resultado.corpo;
+                        MatWebGlobals.campus = resultado.corpo;
+                    }, function(erro){
+                        $scope.erro = erro.data.mensagem;
+                        console.log($scope.erro);
+                    });
+                    $scope.erro = '';
+                    console.log('cheguei aqui');
+                    console.log(ctrl.formulario);
                 }
             }
             console.log()

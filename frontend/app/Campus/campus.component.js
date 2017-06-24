@@ -37,6 +37,5 @@ angular.
             $scope.editando = false;
             $scope.gravando = true;
         }
-        console.log($scope.listando,$scope.gravando,$scope.editando);
     }]
 });

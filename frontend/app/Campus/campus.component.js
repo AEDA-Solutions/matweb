@@ -37,6 +37,11 @@ angular.
             $scope.listando = false;
             $scope.editando = false;
             $scope.gravando = true;
+            ctrl.Cadastrar = function() {
+                console.log('cheguei aqui');
+                console.log(ctrl.formulario);
+            }
+            console.log()
         }
     }]
 });

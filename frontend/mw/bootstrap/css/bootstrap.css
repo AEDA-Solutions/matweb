@@ -6030,6 +6030,7 @@ button.close {
 }
 @media (min-width: 992px) {
   .modal-lg {
+    height: auto;
     width: 900px;
   }
 }

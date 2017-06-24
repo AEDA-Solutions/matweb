@@ -16,7 +16,7 @@ angular.
       } else {
           $scope.pefilUsuario = "";
       };
-      var logout = function ($scope){
+      var logout = function (){
           sessionStorage.removeAll();
           $scope.perfilUsuario = "";
           window.location.href = "/";

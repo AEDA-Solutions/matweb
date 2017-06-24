@@ -38,8 +38,12 @@ angular.
             $scope.editando = false;
             $scope.gravando = true;
             ctrl.Cadastrar = function() {
+                if (ctrl.formulario.nome == '') {
+                    console.log('vazio');
+                } else {
                 console.log('cheguei aqui');
                 console.log(ctrl.formulario);
+                }
             }
             console.log()
         }

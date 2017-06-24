@@ -16,5 +16,10 @@ angular.
       } else {
           $scope.pefilUsuario = "";
       }
-    }]
+    },
+                 function Logout(MatWebGlobals, $scope){
+                    window.sessionStorage.removeAll;
+                    $scope.perfilUsuario = "";
+                    window.location.href = "/";
+                 }]
   });

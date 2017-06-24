@@ -21,13 +21,18 @@ angular.
         var ctrl = this;
         ctrl.campus = [];
         $scope.Listar = function() {
+            console.log('cheguei aqui');
+            $scope.listando = true;
+            $scope.editando = false;
+            $scope.gravando = false;
             ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.campus = resultado.corpo;
                 MatWebGlobals.campus = resultado.corpo;
             }, function(erro){
                 ctrl.erro = erro.data.mensagem
                 console.log(ctrl.erro)
-            } );    
+            } );
+            console.log($scope.listando);
         }
     }]
 });

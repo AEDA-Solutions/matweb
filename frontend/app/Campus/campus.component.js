@@ -64,6 +64,16 @@ angular.
             $scope.listando = false;
             $scope.editando = true;
             $scope.gravando = false;
+            console.log($scope.editando);
+            
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+                ctrl.campus = resultado.corpo;
+                MatWebGlobals.campus = resultado.corpo;
+            }, function(erro){
+                $scope.logEdicao = erro.data.mensagem
+            } );
+            
         }
+        console.log($scope);
     }]
 });

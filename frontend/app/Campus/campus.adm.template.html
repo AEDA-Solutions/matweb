@@ -68,18 +68,21 @@
                     <div class="table-responsive">
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
-                                <tr>
+                                <tr ng-repeat="campus in $ctrl.campus">
                                     <td>
-                                        <input class="form-control" placeholder="Nome do Campus" ng-model="$ctrl.formulario.nome" type="text" required class="form-control" autofocus>
+                                        <input class="form-control" placeholder={{campus.nome}} ng-model="$ctrl.formulario.nome" type="text" required class="form-control" autofocus>
                                     </td>
                                     <td>
-                                        <input type="submit" value="Gravar" ng-click='$ctrl.Cadastrar()' />
+                                        <input type="submit" value="Editar" ng-click='$ctrl.Cadastrar(campus.id)' />
+                                    </td>
+                                    <td>
+                                        <input type="submit" value="Deletar" ng-click='$ctrl.Cadastrar(campus.id)' />
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div><b>{{logCadastro}}</b>
+                </div><b>{{logEdicao}}</b>
             </div>
             </section>
             

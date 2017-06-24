@@ -39,6 +39,7 @@ angular.
             $scope.gravando = true;
             ctrl.Cadastrar = function() {
                 if (ctrl.formulario.nome == '') {
+                    $scope.erro = 'Nome não Preenchido';
                     console.log('vazio');
                 } else {
                 console.log('cheguei aqui');

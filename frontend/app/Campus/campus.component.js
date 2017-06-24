@@ -64,7 +64,6 @@ angular.
             $scope.listando = false;
             $scope.editando = true;
             $scope.gravando = false;
-            $scope.logCadastro = '';
         }
     }]
 });

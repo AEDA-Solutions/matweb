@@ -1,22 +1,40 @@
 <menu-principal></menu-principal>
 
 <div id="content">
-                <div class="inner">
+    <div class="inner">
 
-                        <article class="box post post-excerpt">
-                            <header>
-                                <h2><p>Gerenciar Campus</p></h2>
-                            </header>
-<div>
-    <div>
-        <div>
-                <tbody>
-                        <td><input type="submit" value="Listar"/></td>
-                        <td><input type="button" value="Cadastrar"/></td>
-                        <td><input type="button" value="Editar"/></td>
-                </tbody>
-        </div>
-    </div>
-</div>
+        <article class="box post post-excerpt">
+            <header>
+                <h2><p>Gerenciar Campus</p></h2>
+            </header>
+            
+            <div>
+                <div>
+                    <div>
+                        <tbody>
+                            <td><input type="submit" value="Listar" ng-click=Listar()/></td>
+                            <td><input type="button" value="Cadastrar"/></td>
+                            <td><input type="button" value="Editar"/></td>
+                        </tbody>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <div>
+                    <div class="table-responsive">
+                        <table class = "table table-bordered table-striped table-hover">
+                            <tbody>
+                                <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
+                                    <td> {{campus.id}} </td>
+                                    <td><b>{{campus.nome}}</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
                             </div>
     </div>

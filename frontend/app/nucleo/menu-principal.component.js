@@ -17,7 +17,7 @@ angular.
           $scope.pefilUsuario = "";
       };
         $scope.logout = function (){
-          window.sessionStorage.removeAll;
+          delete window.sessionStorage;
           $scope.perfilUsuario = "";
           window.location.href = "/";
           console.log('cheguei aqui');

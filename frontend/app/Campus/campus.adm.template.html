@@ -61,6 +61,28 @@
             </div>
             </section>
 
+<!-- Formulario para editar -->            
+            <section  ng-if='editando'>
+            <div>
+                <div>
+                    <div class="table-responsive">
+                        <table class = "table table-bordered table-striped table-hover">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input class="form-control" placeholder="Nome do Campus" ng-model="$ctrl.formulario.nome" type="text" required class="form-control" autofocus>
+                                    </td>
+                                    <td>
+                                        <input type="submit" value="Gravar" ng-click='$ctrl.Cadastrar()' />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><b>{{logCadastro}}</b>
+            </div>
+            </section>
+            
         </article>
                             </div>
     </div>

@@ -42,6 +42,7 @@ angular.
                     $scope.erro = 'Nome não Preenchido';
                     console.log('vazio');
                 } else {
+                $scope.erro = '';
                 console.log('cheguei aqui');
                 console.log(ctrl.formulario);
                 }

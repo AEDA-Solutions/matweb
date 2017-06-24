@@ -16,11 +16,11 @@ angular.
       } else {
           $scope.pefilUsuario = "";
       };
-      var logout = function (){
+        $scope.logout = function (){
           sessionStorage.removeAll();
           $scope.perfilUsuario = "";
           window.location.href = "/";
           console.log('cheguei aqui');
-      }
-    }]
+        }
+      }]
   });

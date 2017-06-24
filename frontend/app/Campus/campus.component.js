@@ -21,6 +21,8 @@ angular.
         var ctrl = this;
         ctrl.campus = [];
         this.formulario = { 'nome': '' };
+        
+        
         $scope.Listar = function() {
             $scope.listando = true;
             $scope.editando = false;
@@ -33,11 +35,14 @@ angular.
                 console.log(ctrl.erro)
             } );
         };
+        
+        
         $scope.Gravar = function() {
             $scope.listando = false;
             $scope.editando = false;
             $scope.gravando = true;
             $scope.logCadastro = '';
+            ctrl.campus.nome = '';
             ctrl.Cadastrar = function() {
                 if (ctrl.formulario.nome == '' || typeof ctrl.formulario.nome === 'undefined') {
                     $scope.logCadastro = 'Nome não Preenchido';
@@ -52,7 +57,14 @@ angular.
                     $scope.logCadastro = '';
                 }
             }
-            console.log()
+        };
+        
+        
+        $scope.Editar = function() {
+            $scope.listando = false;
+            $scope.editando = true;
+            $scope.gravando = false;
+            $scope.logCadastro = '';
         }
     }]
 });

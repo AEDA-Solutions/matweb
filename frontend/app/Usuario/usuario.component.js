@@ -49,6 +49,11 @@ angular.
             $scope.selecionado = false;
         }; 
         
+        $scope.Escolher = function() {
+            $scope.selecionado = true;
+            $scope.Listar();
+        }
+        
     }]
 });
 

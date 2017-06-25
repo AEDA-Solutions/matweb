@@ -14,7 +14,7 @@
                         <tbody>
                             <td><input type="submit" value="Listar" ng-click=OpcaoListar() /></td>
                             <td><input type="button" value="Cadastrar" ng-click=Gravar() /></td>
-                            <td><input type="button" value="Editar" ng-click=Editar() /></td>
+                            <td><input type="button" value="Editar" ng-click=Escolher() /></td>
                         </tbody>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                                     <td><b>{{usuario.nome}}</b> </td>
                                     <td> {{usuario.cpf}} </td>
                                     <td> {{usuario.perfil}} </td>
-                                    <td ng-if='selecionando'>
+                                    <td ng-if='selecionado'>
                                         <input type="submit" value="Selecionar" ng-click=Selecionar(usuario) />
                                     </td>
                                 </tr>
@@ -112,7 +112,7 @@
 
             
 <!-- Formulario para selecionar o campus a editar -->            
-            <section  ng-if='selecionado'>
+            <section  ng-if='selecionadoa'>
             <div>
                 <div>
                     <div class="table-responsive">

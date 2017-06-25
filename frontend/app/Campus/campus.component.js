@@ -92,6 +92,7 @@ angular.
         }
         
         $scope.Deletar = function() {
+            $scope.logEdicao = '';
             ApiCampusDeletar.Deletar({ id: ctrl.campus.id },function(resultado) {
                 $scope.logEdicao = 'Exclusão Realizada com Sucesso';
             }, function(erro) {

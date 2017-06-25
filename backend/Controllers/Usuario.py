@@ -6,6 +6,7 @@ from Models.Usuario.RespostaEntrar import RespostaEntrar
 from Models.Usuario.RespostaCadastrar import RespostaCadastrar
 from Models.Usuario.RespostaListar import RespostaListar
 from Models.Usuario.RespostaEditar import RespostaEditar
+from Models.Usuario.RespostaDeletar import RespostaDeletar
 from Database.Models.Usuario import Usuario as ModelUsuario
 from Framework.Autenticacao import Autenticacao
 import bcrypt
@@ -78,4 +79,9 @@ class Usuario(Controller):
 			BDUsuario().alterarUsuario(usuario)
 		else:
 			raise ErroNoHTTP(404,"Usuário inexistente!")
+			
+	def Deletar(self,pedido_deletar):
+		usuario = BDUsuario().pegarUsuario("WHERE id = %s ", (pedido_deletar.getId(),))		
+		BDUsuario().removerUsuario(usuario)
+		return RespostaDeletar("Campus Removido com sucesso!")
 

@@ -17,7 +17,10 @@ angular.
   }).
   component('gerenciarCampus', {
     templateUrl: '/app/Campus/campus.adm.template.html',
-    controller: ['ApiCampus', 'ApiCampusCadastrar', 'ApiCampusEditar', 'ApiCampusDeletar', 'MatWebGlobals', '$scope', function Gerenciar(ApiCampus,ApiCampusCadastrar,ApiCampusEditar,ApiCampusDeletar,MatWebGlobals,$scope) {
+    controller: ['ApiCampus', 'ApiCampusCadastrar', 'ApiCampusEditar', 'ApiCampusDeletar', 'MatWebGlobals', '$scope', '$location', function Gerenciar(ApiCampus,ApiCampusCadastrar,ApiCampusEditar,ApiCampusDeletar,MatWebGlobals,$scope,$location) {
+        if (window.sessionStorage.getItem('UserProfile') != 'Admin') {
+            $location.path('/');
+        }
         var ctrl = this;
         ctrl.campus = [];
         this.formulario = { 'nome': '' };

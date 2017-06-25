@@ -3,6 +3,7 @@ angular.module('MatWeb', [
   'ngRoute',
   'nucleo',
   'Cadastrar',
+  'Cadastrarusuario',
   'Cadastrarcurso',
   'Cadastrarpredio',
   'Home',

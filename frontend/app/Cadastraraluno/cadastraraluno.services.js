@@ -10,14 +10,14 @@ angular.
   factory('ApiUsuarioEditar', ['$resource',
     function($resource) {
       return $resource('/api/Usuario/Editar', {}, {
-        Cadastrar: { method: 'POST' },
+        Editar: { method: 'POST' },
       });
     }
   ]). 
   factory('ApiUsuarioDeletar', ['$resource',
     function($resource) {
       return $resource('/api/Usuario/Deletar', {}, {
-        Cadastrar: { method: 'POST' },
+        Deletar: { method: 'POST' },
       });
     }
   ]);

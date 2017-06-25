@@ -21,6 +21,21 @@ angular.
     controller: ['ApiUsuarioEditar','ApiUsuarioDeletar','$http','$location', 'MatWebGlobals',function(ApiUsuarioEditar,ApiUsuarioDeletar,$http,$location,MatWebGlobals) {
       var ctrl = this;
       ctrl.usuario = MatWebGlobals.editUser;
+      console.log(ctrl.usuario);
+      
+      ctrl.setformulario = function(usuario) {
+          ctrl.fomulario = {'nome': usuario.nome, 'matricula': usuario.matricula, 'cpf': usuario.cpf, 'perfil': usuario.perfil, 'email': usuario.email, 'sexo': usuario.sexo, 'nome_pai': usuario.nome_pai, 'nome_mae': usuario.nome_mae, 'ano_conclusao': usuario.ano_conclusao, 'identidade':usuario.identidade, 'senha': usuario.senha, 'id': usuario.id};
+      };
+        
+      $scope.Altera = function() {
+          ctrl.setformulario(ctrl.usuario);
+          ApiUsuarioEditar.Editar(ctrl.formulario, function(resultado) {
+              $scope.logEditar = resultado.corpo.mensagem;
+          }, function(erro) {
+              $scope.logEditar = erro.data.mensagem;
+          })
+        
+      };
     }]
 });
   

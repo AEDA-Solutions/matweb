@@ -7,7 +7,7 @@ angular.
       });
     }
 ]). 
-module('Usuario').
+  module('Usuario').
   factory('ApiUsuarioListar', ['$resource',
     function($resource) {
       return $resource('/api/Usuario/Listar', {}, {

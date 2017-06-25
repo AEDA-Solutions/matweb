@@ -3,6 +3,10 @@ angular.
   component('gerenciarUsuario', {
     templateUrl: '/app/Usuario/usuario.adm.template.html',
     controller: ['ApiUsuarioListar','$http','$location', 'MatWebGlobals', '$scope',function Entrar(ApiUsuarioListar,$http,$location,MatWebGlobals,$scope) {
+        if (window.sessionStorage.getItem('UserProfile') != 'Admin') {
+            $location.path('/');
+        };
+        
         var ctrl = this;
         ctrl.usuarios = [];
         

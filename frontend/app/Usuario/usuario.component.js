@@ -10,6 +10,9 @@ angular.
             ctrl.formulario = { 'usuario': ''};
             $scope.opcaolistar = true;
             $scope.listando = false;
+            $scope.editando = false;
+            $scope.gravando = false;
+            $scope.selecionado = false;
             $scope.logListar = '';
         };
         
@@ -27,7 +30,6 @@ angular.
                 $scope.listando = false;
             } else {
             ApiUsuarioListar.Listar({ usuario: ctrl.formulario.usuario},function(resultado) {
-                console.log('vou pesquisar por ',ctrl.formulario.usuario);
                 ctrl.usuarios = resultado.corpo;
                 if (ctrl.usuarios.length == 0){
                     $scope.logListar = 'Nenhum Usuário Encontrado';

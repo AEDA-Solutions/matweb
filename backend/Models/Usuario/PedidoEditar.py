@@ -16,6 +16,7 @@ class PedidoEditar(Pedido):
 			self.nome_pai = self.corpo['nome_pai']
 			self.nome_mae = self.corpo['nome_mae']
 			self.ano_conclusao = self.corpo['ano_conclusao']
+			self.identidade = self.corpo['identidade']
 			self.senha = self.corpo['senha']
 		except:
 			raise ErroNoHTTP(400)
@@ -52,3 +53,6 @@ class PedidoEditar(Pedido):
 	
 	def getSenha(self):
 		return self.senha
+		
+	def getIdentidade(self):
+		return self.identidade

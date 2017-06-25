@@ -18,7 +18,6 @@ angular.
         $scope.Listar = function(){
             $scope.listando = true;
             $scope.opcaolistar = false;
-            $scope.editando = false;
             $scope.gravando = false;
             $scope.selecionado = false;
             ctrl.logListar = '';

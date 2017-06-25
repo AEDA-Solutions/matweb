@@ -18,14 +18,14 @@ factory('ApiCampusCadastrar', ['$resource',
 factory('ApiCampusEditar', ['$resource',
     function($resource) {
       return $resource('/api/Campus/Editar', {}, {
-        Cadastrar: { method: 'POST' }
+        Editar: { method: 'POST' }
       });
     }
   ]).
 factory('ApiCampusDeletar', ['$resource',
     function($resource) {
       return $resource('/api/Campus/Deletar', {}, {
-        Cadastrar: { method: 'POST' }
+        Deletar: { method: 'POST' }
       });
     }
   ]);

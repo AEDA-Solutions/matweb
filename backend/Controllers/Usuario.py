@@ -4,6 +4,7 @@ from Framework.ErroNoHTTP import ErroNoHTTP
 from Database.Controllers.Usuario import Usuario as BDUsuario
 from Models.Usuario.RespostaEntrar import RespostaEntrar
 from Models.Usuario.RespostaCadastrar import RespostaCadastrar
+from Models.Usuario.RespostaListar import RespostaListar
 from Database.Models.Usuario import Usuario as ModelUsuario
 from Framework.Autenticacao import Autenticacao
 import bcrypt
@@ -29,6 +30,7 @@ class Usuario(Controller):
 
 	def Listar(self,pedido_listar):
 		usuarios = BDUsuario().pegarUsuarios("WHERE matricula = %s OR cpf = %s OR nome like %s",(pedido_listar.getUsuario(),pedido_listar.getUsuario(),"%"+pedido_listar.getUsuario()+"%"))
+		return RespostaListar(usuarios)
 
 	def Cadastrar(self,pedido_cadastrar):
 		usuario = ModelUsuario()

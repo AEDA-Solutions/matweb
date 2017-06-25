@@ -13,8 +13,8 @@
                     <input type="text" name="cpf" placeholder="CPF" required="" id="cpf" class="form-control" ng-model="$ctrl.formulario.cpf" maxlength=11/>
                 </div>
                 <div>
-                    <select bgcolor="#BDBDBD" placeholder="Escolha o Perfil" name="perfil" required="" id="perfil" class="form-control" ng-model="$ctrl.formulario.perfil">
-                        <option selected="selected">Escolha o Perfil</option>
+                    <select placeholder="Escolha o Perfil" name="perfil" required="" id="perfil" ng-model="$ctrl.formulario.perfil">
+                        <option disabled selected value>--Escolha um Perfil--</option>
                         <option value="Aluno">Aluno</option>
                         <option value="Admin">Administrador</option>
                         <option value="Profe">Professor</option>
@@ -25,8 +25,7 @@
                     <input type="text" name="email" placeholder="Email" required="" id="email" class="form-control" ng-model="$ctrl.formulario.email" />
                 </div> 
                 <div>
-                    <select bgcolor="#BDBDBD" placeholder="Escolha o Sexo" name="sexo" required="" id="sexo" class="form-control" ng-model="$ctrl.formulario.sexo">
-                        <option selected="selected">Escolha o Sexo</option>
+                    <select  placeholder="Escolha o Sexo" name="sexo" required="" id="sexo" class="form-control" ng-model="$ctrl.formulario.sexo">
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
                     </select>

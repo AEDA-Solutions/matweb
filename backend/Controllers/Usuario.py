@@ -80,7 +80,7 @@ class Usuario(Controller):
 			raise ErroNoHTTP(404,"Usuário inexistente!")
 			
 	def Deletar(self,pedido_deletar):
-		if hasattr(pedido_deletar, 'id'):
+		if hasattr(pedido_deletar, 'id') and pedido_deletar.getId() is not None:
 			usuario = BDUsuario().pegarUsuario("WHERE id = %s ", (pedido_deletar.getId(),))		
 			BDUsuario().removerUsuario(usuario)
 			return RespostaDeletar("Usuário Removido com sucesso!")

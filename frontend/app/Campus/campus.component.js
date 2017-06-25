@@ -45,6 +45,7 @@ angular.
             $scope.selecionado = false;
             $scope.logCadastro = '';
             ctrl.campus.nome = '';
+            ctrl.formulario.nome = '';
             ctrl.Cadastrar = function() {
                 if (ctrl.formulario.nome == '' || typeof ctrl.formulario.nome === 'undefined') {
                     $scope.logCadastro = 'Nome não Preenchido';

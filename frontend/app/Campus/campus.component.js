@@ -75,9 +75,10 @@ angular.
             } );
             
             $scope.Selecionar = function() {
-            $scope.editando = false;
-            $scope.selecionado = true;
-        }
+                console.log('cheguei aqui');
+                $scope.editando = false;
+                $scope.selecionado = true;
+            }
         };
         
        

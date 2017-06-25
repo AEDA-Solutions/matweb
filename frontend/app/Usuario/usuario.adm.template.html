@@ -81,60 +81,10 @@
             </section>
 
 <!-- Formulario para selecionar o campus a editar -->            
-            <section  ng-if='editandoa'>
-            <div>
-                <div class="panel-body">
-                    <form role="form">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Nome do Campus" ng-model="$ctrl.campus.nome" type="text" autofocus>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div>
-                    <div class="table-responsive">
-                        <table class = "table table-bordered table-striped table-hover">
-                            <tbody>
-                                <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.campus.nome">
-                                    <td>{{campus.id}}</td>
-                                    <td>{{campus.nome}}</td>
-                                    <td>
-                                        <input type="submit" value="Selecionar" ng-click=Selecionar(campus) />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            <section  ng-if='selecionado'>
+                <usuario-editar></usuario-editar>
             </section>
 
-            
-<!-- Formulario para selecionar o campus a editar -->            
-            <section  ng-if='selecionadoa'>
-            <div>
-                <div>
-                    <div class="table-responsive">
-                        <table class = "table table-bordered table-striped table-hover">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <input type="text" value="$ctrl.campus.nome" ng-model="$ctrl.campus.nome" autofocus >
-                                    </td>
-                                    <td>
-                                        <input type="submit" value="Editar" ng-click=Update() />
-                                    </td>
-                                    <td>
-                                        <input type="submit" value="Deletar" ng-click=Deletar() />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div><b>{{logEdicao}}</b>
-            </div>
-            </section>
             
         </article>
                             </div>

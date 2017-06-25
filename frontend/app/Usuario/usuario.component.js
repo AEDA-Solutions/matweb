@@ -31,7 +31,6 @@ angular.
             ctrl.logListar = '';
             if ( ctrl.formulario.usuario == '' || typeof ctrl.formulario.usuario === 'undefined' ) {
                 $scope.logListar = 'Critério de Pesquisa não Preenchido';
-                console.log('cheguei aqui');
                 $scope.opcaolistar = true;
                 $scope.listando = false;
             } else {
@@ -45,7 +44,6 @@ angular.
             });
             };
         };
-
        
        $scope.Gravar = function() {
             ctrl.inicializa();
@@ -56,6 +54,12 @@ angular.
             ctrl.inicializa();
             $scope.editando = true;
             ctrl.ListaParams();
+        }
+        
+        $scope.Selecionar = function(usuario) {
+            ctrl.inicializa();
+            MatWebGlobals.editUser = usuario;
+            $scope.selecionado = true;
         }
         
     }]

@@ -8,6 +8,7 @@ angular.
         this.formulario = { 'usuario': '' };
         
         $scope.OpcaoListar = function(){
+            ctrl.formulario.usuario = ''
             $scope.opcaolistar = true;
             $scope.listando = false;
             $scope.logListar = '';
@@ -27,6 +28,8 @@ angular.
             ApiUsuarioListar.Listar({ usuario: ctrl.formulario.usuario},function(resultado) {
                 ctrl.usuarios = resultado.corpo;
             }, function(erro) {
+                $scope.opcaolistar = true;
+                $scope.listando = false;
                 $scope.logListar = erro.data.mensagem;
             });
             };

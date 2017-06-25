@@ -27,6 +27,7 @@ angular.
             $scope.listando = true;
             $scope.editando = false;
             $scope.gravando = false;
+            $scope.selecionado = false;
             ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.campus = resultado.corpo;
                 MatWebGlobals.campus = resultado.corpo;
@@ -41,6 +42,7 @@ angular.
             $scope.listando = false;
             $scope.editando = false;
             $scope.gravando = true;
+            $scope.selecionado = false;
             $scope.logCadastro = '';
             ctrl.campus.nome = '';
             ctrl.Cadastrar = function() {
@@ -64,16 +66,20 @@ angular.
             $scope.listando = false;
             $scope.editando = true;
             $scope.gravando = false;
-            console.log($scope.editando);
-            
+            $scope.selecionado = false;
             ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.campus = resultado.corpo;
                 MatWebGlobals.campus = resultado.corpo;
             }, function(erro){
                 $scope.logEdicao = erro.data.mensagem
             } );
-            
+        };
+        
+        $scope.Selecionar = function() {
+            $scope.editando = false;
+            $scope.selecionado = true;
         }
+        
         console.log($scope);
     }]
 });

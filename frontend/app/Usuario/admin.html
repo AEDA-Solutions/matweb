@@ -8,9 +8,8 @@
             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Senha</label>
             <input type="password" name="password" placeholder="Senha" required="" id="password" class="form-control" ng-model="$ctrl.formulario.senha" />
         </div>           
-        <b>{{erro}}</b>
-        <input type="submit" class="btn btn-primary btn-lg pull-right" value="Log in" />
-</form>        
-       
         <div class="modal-footer">
+            <td align="left"><b>{{erro}}</b></td>
+            <td align="rigth"><input type="submit" class="btn btn-primary btn-lg" value="Log in" /></td>
         </div>
+</form>

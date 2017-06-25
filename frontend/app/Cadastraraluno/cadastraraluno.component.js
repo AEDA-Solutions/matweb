@@ -1,7 +1,7 @@
 angular.
   module('Cadastrarusuario').
   component('registrarUsuario', {
-    templateUrl: '/app/Cadastraraluno/cadastraraluno.template1.html',
+    templateUrl: '/app/Cadastraraluno/cadastraraluno.template.html',
     controller: ['ApiUsuarioCadastrar','$http','$location', 'MatWebGlobals',function(ApiUsuarioCadastrar,$http,$location,MatWebGlobals) {
       var ctrl = this;
       this.formulario = {'nome':'','matricula':'','cpf':'','perfil':'','email':'','sexo':'','nome_pai':'','nome_mae':'','ano_conclusao':'','identidade':'','senha':''};

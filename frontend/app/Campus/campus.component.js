@@ -73,16 +73,15 @@ angular.
             }, function(erro){
                 $scope.logEdicao = erro.data.mensagem
             } );
-            
-            $scope.Selecionar = function(campus) {
-                ctrl.campus = campus;
-                console.log(campus);
-                $scope.editando = false;
-                $scope.selecionado = true;
-            }
         };
+    
         
-       
+        $scope.Selecionar = function(campus) {
+            ctrl.campus = campus;
+            console.log(campus);
+            $scope.editando = false;
+            $scope.selecionado = true;
+        };
         
         console.log($scope);
     }]

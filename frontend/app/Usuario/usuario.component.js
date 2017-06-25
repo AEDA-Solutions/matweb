@@ -51,7 +51,7 @@ angular.
         
         $scope.Escolher = function() {
             $scope.selecionado = true;
-            $scope.Listar();
+            $scope.OpcaoListar();
         }
         
     }]

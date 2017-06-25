@@ -54,8 +54,8 @@ angular.
         }; 
         
         $scope.Escolher = function() {
+            ctrl.inicializa();
             $scope.editando = true;
-            $scope.selecionando = true;
             ctrl.ListaParams();
         }
         

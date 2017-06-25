@@ -33,8 +33,9 @@ class Usuario(Controller):
 		usuarios = BDUsuario().pegarUsuarios("WHERE matricula = %s OR cpf = %s OR nome like %s",(pedido_listar.getUsuario(),pedido_listar.getUsuario(),"%"+pedido_listar.getUsuario()+"%"))
 		return RespostaListar(usuarios)
 
-	def TrataPedido(self,pedido):
-		usuario = ModelUsuario()
+	def TrataPedido(self,pedido,usuario):
+		if usuario.getId() is None:
+			usuario = ModelUsuario()
 		usuario.setNome(pedido.getNome())
 		usuario.setMatricula(pedido.getMatricula())		
 		usuario.setCpf(pedido.getCpf())
@@ -63,7 +64,7 @@ class Usuario(Controller):
 	def Editar(self,pedido_editar):
 		usuario = BDUsuario().pegarUsuario("WHERE id = %s",(pedido_editar.getId(),))
 		if usuario is not None:
-			usuario = self.TrataPedido(pedido_editar)
+			usuario = self.TrataPedido(pedido_editar,usuario)
 			BDUsuario().alterarUsuario(usuario)
 			return RespostaEditar("Usuário Alterado com Sucesso")
 		else:

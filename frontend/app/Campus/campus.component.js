@@ -73,12 +73,14 @@ angular.
             }, function(erro){
                 $scope.logEdicao = erro.data.mensagem
             } );
-        };
-        
-        $scope.Selecionar = function() {
+            
+            $scope.Selecionar = function() {
             $scope.editando = false;
             $scope.selecionado = true;
         }
+        };
+        
+       
         
         console.log($scope);
     }]

@@ -10,7 +10,6 @@ angular.
             ctrl.formulario = { 'usuario': ''};
             $scope.opcaolistar = true;
             $scope.listando = false;
-            $scope.editando = false;
             $scope.gravando = false;
             $scope.selecionado = false;
             $scope.logListar = '';
@@ -50,7 +49,7 @@ angular.
         }; 
         
         $scope.Escolher = function() {
-            $scope.selecionado = true;
+            $scope.editando = true;
             $scope.OpcaoListar();
         }
         

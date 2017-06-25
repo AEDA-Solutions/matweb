@@ -48,8 +48,19 @@ component('gerenciarDepartamento', {
     templateUrl: '/app/Departamento/departamento.adm.template.html',
     controller: ['ApiDepartamentoGerenciar', 'MatWebGlobals', '$routeParams', function Gerenciar(ApiDepartamentoGerenciar,MatWebGlobals,$routeParams) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
-        console.log($routeParams.Id_campus);
         var ctrl = this;
+        
+        ctrl.inicializa = function() {
+            $scope.opcaolistar = false;
+            $scope.listando = false;
+            $scope.gravando = false;
+            $scope.selecionado = false;
+            $scope.editando = false;
+        }
+        
+        $scope.OpcaoListar = function(){
+            ctrl.inicializa();
+        };
         
     }]
 });

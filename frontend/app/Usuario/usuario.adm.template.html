@@ -12,7 +12,7 @@
                 <div>
                     <div>
                         <tbody>
-                            <td><input type="submit" value="Listar" ng-click=Listar() /></td>
+                            <td><input type="submit" value="Listar" ng-click=OpcaoListar() /></td>
                             <td><input type="button" value="Cadastrar" ng-click=Gravar() /></td>
                             <td><input type="button" value="Editar" ng-click=Editar() /></td>
                         </tbody>
@@ -21,6 +21,29 @@
             </div>
         <br><br>
 
+
+<!-- Escolha da opcao Listar -->             
+            <section  ng-if='opcaolistar'>
+            <div>
+                <div>
+                    <div class="table-responsive">
+                        <table class = "table table-bordered table-striped table-hover">
+                            <tbody>
+                                <tr ng-repeat="campus in $ctrl.campus">
+                                    <td>
+                                        <input class="form-control" placeholder="Nome, CPF, ou Matrícula" ng-model="$ctrl.formulario.usuario" type="text" required class="form-control" autofocus>
+                                    </td>
+                                    <td>
+                                         <input type="submit" value="Gravar" ng-click='Listar()' />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><b>{{logListar}}</b>
+            </div>
+            </section>
+            
 <!-- Resultado do comando de Listar -->            
             <section  ng-if='listando'>
             <div>
@@ -28,9 +51,12 @@
                     <div class="table-responsive">
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
-                                <tr ng-repeat="campus in $ctrl.campus">
-                                    <td> {{campus.id}} </td>
-                                    <td><b>{{campus.nome}}</b></td>
+                                <tr ng-repeat="usuario in $ctrl.usuarios">
+                                    <td> {{usuario.id}} </td>
+                                    <td> {{usuario.matricula}} </td>
+                                    <td><b>{{usuario.nome}}</b> </td>
+                                    <td> {{usuario.cpf}} </td>
+                                    <td> {{usuario.perfil}} </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -19,7 +19,7 @@ angular.
             ctrl.ListaParams ();
         };
         
-        $scope.ListaParams = function(){
+        ctrl.ListaParams = function(){
             ctrl.formulario = { 'usuario': ''};
             $scope.opcaolistar = true;
             $scope.logListar = '';

@@ -1,7 +1,7 @@
 from Framework.Resposta import Resposta
 from Models.Usuario.Usuario import Usuario as ModelUsuario
 
-class RespostaEntrar(Resposta):
+class RespostaListar(Resposta):
 
 	def __init__(self,usuarios):
 		self.corpo = []

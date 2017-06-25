@@ -61,7 +61,7 @@
             </div>
             </section>
 
-<!-- Formulario para editar -->            
+<!-- Formulario para selecionar o campus a editar -->            
             <section  ng-if='editando'>
             <div>
                 <div class="panel-body">
@@ -82,6 +82,33 @@
                                     <td>{{campus.nome}}</td>
                                     <td>
                                         <input type="submit" value="Selecionar" ng-click='$ctrl.Selecionar(campus.id)' />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+            
+<!-- Formulario para selecionar o campus a editar -->            
+            <section  ng-if='selecionado'>
+            <div>
+                <div>
+                    <div class="table-responsive">
+                        <table class = "table table-bordered table-striped table-hover">
+                            <tbody>
+                                <tr>
+                                    <td>{{campus.id}}</td>
+                                    <td>
+                                        <input type="text" value={{campus.nome}} ng-model="$ctrl.campus.nome" autofocus >
+                                    </td>
+                                    <td>
+                                        <input type="submit" value="Editar" ng-click='$ctrl.Editar(campus.id)' />
+                                    </td>
+                                    <td>
+                                        <input type="submit" value="Deletar" ng-click='$ctrl.Deletar(campus.id)' />
                                     </td>
                                 </tr>
                             </tbody>

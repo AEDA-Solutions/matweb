@@ -22,7 +22,7 @@ angular.
             $scope.gravando = false;
             $scope.selecionado = false;
             ctrl.logListar = '';
-            if ( ctrl.formulario.usuario = '' || typeof ctrl.formulario.usuario === 'undefined' ) {
+            if ( ctrl.formulario.usuario == '' || typeof ctrl.formulario.usuario === 'undefined' ) {
                 $scope.logListar = 'Critério de Pesquisa não Preenchido';
             } else {
             ApiUsuarioListar.Listar({ usuario: ctrl.formulario.usuario},function(resultado) {

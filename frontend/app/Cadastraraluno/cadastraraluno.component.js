@@ -3,6 +3,9 @@ angular.
   component('registrarUsuario', {
     templateUrl: '/app/Cadastraraluno/cadastraraluno.template1.html',
     controller: ['ApiUsuarioCadastrar','$http','$location', 'MatWebGlobals',function(ApiUsuarioCadastrar,$http,$location,MatWebGlobals) {
+      if (window.sessionStorage.getItem('UserProfile') != 'Admin') {
+            $location.path('/');
+      }
       var ctrl = this;
       this.formulario ={'nome':'','matricula':'','cpf':'','perfil':'','email':'','sexo':'','nome_pai':'','nome_mae':'','ano_conclusao':'','identidade':'','senha':''};
       this.cadastrar = function()
@@ -19,6 +22,9 @@ angular.
   component('usuarioEditar', {
     templateUrl: '/app/Cadastraraluno/cadastraraluno.template.html',
     controller: ['ApiUsuarioEditar','ApiUsuarioDeletar','$http','$location','$scope', 'MatWebGlobals',function(ApiUsuarioEditar,ApiUsuarioDeletar,$http,$location,$scope,MatWebGlobals) {
+        if (window.sessionStorage.getItem('UserProfile') != 'Admin') {
+            $location.path('/');
+        }
       var ctrl = this;
       ctrl.usuario = MatWebGlobals.editUser;
       

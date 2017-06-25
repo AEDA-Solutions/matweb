@@ -74,8 +74,8 @@ angular.
                 $scope.logEdicao = erro.data.mensagem
             } );
             
-            $scope.Selecionar = function() {
-                console.log('cheguei aqui');
+            $scope.Selecionar = function(campus) {
+                console.log(campus);
                 $scope.editando = false;
                 $scope.selecionado = true;
             }

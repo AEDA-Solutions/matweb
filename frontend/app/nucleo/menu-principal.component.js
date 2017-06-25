@@ -12,7 +12,6 @@ angular.
           } else if ($scope.perfilUsuario == 'Aluno') {
               $scope.aluno = true;
           }
-          console.log(window.sessionStorage.getItem('UserName'));
       } else {
           $scope.pefilUsuario = "";
       };

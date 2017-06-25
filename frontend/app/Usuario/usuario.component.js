@@ -49,7 +49,6 @@ angular.
        
        $scope.Gravar = function() {
             ctrl.inicializa();
-            console.log('cheguei aqui');
             $scope.gravando = true;
         }; 
         

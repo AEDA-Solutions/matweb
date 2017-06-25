@@ -30,6 +30,9 @@ angular.
             ApiUsuarioListar.Listar({ usuario: ctrl.formulario.usuario},function(resultado) {
                 console.log('vou pesquisar por ',ctrl.formulario.usuario);
                 ctrl.usuarios = resultado.corpo;
+                if (ctrl.usuarios.length == 0){
+                    $scope.logListar = 'Nenhum Usuário Encontrado';
+                }
             }, function(erro) {
                 $scope.logListar = erro.data.mensagem;
             });

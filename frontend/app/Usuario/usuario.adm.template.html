@@ -51,6 +51,13 @@
                     <div class="table-responsive">
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
+                                <tr bgcolor="#e1dedd">
+                                    <td><b>ID</b></td>
+                                    <td><b>Matrícula</b></td>
+                                    <td><b>Nome</b></td>
+                                    <td><b>CPF</b></td>
+                                    <td><b>Perfil</b></td>
+                                </tr>
                                 <tr ng-repeat="usuario in $ctrl.usuarios">
                                     <td> {{usuario.id}} </td>
                                     <td> {{usuario.matricula}} </td>
@@ -61,7 +68,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div><b>{{logListar}}</b>
             </div>
             </section>
             

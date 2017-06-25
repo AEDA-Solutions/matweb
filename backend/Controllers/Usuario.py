@@ -5,6 +5,7 @@ from Database.Controllers.Usuario import Usuario as BDUsuario
 from Models.Usuario.RespostaEntrar import RespostaEntrar
 from Models.Usuario.RespostaCadastrar import RespostaCadastrar
 from Models.Usuario.RespostaListar import RespostaListar
+from Models.Usuario.RespostaEditar import RespostaEditar
 from Database.Models.Usuario import Usuario as ModelUsuario
 from Framework.Autenticacao import Autenticacao
 import bcrypt
@@ -32,19 +33,23 @@ class Usuario(Controller):
 		usuarios = BDUsuario().pegarUsuarios("WHERE matricula = %s OR cpf = %s OR nome like %s",(pedido_listar.getUsuario(),pedido_listar.getUsuario(),"%"+pedido_listar.getUsuario()+"%"))
 		return RespostaListar(usuarios)
 
-	def Cadastrar(self,pedido_cadastrar):
+	def TrataPedido(self,pedido):
 		usuario = ModelUsuario()
-		usuario.setNome(pedido_cadastrar.getNome())
-		usuario.setMatricula(pedido_cadastrar.getMatricula())		
-		usuario.setCpf(pedido_cadastrar.getCpf())
-		usuario.setPerfil(pedido_cadastrar.getPerfil())
-		usuario.setEmail(pedido_cadastrar.getEmail())
-		usuario.setSexo(pedido_cadastrar.getSexo())
-		usuario.setNome_pai(pedido_cadastrar.getNome_pai())
-		usuario.setNome_mae(pedido_cadastrar.getNome_mae())
-		usuario.setAno_conclusao(pedido_cadastrar.getAno_conclusao())
-		usuario.setIdentidade(pedido_cadastrar.getIdentidade())
-		usuario.setSenhaHashed(bcrypt.hashpw(pedido_cadastrar.getSenha().encode('utf-8'), bcrypt.gensalt()))
+		usuario.setNome(pedido.getNome())
+		usuario.setMatricula(pedido.getMatricula())		
+		usuario.setCpf(pedido.getCpf())
+		usuario.setPerfil(pedido.getPerfil())
+		usuario.setEmail(pedido.getEmail())
+		usuario.setSexo(pedido.getSexo())
+		usuario.setNome_pai(pedido.getNome_pai())
+		usuario.setNome_mae(pedido.getNome_mae())
+		usuario.setAno_conclusao(pedido.getAno_conclusao())
+		usuario.setIdentidade(pedido.getIdentidade())
+		usuario.setSenhaHashed(bcrypt.hashpw(pedido.getSenha().encode('utf-8'), bcrypt.gensalt()))
+		return usuario
+	
+	def Cadastrar(self,pedido_cadastrar):
+		usuario = self.TrataPedido(pedido_cadastrar)
 		return RespostaCadastrar(BDUsuario().inserirUsuario(usuario))
 
 
@@ -56,12 +61,14 @@ class Usuario(Controller):
 			raise ErroNoHTTP(404,"Usuário inexistente!")
 
 	def Editar(self,pedido_editar):
-		usuario = BDUsuario().pegarUsuario("WHERE id = %s",(pedido_editar.getId()))
+		NovoUsuario = self.TrataPedido(pedido_editar)
+		usuario = BDUsuario().pegarUsuario("WHERE id = %s",(NovoUsuario.getId(),))
 		if usuario is not None:
-			usuario.set()
 			BDUsuario().alterarUsuario(usuario)
+			return RespostaEditar("Usuário Alterado com Sucesso")
 		else:
 			raise ErroNoHTTP(404,"Usuário inexistente!")
+			
 
 	def AlterarSenha(self,pedido_alterar_senha):
 		usuario = BDUsuario().pegarUsuario("WHERE id = %s",(pedido_alterar_senha.getId()))

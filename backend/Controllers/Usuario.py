@@ -82,5 +82,5 @@ class Usuario(Controller):
 	def Deletar(self,pedido_deletar):
 		usuario = BDUsuario().pegarUsuario("WHERE id = %s ", (pedido_deletar.getId(),))		
 		BDUsuario().removerUsuario(usuario)
-		return RespostaDeletar("Campus Removido com sucesso!")
+		return RespostaDeletar("Usuário Removido com sucesso!")
 

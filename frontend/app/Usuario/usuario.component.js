@@ -9,7 +9,8 @@ angular.
         
         $scope.OpcaoListar = function(){
             $scope.opcaolistar = true;
-            ctrl.logListar = '';
+            $scope.listando = false;
+            $scope.logListar = '';
             console.log('cheguei aqui');
         };
         
@@ -26,7 +27,7 @@ angular.
             ApiUsuarioListar.Listar({ usuario: ctrl.formulario.usuario},function(resultado) {
                 ctrl.usuarios = resultado.corpo;
             }, function(erro) {
-                ctrl.logListar = erro.data.mensagem;
+                $scope.logListar = erro.data.mensagem;
             });
             };
         };

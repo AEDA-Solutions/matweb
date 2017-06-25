@@ -7,7 +7,7 @@ angular.
         ctrl.usuarios = [];
         this.formulario = { 'usuario': '' };
         
-        $scope.opcaoListar = function(){
+        $scope.OpcaoListar = function(){
             $scope.opcaolistar = true;
             ctrl.logListar = '';
         };

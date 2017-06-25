@@ -75,7 +75,8 @@ angular.
             } );
         };
         
-        $scope.Selecionar = function() {
+        $scope.Selecionar = function(campus) {
+            console.log(campus);
             $scope.editando = false;
             $scope.selecionado = true;
         }

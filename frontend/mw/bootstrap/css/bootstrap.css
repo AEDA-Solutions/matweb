@@ -6017,7 +6017,7 @@ button.close {
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 900px;
+    width: 600px;
     margin: 30px auto;
   }
   .modal-content {
@@ -6030,7 +6030,7 @@ button.close {
 }
 @media (min-width: 992px) {
   .modal-lg {
-    width: 900px;
+    width: 1070px;
   }
 }
 .tooltip {

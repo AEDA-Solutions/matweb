@@ -12,7 +12,6 @@ angular.
             $scope.opcaolistar = true;
             $scope.listando = false;
             $scope.logListar = '';
-            console.log('opcaolistar');
         };
         
         $scope.Listar = function(){
@@ -24,12 +23,14 @@ angular.
             ctrl.logListar = '';
             if ( ctrl.formulario.usuario == '' || typeof ctrl.formulario.usuario === 'undefined' ) {
                 $scope.logListar = 'Critério de Pesquisa não Preenchido';
-            } else {
-            ApiUsuarioListar.Listar({ usuario: ctrl.formulario.usuario},function(resultado) {
-                ctrl.usuarios = resultado.corpo;
-            }, function(erro) {
+                console.log('cheguei aqui');
                 $scope.opcaolistar = true;
                 $scope.listando = false;
+            } else {
+            ApiUsuarioListar.Listar({ usuario: ctrl.formulario.usuario},function(resultado) {
+                console.log('vou pesquisar por ',ctrl.formulario.usuario);
+                ctrl.usuarios = resultado.corpo;
+            }, function(erro) {
                 $scope.logListar = erro.data.mensagem;
             });
             };

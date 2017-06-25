@@ -28,7 +28,7 @@
                     <div class="table-responsive">
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
-                                <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
+                                <tr ng-repeat="campus in $ctrl.campus">
                                     <td> {{campus.id}} </td>
                                     <td><b>{{campus.nome}}</b></td>
                                 </tr>
@@ -69,14 +69,10 @@
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
                                 <tr ng-repeat="campus in $ctrl.campus">
+                                    <td>{{campus.id}}</td>
+                                    <td>{{campus.nome}}</td>
                                     <td>
-                                        <input class="form-control" placeholder={{campus.nome}} ng-model="$ctrl.formulario.nome" type="text" required class="form-control" autofocus>
-                                    </td>
-                                    <td>
-                                        <input type="submit" value="Editar" ng-click='$ctrl.Cadastrar(campus.id)' />
-                                    </td>
-                                    <td>
-                                        <input type="submit" value="Deletar" ng-click='$ctrl.Deletar(campus.id)' />
+                                        <input type="submit" value="Selecionar" ng-click='$ctrl.Selecionar(campus.id)' />
                                     </td>
                                 </tr>
                             </tbody>

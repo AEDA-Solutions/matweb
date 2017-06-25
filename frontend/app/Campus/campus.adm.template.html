@@ -64,11 +64,20 @@
 <!-- Formulario para editar -->            
             <section  ng-if='editando'>
             <div>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Nome do Campus" ng-model="$ctrl.campus.nome" type="text" autofocus>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
                 <div>
                     <div class="table-responsive">
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
-                                <tr ng-repeat="campus in $ctrl.campus">
+                                <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.campus.nome">
                                     <td>{{campus.id}}</td>
                                     <td>{{campus.nome}}</td>
                                     <td>

@@ -67,6 +67,9 @@ angular.
       $routeProvider.when('/Departamento/:Id_campus', {
           template: '<listar-departpcampus></listar-departpcampus>'
         })
+      $routeProvider.when('/Departamento/Gerenciar', {
+          template: '<gerenciar-departamento></gerenciar-departamento>'
+        })
         $routeProvider.when('/Cadastrar', {
           template: '<registrar-departamento></registrar-departamento>'
         })

@@ -51,7 +51,8 @@ class Usuario(Controller):
 		return usuario
 	
 	def Cadastrar(self,pedido_cadastrar):
-		usuario = self.TrataPedido(pedido_cadastrar)
+		usuario = BDUsuario()
+		usuario = self.TrataPedido(pedido_cadastrar,usuario)
 		return RespostaCadastrar(BDUsuario().inserirUsuario(usuario))
 
 

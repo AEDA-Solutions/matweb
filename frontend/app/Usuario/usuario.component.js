@@ -10,6 +10,7 @@ angular.
         $scope.OpcaoListar = function(){
             $scope.opcaolistar = true;
             ctrl.logListar = '';
+            console.log('cheguei aqui');
         };
         
         $scope.Listar = function(){

@@ -61,9 +61,9 @@ class Usuario(Controller):
 			raise ErroNoHTTP(404,"Usuário inexistente!")
 
 	def Editar(self,pedido_editar):
-		NovoUsuario = self.TrataPedido(pedido_editar)
-		usuario = BDUsuario().pegarUsuario("WHERE id = %s",(NovoUsuario.getId(),))
+		usuario = BDUsuario().pegarUsuario("WHERE id = %s",(pedido_editar.getId(),))
 		if usuario is not None:
+			usuario = self.TrataPedido(pedido_editar)
 			BDUsuario().alterarUsuario(usuario)
 			return RespostaEditar("Usuário Alterado com Sucesso")
 		else:

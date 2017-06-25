@@ -100,9 +100,8 @@
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
                                 <tr>
-                                    <td>{{campus.id}}</td>
                                     <td>
-                                        <input type="text" value={{campus.nome}} ng-model="$ctrl.campus.nome" autofocus >
+                                        <input type="text" value='$ctrl.campus.nome' ng-model="$ctrl.campus.nome" autofocus >
                                     </td>
                                     <td>
                                         <input type="submit" value="Editar" ng-click='$ctrl.Editar(campus.id)' />

@@ -75,6 +75,7 @@ angular.
             } );
             
             $scope.Selecionar = function(campus) {
+                ctrl.formulario.nome = campus.nome;
                 console.log(campus);
                 $scope.editando = false;
                 $scope.selecionado = true;

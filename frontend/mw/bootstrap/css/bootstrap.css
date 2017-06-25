@@ -5916,7 +5916,7 @@ button.close {
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 100;
+  bottom: 0;
   left: 0;
   z-index: 1050;
   display: none;
@@ -6017,7 +6017,7 @@ button.close {
 }
 @media (min-width: 768px) {
   .modal-dialog {
-    width: 600px;
+    width: 600px auto;
     margin: 30px auto;
   }
   .modal-content {

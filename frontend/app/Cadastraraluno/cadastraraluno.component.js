@@ -18,7 +18,7 @@ angular.
 }). 
   component('usuarioEditar', {
     templateUrl: '/app/Cadastraraluno/cadastraraluno.template.html',
-    controller: ['ApiUsuarioEditar','ApiUsuarioDeletar','$http','$location', 'MatWebGlobals',function(ApiUsuarioEditar,ApiUsuarioDeletar,$http,$location,MatWebGlobals) {
+    controller: ['ApiUsuarioEditar','ApiUsuarioDeletar','$http','$location','$scope', 'MatWebGlobals',function(ApiUsuarioEditar,ApiUsuarioDeletar,$http,$location,$scope,MatWebGlobals) {
       var ctrl = this;
       ctrl.usuario = MatWebGlobals.editUser;
       console.log(ctrl.usuario);

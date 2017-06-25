@@ -19,7 +19,7 @@ class Campus(object):
 		return campus
 		
 	def removerCampus(self, campus):
-		BancoDeDados().executar("DELETE FROM campus WHERE id = %s", (str(campus.id)))
+		BancoDeDados().executar("DELETE FROM campus WHERE id = %s", (str(campus.id),))
 		
 	def alterarCampus(self, campus):
 		SQL = "UPDATE campus SET nome = %s WHERE id = %s"

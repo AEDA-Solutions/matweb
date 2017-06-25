@@ -51,12 +51,12 @@
                     <div class="table-responsive">
                         <table class = "table table-bordered table-striped table-hover">
                             <tbody>
-                                <tr >
-                                    <td ng-style="{'backgroung-color': 'blue'}"><b>ID</b></td>
-                                    <td ng-style="{'backgroung-color': 'darkgray'}"><b>Matrícula</b></td>
-                                    <td ng-style="{'backgroung-color': 'darkgray'}"><b>Nome</b></td>
-                                    <td ng-style="{'backgroung-color': 'darkgray'}"><b>CPF</b></td>
-                                    <td ng-style="{'backgroung-color': 'darkgray'}"><b>Perfil</b></td>
+                                <tr class= "tr-title" >
+                                    <td><b>ID</b></td>
+                                    <td><b>Matrícula</b></td>
+                                    <td><b>Nome</b></td>
+                                    <td><b>CPF</b></td>
+                                    <td><b>Perfil</b></td>
                                 </tr>
                                 <tr ng-repeat="usuario in $ctrl.usuarios">
                                     <td> {{usuario.id}} </td>

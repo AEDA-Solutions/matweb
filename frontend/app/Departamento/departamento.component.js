@@ -59,7 +59,7 @@ component('gerenciarDepartamento', {
         }
         
         $scope.OpcaoListar = function(){
-            console.log('cheguei aqui');
+            $scope.opcaolistar = true;
             ctrl.inicializa();
         };
         

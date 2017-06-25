@@ -6,20 +6,28 @@ angular.
         var ctrl = this;
         ctrl.usuarios = [];
         
-        $scope.OpcaoListar = function(){
-            ctrl.formulario = { 'usuario': ''};
-            $scope.opcaolistar = true;
+        ctrl.inicializa = function() {
+            $scope.opcaolistar = false;
             $scope.listando = false;
             $scope.gravando = false;
             $scope.selecionado = false;
+            $scope.editando = false;
+        }
+        
+        $scope.OpcaoListar = function(){
+            ctrl.inicializa();
+            ctrl.ListaParams ();
+        };
+        
+        $scope.ListaParams = function(){
+            ctrl.formulario = { 'usuario': ''};
+            $scope.opcaolistar = true;
             $scope.logListar = '';
         };
         
         $scope.Listar = function(){
             $scope.listando = true;
             $scope.opcaolistar = false;
-            $scope.gravando = false;
-            $scope.selecionado = false;
             ctrl.logListar = '';
             if ( ctrl.formulario.usuario == '' || typeof ctrl.formulario.usuario === 'undefined' ) {
                 $scope.logListar = 'Critério de Pesquisa não Preenchido';
@@ -37,14 +45,12 @@ angular.
             });
             };
         };
-        
+
+       
        $scope.Gravar = function() {
+            ctrl.inicializa();
             console.log('cheguei aqui');
-            $scope.listando = false;
-            $scope.opcaolistar = false;
-            $scope.editando = false;
             $scope.gravando = true;
-            $scope.selecionado = false;
         }; 
         
         $scope.Escolher = function() {

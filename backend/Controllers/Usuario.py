@@ -49,7 +49,7 @@ class Usuario(Controller):
 		return usuario
 	
 	def Cadastrar(self,pedido_cadastrar):
-		usuario = BDUsuario()
+		usuario = ModelUsuario()
 		usuario = self.TrataPedido(pedido_cadastrar,usuario)
 		return RespostaCadastrar(BDUsuario().inserirUsuario(usuario))
 

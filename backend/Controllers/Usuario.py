@@ -28,7 +28,7 @@ class Usuario(Controller):
 		pass
 
 	def Listar(self,pedido_listar):
-		usuarios = BDUsuario().pegarUsuario("WHERE id = %s",(pedido_ver.getId()))
+		usuarios = BDUsuario().pegarUsuarios("WHERE matricula = %s OR cpf = %s OR nome like %s",(pedido_listar.getUsuario(),pedido_listar.getUsuario(),"%"+pedido_listar.getUsuario()+"%"))
 
 	def Cadastrar(self,pedido_cadastrar):
 		usuario = ModelUsuario()

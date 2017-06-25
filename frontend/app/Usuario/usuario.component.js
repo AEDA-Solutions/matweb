@@ -39,6 +39,7 @@ angular.
         };
         
        $scope.Gravar = function() {
+            console.log('cheguei aqui');
             $scope.listando = false;
             $scope.opcaolistar = false;
             $scope.editando = false;

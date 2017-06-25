@@ -20,8 +20,7 @@ angular.
     templateUrl: '/app/Cadastraraluno/cadastraraluno.template.html',
     controller: ['ApiUsuarioEditar','ApiUsuarioDeletar','$http','$location', 'MatWebGlobals',function(ApiUsuarioEditar,ApiUsuarioDeletar,$http,$location,MatWebGlobals) {
       var ctrl = this;
-      this.formulario = MatWebGlobals.editUser;
-      console.log(ctrl.usuario.nome);
+      ctrl.usuario = MatWebGlobals.editUser;
     }]
 });
   

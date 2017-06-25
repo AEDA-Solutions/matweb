@@ -22,7 +22,7 @@ angular.
       var ctrl = this;
       ctrl.usuario = MatWebGlobals.editUser;
       this.formulario ={'nome':'','matricula':'','cpf':'','perfil':'','email':'','sexo':'','nome_pai':'','nome_mae':'','ano_conclusao':'','identidade':'','senha':''};
-      console.log(MatWebGlobals.editUser);
+      console.log(ctrl.usuario);
     }]
 });
   

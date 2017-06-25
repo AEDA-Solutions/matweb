@@ -17,7 +17,7 @@ angular.
   }).
   component('gerenciarCampus', {
     templateUrl: '/app/Campus/campus.adm.template.html',
-    controller: ['ApiCampus', 'ApiCampusCadastrar', 'MatWebGlobals', '$scope', function Gerenciar(ApiCampus,ApiCampusCadastrar,MatWebGlobals,$scope) {
+    controller: ['ApiCampus', 'ApiCampusCadastrar', 'ApiCampusEditar', 'ApiCampusDeletar', 'MatWebGlobals', '$scope', function Gerenciar(ApiCampus,ApiCampusCadastrar,ApiCampusEditar,ApiCampusDeletar,MatWebGlobals,$scope) {
         var ctrl = this;
         ctrl.campus = [];
         this.formulario = { 'nome': '' };
@@ -71,7 +71,7 @@ angular.
                 ctrl.campus = resultado.corpo;
                 MatWebGlobals.campus = resultado.corpo;
             }, function(erro){
-                $scope.logEdicao = erro.data.mensagem
+                $scope.logEdicao = erro.data.mensagem;
             } );
         };
     
@@ -82,6 +82,22 @@ angular.
             $scope.editando = false;
             $scope.selecionado = true;
         };
+        
+        $scope.Update = function() {
+            ApiCampusEditar.Editar({ nome: ctrl.campus.nome, id: ctrl.campus.id},function(resultado) {
+                $scope.logEdicao = 'Alteração Realizada com Sucesso';
+            }, function(erro) {
+                $scope.logEdicao = erro.data.mensagem;
+            });
+        }
+        
+        $scope.Deletar = function() {
+            ApiCampusDeletar.Deletar({ id: ctrl.campus.id },function(resultado) {
+                $scope.logEdicao = 'Exclusão Realizada com Sucesso';
+            }, function(erro) {
+                $scope.logEdicao = erro.data.mensagem; 
+            });
+        }
         
         console.log($scope);
     }]

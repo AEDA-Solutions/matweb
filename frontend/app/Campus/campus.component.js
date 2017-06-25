@@ -67,6 +67,7 @@ angular.
             $scope.editando = true;
             $scope.gravando = false;
             $scope.selecionado = false;
+            $scope.logEdicao = '';
             ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.campus = resultado.corpo;
                 MatWebGlobals.campus = resultado.corpo;
@@ -92,7 +93,6 @@ angular.
         }
         
         $scope.Deletar = function() {
-            $scope.logEdicao = '';
             ApiCampusDeletar.Deletar({ id: ctrl.campus.id },function(resultado) {
                 $scope.logEdicao = 'Exclusão Realizada com Sucesso';
             }, function(erro) {

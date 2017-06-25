@@ -11,7 +11,7 @@ angular.
             $scope.opcaolistar = true;
             $scope.listando = false;
             $scope.logListar = '';
-            console.log('cheguei aqui');
+            console.log('opcaolistar');
         };
         
         $scope.Listar = function(){

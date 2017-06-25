@@ -29,7 +29,7 @@ angular.
       $scope.Alterar = function() {
           ctrl.setformulario(ctrl.usuario);
           ApiUsuarioEditar.Editar(ctrl.formulario, function(resultado) {
-              $scope.logEditar = resultado.corpo.mensagem;
+              $scope.logEditar = 'Usuário Alterado Com Sucesso';
           }, function(erro) {
               $scope.logEditar = erro.data.mensagem;
           })

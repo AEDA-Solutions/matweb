@@ -13,4 +13,11 @@ angular.
           Listar: { method: 'POST'},
         });
     }                                                                      
+  ]). 
+  factory('ApiDepartamentoGerenciar', ['$resource',
+    function($resource) {
+        return $resource('/api/Departamento/Gerenciar', {}, {
+          Gerenciar: { method: 'POST'},
+        });
+    }                                                                      
   ]);

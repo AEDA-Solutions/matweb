@@ -22,13 +22,13 @@ class Campus(Controller):
 		return RespostaCadastrar(BDCampus().inserirCampus(campus))
 
 	def Editar(self,pedido_editar):
-		campus = BDCampus().pegarCampus("WHERE id = %s ", (pedido_editar.getId()))
+		campus = BDCampus().pegarCampus("WHERE id = %s ", (pedido_editar.getId()[0],))
 		campus.setNome(pedido_editar.getNome())
 		BDCampus().alterarCampus(campus)
 		return RespostaEditar("Campus Editado com sucesso!")
 
 	def Deletar(self,pedido_deletar):
-		campus = BDCampus().pegarCampus("WHERE id = %s ", (pedido_deletar.getId()))		
+		campus = BDCampus().pegarCampus("WHERE id = %s ", (pedido_deletar.getId()[0],))		
 		BDCampus().removerCampus(campus)
 		return RespostaDeletar("Campus Removido com sucesso!")
 

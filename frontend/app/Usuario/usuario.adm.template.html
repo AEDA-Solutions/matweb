@@ -64,7 +64,7 @@
                                     <td><b>{{usuario.nome}}</b> </td>
                                     <td> {{usuario.cpf}} </td>
                                     <td> {{usuario.perfil}} </td>
-                                    <td ng-if='editando && selecionando'>
+                                    <td ng-if='selecionando'>
                                         <input type="submit" value="Selecionar" ng-click=Selecionar(usuario) />
                                     </td>
                                 </tr>

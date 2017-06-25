@@ -56,7 +56,7 @@ angular.
         $scope.Escolher = function() {
             $scope.editando = true;
             $scope.selecionando = true;
-            $scope.OpcaoListar();
+            ctrl.ListaParams();
         }
         
     }]

@@ -5945,8 +5945,8 @@ button.close {
 }
 .modal-dialog {
   position: relative;
-  width: 900px;
-  margin: 10px;
+  width: auto;
+  margin: auto;
 }
 .modal-content {
   position: relative;

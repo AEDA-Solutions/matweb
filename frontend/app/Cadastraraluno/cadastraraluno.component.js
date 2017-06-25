@@ -37,7 +37,7 @@ angular.
       };
         
       $scope.Apagar = function() {
-          ApiUsuarioApagar.Apagar({ 'id': ctrl.usuario.id }, function(resultado) {
+          ApiUsuarioDeletar.Deletar({ 'id': ctrl.usuario.id }, function(resultado) {
               $scope.logEditar = resultado.corpo;
           }, function(erro) {
               $scope.logEditar = erro.data.mensagem;

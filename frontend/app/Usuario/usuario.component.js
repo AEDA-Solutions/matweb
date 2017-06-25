@@ -5,10 +5,9 @@ angular.
     controller: ['ApiUsuarioListar','$http','$location', 'MatWebGlobals', '$scope',function Entrar(ApiUsuarioListar,$http,$location,MatWebGlobals,$scope) {
         var ctrl = this;
         ctrl.usuarios = [];
-        this.formulario = { 'usuario': '' };
         
         $scope.OpcaoListar = function(){
-            ctrl.formulario.usuario = ''
+            ctrl.formulario = { 'usuario': ''};
             $scope.opcaolistar = true;
             $scope.listando = false;
             $scope.logListar = '';
@@ -38,6 +37,15 @@ angular.
             });
             };
         };
+        
+       $scope.Gravar = function() {
+            $scope.listando = false;
+            $scope.opcaolistar = false;
+            $scope.editando = false;
+            $scope.gravando = true;
+            $scope.selecionado = false;
+        }; 
+        
     }]
 });
 

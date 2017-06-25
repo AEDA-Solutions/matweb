@@ -35,8 +35,6 @@ class Usuario(Controller):
 		return RespostaListar(usuarios)
 
 	def TrataPedido(self,pedido,usuario):
-		if usuario.getId() is None:
-			usuario = ModelUsuario()
 		usuario.setNome(pedido.getNome())
 		usuario.setMatricula(pedido.getMatricula())		
 		usuario.setCpf(pedido.getCpf())

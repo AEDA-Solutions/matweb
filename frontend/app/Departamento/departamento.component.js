@@ -45,7 +45,7 @@ angular.
     }]
 }). 
 component('gerenciarDeparto', {
-    templateUrl: '/app/Departamento/departPcampus.template.html',
+    templateUrl: '/app/Departamento/departamento.adm.template.html',
     controller: ['ApiDepartamentoGerenciar', 'MatWebGlobals', '$routeParams', function Listar(ApiDepartamentoPCampus,MatWebGlobals,$routeParams) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         console.log($routeParams.Id_campus);

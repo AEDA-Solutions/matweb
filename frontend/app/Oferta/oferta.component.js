@@ -112,7 +112,7 @@ component('gerenciarDisciplina', {
         $scope.SelectDpto = function(id) {
             ctrl.inicializa();
             $scope.selecteddisciplinas = true;
-        
+            console.log(id);
             ApiDepartamentoPCampus.Listar({'id_departamento': id, 'nome': '', 'pagina': 0, 'quantidade': 1000} ,function(resultado) {
                 ctrl.disciplina = resultado.corpo;
             }, function(error){

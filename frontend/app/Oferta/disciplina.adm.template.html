@@ -70,13 +70,40 @@
                                         <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
                                             <td> {{departamento.sigla}} </td>
                                             <td> {{departamento.nome}} </td>
-                                            <td ng-if='editando'>
-                                                <input type="submit" value="Selecionar" ng-click=SelectDpto(departamento) />
+                                            <td>
+                                                <input type="submit" value="Selecionar" ng-click=SelectDpto(departamento.id) />
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!-- Resultado da Lista de Disciplinas por Departamento -->
+            <section ng-if='selecionado'>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Nome da Disciplina" ng-model="$ctrl.nome_disciplina" type="text" autofocus>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <div>
+                        <div class="table-responsive">
+                            <table class = "table table-bordered table-hover">
+                                <tbody>
+                                    <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
+                                        <td>{{disciplina.codigo}} </td>
+                                        <td><b> {{disciplina.nome}} </b></td>
+                                        <td ng-if='editando'>
+                                            <input type="submit" value="Selecionar" ng-click=SelectDisciplina(disciplina) />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -114,6 +114,8 @@ component('gerenciarDisciplina', {
             if ($scope.gravando == true) {
                 $scope.listando = false;
                 $scope.selecionado = true;
+            } else if ($scope.editando == true ){
+                $scope.selecteddisciplinas = true;
             } else {
                 ctrl.inicializa();
                 $scope.selecteddisciplinas = true;
@@ -129,22 +131,30 @@ component('gerenciarDisciplina', {
             ctrl.inicializa();
             $scope.gravando = true;
             $scope.opcaolistar = true;
-            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
-            ctrl.campus = resultado.corpo;      
-            }, function(erro) {
-                ctrl.error = error.data.mensagem;
-            });
             ctrl.listarcampus();
         };
         
         $scope.Cadastrar = function() {
             ApiDisciplinaCadastrar.Cadastrar({ 'id_departamento': ctrl.departamento.id, 'nome': ctrl.disciplina.nome, 'codigo': ctrl.disciplina.codigo }, function(resultado) {
                 ctrl.disciplina = resultado.corpo;
-                $scope.logCadastrar = "Disciplina Cadastrado com Sucesso";
+                $scope.logCadastrar = "Disciplina Cadastrada com Sucesso";
             }, function(erro) {
                 $scope.logCadastrar = error.data.mensagem;
             });
         };
+        
+        $scope.Escolher = function() {
+            ctrl.inicializa();
+            $scope.opcaolistar = true;
+            $scope.editando = true;
+            ctrl.listarcampus();
+        }
+        
+        $scope.SelectDisciplina = function(disciplina) {
+            ctrl.disciplina = disciplina;
+            $scope.selecteddisciplinas = falso;
+            $scope.selecionado = true;
+        }
         
     }]
 });

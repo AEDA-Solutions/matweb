@@ -23,7 +23,7 @@
 
 
 <!-- Escolha da opcao Listar -->             
-            <section  ng-if='opcaolistar || (opcaolistar && gravando)'>
+            <section  ng-if='opcaolistar || (opcaolistar && gravando) || (opcaolistar && editando)' >
                 <div>
                     <div class="panel-body">
                         <form role="form">
@@ -53,7 +53,7 @@
             </section>
             
 <!-- Resultado do comando de Listar -->            
-            <section  ng-if='listando || (listando && gravando)'>
+            <section  ng-if='listando || (listando && gravando) || (listando && editando)' >
                 <div>
                     <div class="panel-body">
                         <form role="form">
@@ -83,7 +83,7 @@
             </section>
             
 <!-- Resultado da Lista de Disciplinas por Departamento -->
-            <section ng-if='selecteddisciplinas'>
+            <section ng-if='selecteddisciplinas || (selecteddisciplinas && editando)'>
                 <div class="panel-body">
                     <form role="form">
                         <fieldset>
@@ -143,7 +143,7 @@
 
 
 <!-- Formulario para selecionar o campus a editar -->            
-            <section  ng-if='selecionados'>
+            <section  ng-if='selecionados && editando'>
                 <div class="inner">
                     <form role="form">
                         <fieldset>
@@ -154,13 +154,13 @@
                                             <tr>
                                                 <td  bgcolor='#A4A4A4'><b>Nome</b></td>
                                                 <td>
-                                                    <input type="text" ng-model="$ctrl.departamento.nome" class="form-control" required />
+                                                    <input type="text" ng-model="$ctrl.disciplina.nome" class="form-control" required />
                                                 </td>
                                             </tr>    
                                             <tr>
                                                 <td  bgcolor='#A4A4A4'><b>Código</b></td>
                                                 <td>
-                                                    <input type="text"  class="form-control" ng-model="$ctrl.departamento.codigo" maxlength=4/>
+                                                    <input type="text"  class="form-control" ng-model="$ctrl.disciplina.codigo" maxlength=4/>
                                                 </td>
                                             <tr>
                                                 <td  bgcolor='#A4A4A4'><b>Sigla</b></td>
@@ -169,17 +169,10 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td  bgcolor='#A4A4A4'><b>Campus</b></td>
-                                                <td>
-                                                    <select  ng-model="$ctrl.departamento.id_campus" ng-options="campus.id as campus.nome for campus in $ctrl.campus" >
-                                                    </select>
-                                                </td>
-                                            </tr>
-                                            <tr>
                                                 <td></td>
                                                 <td>
-                                                    <input type="submit" value="Alterar" ng-click=AlterDpto() />
-                                                    <input type="submit" value="Apagar" ng-click=DelDpto() />
+                                                    <input type="submit" value="Alterar" ng-click=AlterDisciplina() />
+                                                    <input type="submit" value="Apagar" ng-click=DelDisciplina() />
                                                 </td>
                                             </tr>
                                         </tbody>

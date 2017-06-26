@@ -20,5 +20,12 @@ angular.
             Detalhar: { method: 'POST'},
         });
     }                                
+]). 
+    factory('ApiDisciplinaCadastrar',['$resource',
+    function($resource) {
+        return $resource('/api/Disciplina/Cadastrar',{}, {
+            Cadastrar: { method: 'POST'},
+        });
+    }                                
 ]);
 

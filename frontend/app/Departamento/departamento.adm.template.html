@@ -25,6 +25,15 @@
 <!-- Escolha da opcao Listar -->             
             <section  ng-if='opcaolistar'>
                 <div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome do Campus" ng-model="$ctrl.campus.nome" type="text" autofocus>
+                                </div>
+                            </fieldset>
+                        </form>
+                </div>
                     <div>
                         <div class="table-responsive">
                             <table class = "table table-bordered table-striped table-hover">

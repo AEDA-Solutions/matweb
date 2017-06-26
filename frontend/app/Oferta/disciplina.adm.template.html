@@ -23,7 +23,7 @@
 
 
 <!-- Escolha da opcao Listar -->             
-            <section  ng-if='opcaolistar'>
+            <section  ng-if='opcaolistar || (opcaolistar && gravando)'>
                 <div>
                     <div class="panel-body">
                         <form role="form">
@@ -53,7 +53,7 @@
             </section>
             
 <!-- Resultado do comando de Listar -->            
-            <section  ng-if='listando'>
+            <section  ng-if='listando || (listando && gravando)'>
                 <div>
                     <div class="panel-body">
                         <form role="form">
@@ -70,8 +70,9 @@
                                         <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
                                             <td> {{departamento.sigla}} </td>
                                             <td> {{departamento.nome}} </td>
+                                            <td>{{departamento.id}} </td>
                                             <td>
-                                                <input type="submit" value="Selecionar" ng-click=SelectDpto(departamento.id) />
+                                                <input type="submit" value="Selecionar" ng-click=SelectDpto(departamento) />
                                             </td>
                                         </tr>
                                     </tbody>
@@ -81,6 +82,7 @@
                     </div>
                 </div>
             </section>
+            
 <!-- Resultado da Lista de Disciplinas por Departamento -->
             <section ng-if='selecteddisciplinas'>
                 <div class="panel-body">
@@ -109,7 +111,7 @@
             </section>
             
 <!-- Formulario para cadastrar -->
-            <section  ng-if='gravando'>
+            <section  ng-if='gravando && listando==false && opcaolistar==false'>
                 <div class="inner">
                     <form role="form" ng-submit="Cadastrar()">
                         <fieldset>
@@ -119,25 +121,13 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <input type="text" placeholder="Nome" ng-model="$ctrl.departamento.nome" class="form-control" required />
+                                                    <input type="text" placeholder="Nome" ng-model="$ctrl.disciplina.nome" class="form-control" required />
                                                 </td>
                                             </tr>    
                                             <tr>
                                                 <td>
-                                                    <input type="text" placeholder="Código"  class="form-control" ng-model="$ctrl.departamento.codigo" maxlength=4/>
+                                                    <input type="text" placeholder="Código"  class="form-control" ng-model="$ctrl.disciplina.codigo" maxlength=4/>
                                                 </td>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" placeholder="Sigla"   class="form-control" ng-model="$ctrl.departamento.sigla"  maxlength=4/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <select ng-model="$ctrl.departamento.id_campus" ng-options="campus.id as campus.nome for campus in $ctrl.campus" >
-                                                        <option disabled selected value>--Escolha um Campus--</option>
-                                                    </select>
-                                                </td>
-                                            </tr>
                                             <tr>
                                                 <td>
                                                     <input type="submit" value="Salvar">

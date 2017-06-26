@@ -69,7 +69,7 @@ angular.
 }). 
 component('gerenciarDisciplina', {
     templateUrl: '/app/Oferta/disciplina.adm.template.html',
-    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;
         ctrl.disciplina = [];
@@ -112,12 +112,11 @@ component('gerenciarDisciplina', {
         $scope.SelectDpto = function(id) {
             ctrl.inicializa();
             $scope.selecteddisciplinas = true;
-            console.log(id);
-            ApiDepartamentoPCampus.Listar({'id_departamento': id, 'nome': '', 'pagina': 0, 'quantidade': 1000} ,function(resultado) {
-                ctrl.disciplina = resultado.corpo;
+            ApiOfertaPDepart.Listar({id_departamento: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 },function(resultado) {
+                ctrl.disciplinas = resultado.corpo;
             }, function(error){
                 ctrl.logListar = error.data.mensagem;
-            });            
+            });
         };
 
     }]

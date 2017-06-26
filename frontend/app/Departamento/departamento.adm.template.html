@@ -156,7 +156,7 @@
                                             <tr>
                                                 <td  bgcolor='#A4A4A4'><b>Campus</b></td>
                                                 <td>
-                                                    <select ng-init="campus.id as campus.nome | filter:$ctrl.departamento.id_campus" ng-model="$ctrl.departamento.id_campus" ng-options="campus.id as campus.nome for campus in $ctrl.campus" >
+                                                    <select  ng-model="$ctrl.departamento.id_campus" ng-options="campus.id as campus.nome for campus in $ctrl.campus" >
                                                     </select>
                                                 </td>
                                             </tr>

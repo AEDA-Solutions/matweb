@@ -110,6 +110,7 @@ component('gerenciarDisciplina', {
         };
         
         $scope.SelectDpto = function(departamento) {
+            console.log(departamento);
             ctrl.departamento = departamento;
             if ($scope.gravando == true) {
                 $scope.listando = false;

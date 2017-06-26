@@ -104,6 +104,19 @@ component('gerenciarDepartamento', {
             });
         };
         
+        $scope.Escolher = function() {
+            ctrl.inicializa();
+            $scope.opcaolistar = true;
+            $scope.editando = true;
+            ctrl.listarcampus();
+        }
+        
+        $scope.SelectDpto = function(departamento) {
+            ctrl.departamento = departamento;
+            $scope.editando = false;
+            $scope.selecionado = true;
+        }
+        
     }]
 });
 

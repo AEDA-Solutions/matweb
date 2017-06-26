@@ -53,7 +53,7 @@
             </section>
             
 <!-- Resultado do comando de Listar -->            
-            <section  ng-if='listando || (listando && gravando) || (listando && editando)' >
+            <section  ng-if='listando || (listando && gravando) || (listando && editando && selecionado==false)' >
                 <div>
                     <div class="panel-body">
                         <form role="form">

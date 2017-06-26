@@ -66,4 +66,11 @@ angular.
         }
         this.detalhar();
     }]
+}). 
+component('gerenciarDisciplina', {
+    templateUrl: '/app/Oferta/disciplina.adm.template.html',
+    controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams) {
+        this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
+        var ctrl = this;
+    }]
 });

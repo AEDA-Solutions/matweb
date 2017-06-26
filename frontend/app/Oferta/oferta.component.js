@@ -152,7 +152,7 @@ component('gerenciarDisciplina', {
         
         $scope.SelectDisciplina = function(disciplina) {
             ctrl.disciplina = disciplina;
-            $scope.selecteddisciplinas = falso;
+            $scope.selecteddisciplinas = false;
             $scope.selecionado = true;
         }
         

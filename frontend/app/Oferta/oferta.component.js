@@ -82,6 +82,7 @@ component('gerenciarDisciplina', {
             $scope.gravando = false;
             $scope.selecionado = false;
             $scope.editando = false;
+            $scope.selecteddisciplinas = false;
         };
         
         ctrl.listarcampus = function() {
@@ -110,7 +111,7 @@ component('gerenciarDisciplina', {
         
         $scope.SelectDpto = function(id) {
             ctrl.inicializa();
-            $scope.selecionado = true;
+            $scope.selecteddisciplinas = true;
         
             ApiDepartamentoPCampus.Listar({'id_departamento': id, 'nome': '', 'pagina': 0, 'quantidade': 1000} ,function(resultado) {
                 ctrl.disciplina = resultado.corpo;

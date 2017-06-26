@@ -69,7 +69,7 @@ angular.
 }). 
 component('gerenciarDisciplina', {
     templateUrl: '/app/Oferta/disciplina.adm.template.html',
-    controller: ['ApiOfertaDetalhar','ApiCampus','MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;
         ctrl.disciplina = [];
@@ -97,5 +97,16 @@ component('gerenciarDisciplina', {
             $scope.opcaolistar = true;
             ctrl.listarcampus();
         };
+        
+        $scope.listdptos = function(id) {
+            $scope.opcaolistar = false;
+            $scope.listando = true;
+            ApiDepartamentoPCampus.Listar({id_campus: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 }, function(resultado) {
+                ctrl.departamentos = resultado.corpo;
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            });
+        };
+
     }]
 });

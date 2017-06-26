@@ -128,6 +128,7 @@ component('gerenciarDisciplina', {
         $scope.Gravar = function() {
             ctrl.inicializa();
             $scope.gravando = true;
+            $scope.opcaolistar = true;
             ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
             ctrl.campus = resultado.corpo;      
             }, function(erro) {

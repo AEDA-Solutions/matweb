@@ -72,5 +72,30 @@ component('gerenciarDisciplina', {
     controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;
+        ctrl.disciplina = [];
+        ctrl.campus = [];
+        ctrl.departamento = [];
+        
+        ctrl.inicializa = function() {
+            $scope.opcaolistar = false;
+            $scope.listando = false;
+            $scope.gravando = false;
+            $scope.selecionado = false;
+            $scope.editando = false;
+        };
+        
+        ctrl.listarcampus = function() {
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;      
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            });
+        };
+        
+        $scope.OpcaoListar = function(){
+            ctrl.inicializa();
+            $scope.opcaolistar = true;
+            ctrl.listarcampus();
+        };
     }]
 });

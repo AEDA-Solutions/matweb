@@ -59,8 +59,8 @@ component('gerenciarDepartamento', {
         }
         
         $scope.OpcaoListar = function(){
-            $scope.opcaolistar = true;
             ctrl.inicializa();
+            $scope.opcaolistar = true;
         };
         
     }]

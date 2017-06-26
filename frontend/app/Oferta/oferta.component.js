@@ -137,7 +137,7 @@ component('gerenciarDisciplina', {
         
         $scope.Cadastrar = function() {
             ApiDisciplinaCadastrar.Cadastrar({ 'id_departamento': ctrl.departamento.id, 'nome': ctrl.disciplina.nome, 'codigo': ctrl.disciplina.codigo }, function(resultado) {
-                ctrl.disciplina = resultado.corpo;
+                ctrl.disciplina = [];
                 $scope.logCadastrar = "Disciplina Cadastrada com Sucesso";
             }, function(erro) {
                 $scope.logCadastrar = error.data.mensagem;

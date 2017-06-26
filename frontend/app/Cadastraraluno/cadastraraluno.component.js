@@ -11,6 +11,7 @@ angular.
       this.cadastrar = function()
       {
           ApiUsuarioCadastrar.Cadastrar(ctrl.formulario,function(data){
+            ctrl.formulario = [];
             ctrl.mensagem = "Usuário cadastrado com sucesso";
           
           },function(data){

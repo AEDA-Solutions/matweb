@@ -54,7 +54,7 @@ angular.
                     $scope.logCadastro = 'Nome não Preenchido';
                 } else {
                     ApiCampusCadastrar.Cadastrar(ctrl.formulario,function(resultado) {
-                        ctrl.campus = resultado.corpo;
+                        ctrl.campus = [];
                         MatWebGlobals.campus = resultado.corpo;
                         $scope.logCadastro = 'Campus Gravado Com Sucesso';
                     }, function(erro){

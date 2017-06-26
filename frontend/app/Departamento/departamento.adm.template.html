@@ -104,15 +104,14 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <select ng-repeat="campus in ctrl.campus" placeholder="Escolha o Perfil" name="perfil" required="" id="perfil" ng-model="$ctrl.departamento.id_campus">
+                                                    <select ng-options="campus.nome for campus in $ctrl.campus" ng-model="ctrl.departamento.campus_nome">
                                                         <option disabled selected value>--Escolha um Campus--</option>
-                                                        <option value={{campus.id}}>{{campus.nome}}</option>
                                                     </select>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="submit" value="Cadastrar">
+                                                    <input type="submit" value="Salvar">
                                                 </td>
                                             </tr>
                                         </tbody>

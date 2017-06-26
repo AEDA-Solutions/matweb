@@ -96,13 +96,12 @@ component('gerenciarDepartamento', {
         
         $scope.Cadastrar = function() {
             console.log(ctrl.departamento);
-            $scope.logCadastrar = ctrl.departamento;
-            //ApiDepartamentoCadastrar.Cadastrar({ 'nome': ctrl.departamento.nome, 'codigo': ctrl.departamento.codigo, 'sigla': ctrl.departamento.sigla, 'id_campus': ctrl.departamento.id_campus}, function(resultado) {
-            //    ctrl.departamento = resultado.corpo;
-            //    $scope.logCadastrar = "Departamento Cadastrado com Sucesso";
-           // }, function(erro) {
-           //     $scope.logCadastrar = error.data.mensagem;
-           // });
+            ApiDepartamentoCadastrar.Cadastrar({ 'nome': ctrl.departamento.nome, 'codigo': ctrl.departamento.codigo, 'sigla': ctrl.departamento.sigla, 'id_campus': ctrl.departamento.id_campus}, function(resultado) {
+                ctrl.departamento = resultado.corpo;
+                $scope.logCadastrar = "Departamento Cadastrado com Sucesso";
+            }, function(erro) {
+                $scope.logCadastrar = error.data.mensagem;
+            });
         };
         
     }]

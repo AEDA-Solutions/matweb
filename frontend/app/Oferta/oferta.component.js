@@ -107,6 +107,17 @@ component('gerenciarDisciplina', {
                 ctrl.error = error.data.mensagem;
             });
         };
+        
+        $scope.SelectDpto = function(id) {
+            ctrl.inicializa();
+            $scope.selecionado = true;
+        
+            ApiDepartamentoPCampus.Listar({'id_departamento': id, 'nome': '', 'pagina': 0, 'quantidade': 1000} ,function(resultado) {
+                ctrl.disciplina = resultado.corpo;
+            }, function(error){
+                ctrl.logListar = error.data.mensagem;
+            });            
+        };
 
     }]
 });

@@ -27,4 +27,18 @@ angular.
           Cadastrar: { method: 'POST'},
         });
     }                                                                      
+  ]). 
+factory('ApiDepartamentoEditar', ['$resource',
+    function($resource) {
+        return $resource('/api/Departamento/Editar', {}, {
+          Editar: { method: 'POST'},
+        });
+    }                                                                      
+  ]). 
+factory('ApiDepartamentoDeletar', ['$resource',
+    function($resource) {
+        return $resource('/api/Departamento/Deletar', {}, {
+          Deletar: { method: 'POST'},
+        });
+    }                                                                      
   ]);

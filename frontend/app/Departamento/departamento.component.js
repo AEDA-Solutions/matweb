@@ -46,7 +46,7 @@ angular.
 }). 
 component('gerenciarDepartamento', {
     templateUrl: '/app/Departamento/departamento.adm.template.html',
-    controller: ['ApiDepartamentoGerenciar','ApiCampus','ApiDepartamentoPCampus', 'ApiDepartamentoCadastrar', 'MatWebGlobals', '$routeParams', '$scope', function Gerenciar(ApiDepartamentoGerenciar,ApiCampus,ApiDepartamentoPCampus,ApiDepartamentoCadastrar,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiDepartamentoGerenciar','ApiCampus','ApiDepartamentoPCampus', 'ApiDepartamentoCadastrar', 'ApiDepartamentoEditar', 'ApiDepartamentoDeletar', 'MatWebGlobals', '$routeParams', '$scope', function Gerenciar(ApiDepartamentoGerenciar,ApiCampus,ApiDepartamentoPCampus,ApiDepartamentoCadastrar,ApiDepartamentoEditar,ApiDepartamentoDeletar,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         var ctrl = this;
         ctrl.campus = [];
@@ -95,7 +95,6 @@ component('gerenciarDepartamento', {
         };
         
         $scope.Cadastrar = function() {
-            console.log(ctrl.departamento);
             ApiDepartamentoCadastrar.Cadastrar({ 'nome': ctrl.departamento.nome, 'codigo': ctrl.departamento.codigo, 'sigla': ctrl.departamento.sigla, 'id_campus': ctrl.departamento.id_campus}, function(resultado) {
                 ctrl.departamento = resultado.corpo;
                 $scope.logCadastrar = "Departamento Cadastrado com Sucesso";
@@ -112,10 +111,29 @@ component('gerenciarDepartamento', {
         }
         
         $scope.SelectDpto = function(departamento) {
+            ctrl.inicializa();
             ctrl.departamento = departamento;
-            $scope.editando = false;
             $scope.selecionado = true;
         }
+        
+        $scope.AlterDpto = function() {
+            console.log(ctrl.departamento);
+            ApiDepartamentoEditar.Editar({'id': ctrl.departamento.id, 'nome': ctrl.departamento.nome, 'codigo': ctrl.departamento.codigo, 'sigla': ctrl.departamento.sigla, 'id_campus': ctrl.departamento.id_campus }, function(resultado) {
+                $scope.logEditar = "Departamento Alterado com Sucesso";
+                ctrl.departamento = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
+        
+        $scope.DelDpto = function() {
+            ApiDepartamentoDeletar.Deletar({'id': ctrl.departamento.id}, function(resultado) {
+                $scope.logEditar = "Departamento Excluído com Sucesso";
+                ctrl.departamento = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
         
     }]
 });

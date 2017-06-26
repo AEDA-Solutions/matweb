@@ -130,7 +130,7 @@
 <!-- Formulario para selecionar o campus a editar -->            
             <section  ng-if='selecionado'>
                 <div class="inner">
-                    <form role="form" ng-submit="Cadastrar()">
+                    <form role="form">
                         <fieldset>
                             <div>
                                 <div class="table-responsive">
@@ -163,12 +163,13 @@
                                             <tr>
                                                 <td></td>
                                                 <td>
-                                                    <input type="submit" value="Cadastrar">
+                                                    <input type="submit" value="Alterar" ng-click=AlterDpto() />
+                                                    <input type="submit" value="Apagar" ng-click=DelDpto() />
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div><b>{{logCadastrar}}</b>
+                                </div><b>{{logEditar}}</b>
                             </div>                
                         </fieldset>
                     </form>

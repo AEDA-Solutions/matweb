@@ -113,6 +113,7 @@ component('gerenciarDisciplina', {
             ctrl.departamento = departamento;
             if ($scope.gravando == true) {
                 $scope.listando = false;
+                $scope.selecionado = true;
             } else {
                 ctrl.inicializa();
                 $scope.selecteddisciplinas = true;

@@ -69,7 +69,7 @@ angular.
 }). 
 component('gerenciarDisciplina', {
     templateUrl: '/app/Oferta/disciplina.adm.template.html',
-    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiDisciplinaCadastrar','MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiDisciplinaCadastrar,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiDisciplinaCadastrar','ApiDisciplinaEditar','ApiDisciplinaDeletar', 'MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiDisciplinaCadastrar,ApiDisciplinaEditar,ApiDisciplinaDeletar,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;
         ctrl.disciplina = [];
@@ -157,5 +157,22 @@ component('gerenciarDisciplina', {
             $scope.selecionado = true;
         }
         
+        $scope.AlterDisciplina = function() {
+            ApiDisciplinaEditar.Editar({'id':ctrl.disciplina.id, 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo}, function(resultado) {
+                $scope.logEditar = "Disciplina Alterada com Sucesso";
+                ctrl.disciplina = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
+        
+        $scope.DelDisciplina = function() {
+            ApiDisciplinaDeletar.Deletar({'id':ctrl.disciplina.id}, function(resultado) {
+                $scope.logEditar = "Disciplina Apagada com Sucesso";
+                ctrl.disciplina = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
     }]
 });

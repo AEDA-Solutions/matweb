@@ -65,7 +65,7 @@ component('gerenciarDepartamento', {
             ctrl.campus = resultado.corpo;      
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
-            })
+            });
         };
         
         $scope.OpcaoListar = function(){
@@ -87,8 +87,8 @@ component('gerenciarDepartamento', {
         $scope.Gravar = function() {
             ctrl.inicializa();
             $scope.gravando = true;
-            ApiDepartamentoPCampus.Listar({id_campus: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 }, function(resultado) {
-                ctrl.departamentos = resultado.corpo;
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;      
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
             });

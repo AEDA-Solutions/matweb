@@ -89,6 +89,52 @@
                                     <table class = "table table-bordered table-striped table-hover">
                                         <tbody>
                                             <tr>
+                                                <td>
+                                                    <input type="text" ng-model="$ctrl.departamento.nome" class="form-control" required />
+                                                </td>
+                                            </tr>    
+                                            <tr>
+                                                <td>
+                                                    <input type="text"  class="form-control" ng-model="$ctrl.departamento.codigo" maxlength=4/>
+                                                </td>
+                                            <tr>
+                                                <td>
+                                                    <input type="text"   class="form-control" ng-model="$ctrl.departamento.sigla"  maxlength=4/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select ng-repeat="campus in ctrl.campus" placeholder="Escolha o Perfil" name="perfil" required="" id="perfil" ng-model="$ctrl.departamento.id_campus">
+                                                        <option disabled selected value>--Escolha um Campus--</option>
+                                                        <option value={{campus.id}}>{{campus.nome}}</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <input type="submit" value="Cadastrar">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><b>{{logCadastrar}}</b>
+                            </div>                
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+
+<!-- Formulario para selecionar o campus a editar -->            
+            <section  ng-if='selecionado'>
+                <div class="inner">
+                    <form role="form" ng-submit="Cadastrar()">
+                        <fieldset>
+                            <div>
+                                <div class="table-responsive">
+                                    <table class = "table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
                                                 <td  bgcolor='#A4A4A4'><b>Nome</b></td>
                                                 <td>
                                                     <input type="text" ng-model="$ctrl.departamento.nome" class="form-control" required />
@@ -127,11 +173,6 @@
                         </fieldset>
                     </form>
                 </div>
-            </section>
-
-<!-- Formulario para selecionar o campus a editar -->            
-            <section  ng-if='selecionado'>
-                <usuario-editar></usuario-editar>
             </section>
 
             

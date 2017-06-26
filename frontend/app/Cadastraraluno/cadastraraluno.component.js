@@ -35,6 +35,7 @@ angular.
       $scope.Alterar = function() {
           ctrl.setformulario(ctrl.usuario);
           ApiUsuarioEditar.Editar(ctrl.formulario, function(resultado) {
+              ctrl.usuario = [];
               $scope.logEditar = 'Usuário Alterado Com Sucesso';
           }, function(erro) {
               $scope.logEditar = erro.data.mensagem;
@@ -44,6 +45,7 @@ angular.
         
       $scope.Apagar = function() {
           ApiUsuarioDeletar.Deletar({ 'id': ctrl.usuario.id }, function(resultado) {
+              ctrl.usuario = [];
               $scope.logEditar = resultado.corpo;
           }, function(erro) {
               $scope.logEditar = erro.data.mensagem;

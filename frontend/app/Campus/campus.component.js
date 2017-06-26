@@ -91,6 +91,7 @@ angular.
         $scope.Update = function() {
             ApiCampusEditar.Editar({ nome: ctrl.campus.nome, id: ctrl.campus.id},function(resultado) {
                 $scope.logEdicao = 'Alteração Realizada com Sucesso';
+                ctrl.campus = [];
             }, function(erro) {
                 $scope.logEdicao = erro.data.mensagem;
             });
@@ -99,6 +100,7 @@ angular.
         $scope.Deletar = function() {
             ApiCampusDeletar.Deletar({ id: ctrl.campus.id },function(resultado) {
                 $scope.logEdicao = 'Exclusão Realizada com Sucesso';
+                ctrl.campus = [];
             }, function(erro) {
                 $scope.logEdicao = erro.data.mensagem; 
             });

@@ -70,7 +70,6 @@
                                         <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
                                             <td> {{departamento.sigla}} </td>
                                             <td> {{departamento.nome}} </td>
-                                            <td>{{departamento.id}} </td>
                                             <td>
                                                 <input type="submit" value="Selecionar" ng-click=SelectDpto(departamento) />
                                             </td>

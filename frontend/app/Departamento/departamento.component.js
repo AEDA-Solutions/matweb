@@ -46,9 +46,10 @@ angular.
 }). 
 component('gerenciarDepartamento', {
     templateUrl: '/app/Departamento/departamento.adm.template.html',
-    controller: ['ApiDepartamentoGerenciar', 'MatWebGlobals', '$routeParams', '$scope', function Gerenciar(ApiDepartamentoGerenciar,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiDepartamentoGerenciar','ApiCampus','ApiDepartamentoPCampus','MatWebGlobals', '$routeParams', '$scope', function Gerenciar(ApiDepartamentoGerenciar,ApiCampus,ApiDepartamentoPCampus,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         var ctrl = this;
+        ctrl.campus = [];
         
         ctrl.inicializa = function() {
             $scope.opcaolistar = false;
@@ -58,9 +59,28 @@ component('gerenciarDepartamento', {
             $scope.editando = false;
         }
         
+        ctrl.listarcampus = function() {
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;      
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            })
+        };
+        
         $scope.OpcaoListar = function(){
             ctrl.inicializa();
             $scope.opcaolistar = true;
+            ctrl.listarcampus();
+        };
+        
+        $scope.listdptos = function(id) {
+            $scope.opcaolistar = false;
+            $scope.listando = true;
+            ApiDepartamentoPCampus.Listar({id_campus: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 }, function(resultado) {
+                ctrl.departamentos = resultado.corpo;
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            })
         };
         
     }]

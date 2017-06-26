@@ -24,39 +24,51 @@
 
 <!-- Escolha da opcao Listar -->             
             <section  ng-if='opcaolistar'>
-                <listar-campus></listar-campus>
-                cheguei aqui
+                <div>
+                    <div>
+                        <div class="table-responsive">
+                            <table class = "table table-bordered table-striped table-hover">
+                                <tbody>
+                                    <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
+                                        <td> {{campus.id}} </td>
+                                        <td><b>{{campus.nome}}</b></td>
+                                        <td>
+                                            <input type="submit" value="Selecionar" ng-click=listdptos(campus.id)>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </section>
             
 <!-- Resultado do comando de Listar -->            
             <section  ng-if='listando'>
-            <div>
                 <div>
-                    <div class="table-responsive">
-                        <table class = "table table-bordered table-striped table-hover">
-                            <tbody>
-                                <tr >
-                                    <td bgcolor='#A4A4A4' ><b>ID</b></td>
-                                    <td bgcolor='#A4A4A4'><b>Matrícula</b></td>
-                                    <td bgcolor='#A4A4A4'><b>Nome</b></td>
-                                    <td bgcolor='#A4A4A4'><b>CPF</b></td>
-                                    <th colspan="2" bgcolor='#A4A4A4'><b>Perfil</b></th>
-                                </tr>
-                                <tr ng-repeat="usuario in $ctrl.usuarios">
-                                    <td> {{usuario.id}} </td>
-                                    <td> {{usuario.matricula}} </td>
-                                    <td><b>{{usuario.nome}}</b> </td>
-                                    <td> {{usuario.cpf}} </td>
-                                    <td> {{usuario.perfil}} </td>
-                                    <td ng-if='editando'>
-                                        <input type="submit" value="Selecionar" ng-click=Selecionar(usuario) />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div>
+                            <div class="table-responsive">
+                                <table class = "table table-bordered table-hover">
+                                    <tbody>
+                                        <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
+                                            <td> {{departamento.sigla}} </td>
+                                            <td> {{departamento.nome}} </td>
+                                            <td><a ng-href="/Oferta/{{departamento.id}}">Oferta</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </div><b>{{logListar}}</b>
-            </div>
+                </div>
             </section>
             
 <!-- Formulario para cadastrar -->

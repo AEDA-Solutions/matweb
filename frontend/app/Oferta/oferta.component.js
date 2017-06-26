@@ -116,6 +116,7 @@ component('gerenciarDisciplina', {
                 $scope.selecionado = true;
             } else if ($scope.editando == true ){
                 $scope.selecteddisciplinas = true;
+                $scope.listando = false;
             } else {
                 ctrl.inicializa();
                 $scope.selecteddisciplinas = true;

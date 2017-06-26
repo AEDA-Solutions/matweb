@@ -95,7 +95,8 @@ component('gerenciarDepartamento', {
         };
         
         $scope.Cadastrar = function() {
-            ApiDepartamentoCadastrar.Cadastrar({id_campus: ctrl.departamento.id_campus, nome: ctrl.departamento.nome, codigo: ctrl.departamento.codigo, sigla: ctrl.departamento.sigla}, function(resultado) {
+            console.log(ctrl.departamento);
+            ApiDepartamentoCadastrar.Cadastrar({ 'nome': ctrl.departamento.nome, 'codigo': ctrl.departamento.codigo, 'sigla': ctrl.departamento.sigla, 'id_campus': ctrl.departamento.id_campus}, function(resultado) {
                 ctrl.departamento = resultado.corpo;
                 $scope.logCadastrar = "Departamento Cadastrado com Sucesso";
             }, function(erro) {

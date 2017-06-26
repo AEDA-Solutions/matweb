@@ -20,4 +20,11 @@ angular.
           Gerenciar: { method: 'POST'},
         });
     }                                                                      
+  ]). 
+  factory('ApiDepartamentoCadastrar', ['$resource',
+    function($resource) {
+        return $resource('/api/Departamento/Cadastrar', {}, {
+          Cadastrar: { method: 'POST'},
+        });
+    }                                                                      
   ]);

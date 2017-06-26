@@ -46,10 +46,11 @@ angular.
 }). 
 component('gerenciarDepartamento', {
     templateUrl: '/app/Departamento/departamento.adm.template.html',
-    controller: ['ApiDepartamentoGerenciar','ApiCampus','ApiDepartamentoPCampus','MatWebGlobals', '$routeParams', '$scope', function Gerenciar(ApiDepartamentoGerenciar,ApiCampus,ApiDepartamentoPCampus,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiDepartamentoGerenciar','ApiCampus','ApiDepartamentoPCampus', 'ApiDepartamentoCadastrar', 'MatWebGlobals', '$routeParams', '$scope', function Gerenciar(ApiDepartamentoGerenciar,ApiCampus,ApiDepartamentoPCampus,ApiDepartamentoCadastrar,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         var ctrl = this;
         ctrl.campus = [];
+        ctrl.departamento = [];
         
         ctrl.inicializa = function() {
             $scope.opcaolistar = false;
@@ -80,7 +81,26 @@ component('gerenciarDepartamento', {
                 ctrl.departamentos = resultado.corpo;
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
-            })
+            });
+        };
+        
+        $scope.Gravar = function() {
+            ctrl.inicializa();
+            $scope.gravando = true;
+            ApiDepartamentoPCampus.Listar({id_campus: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 }, function(resultado) {
+                ctrl.departamentos = resultado.corpo;
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            });
+        };
+        
+        $scope.Cadastrar = function() {
+            ApiDepartamentoCadastrar.Cadastrar({id_campus: ctrl.departamento.id_campus, nome: ctrl.departamento.nome, codigo: ctrl.departamento.codigo, sigla: ctrl.departamento.sigla}, function(resultado) {
+                ctrl.departamento = resultado.corpo;
+                $scope.logCadastrar = "Departamento Cadastrado com Sucesso";
+            }, function(erro) {
+                $scope.logCadastrar = error.data.mensagem;
+            });
         };
         
     }]

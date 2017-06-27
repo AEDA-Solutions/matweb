@@ -1,7 +1,7 @@
 angular.
   module('Departamento').
   component('listarDepartamento', {
-    templateUrl: '/app/Departamento/departamentoPcampus.template.html',
+    templateUrl: '/app/Departamento/departamento.template.html',
     controller: ['ApiDepartamento', 'MatWebGlobals',function Entrar(ApiDepartamento,MatWebGlobals) {
       this.nome_departamento = "";
 	var ctrl = this;

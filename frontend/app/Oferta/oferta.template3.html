@@ -23,15 +23,13 @@
         </div>
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
-         <thead  ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
-            <b>Turmas</b>
+            <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
+                            <b>Turmas</b>
                 <tr>
                     <th rowspan="2">Turma {{turma.letra}} </th>
                     <th rowspan="2">Turno: {{turma.turno}} </th>
                     <th rowspan="2">Professor: {{turma.professor}}</th>
                 </tr>
-         </thead>
-            <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                 <tr>
                     <th>Vagas:</th>
                     <td>Total: {{turma.vagas}} </td>

@@ -45,6 +45,7 @@ class Usuario(Controller):
 		usuario.setNome_mae(pedido.getNome_mae())
 		usuario.setAno_conclusao(pedido.getAno_conclusao())
 		usuario.setIdentidade(pedido.getIdentidade())
+		usuario.setId_curso(pedido.getIdentidade())
 		usuario.setSenhaHashed(bcrypt.hashpw(pedido.getSenha().encode('utf-8'), bcrypt.gensalt()))
 		return usuario
 	

@@ -1,7 +1,7 @@
 angular.
 	module('CampusNav').
 	component('listarCampusnav',{
-    templateUrl: '/mw/navigation/Campus/campus_nav.template.html',
+    templateUrl: '/mw/navigation/Campus/campusnav.template.html',
     controller: ['ApiCampusNav', '$uibModal' ,'MatWebGlobals', function Listar(ApiCampusNav,$uibModal,MatWebGlobals) {
         var ctrl = this;
         ctrl.campus = [];

@@ -1,5 +1,5 @@
-from Database.Controllers.Grau import Grau
-from Database.Controllers.Campus import Campus
+from Database.Controllers.Usuario import Usuario
+from Database.Controllers.Disciplina import Disciplina
 
 class Curso(object):
 

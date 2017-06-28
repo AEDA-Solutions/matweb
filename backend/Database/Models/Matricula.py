@@ -9,8 +9,8 @@ class Curso(object):
 			self.nome = dados ['nome']
 			self.id_usuario = dados ['id_usuario']
 			self.id_disciplina = dados ['id_disciplina']
-		  self.ano = dados ['ano']
-      self.periodo = dados ['periodo']
+		        self.ano = dados ['ano']
+                        self.periodo = dados ['periodo']
 			
 	def getId(self):
 		return self.id

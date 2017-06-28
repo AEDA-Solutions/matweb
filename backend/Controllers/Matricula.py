@@ -1,5 +1,5 @@
 from Framework.Controller import Controller
-from Database.Controllers.Matricula import Curso as BDMatricula
+from Database.Controllers.Matricula import Matricula as BDMatricula
 from Models.Matricula.RespostaListar import RespostaListar
 from Models.Matricula.RespostaCadastrar import RespostaCadastrar
 from Models.Matricula.RespostaEditar import RespostaEditar

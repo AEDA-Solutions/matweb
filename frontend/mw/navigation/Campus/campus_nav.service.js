@@ -6,4 +6,4 @@ angular.
         Listar: { method: 'POST' },
       });
     }
-  ])
+  ]);

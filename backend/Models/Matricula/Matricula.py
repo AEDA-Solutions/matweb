@@ -4,5 +4,5 @@ class Matricula(object):
 		self.nome = matricula.getNome()
 		self.id_disciplina = matricula.getId_disciplina()
 		self.id_usuario = matricula.getId_usuario()
-    self.periodo = matricula.getPeriodo()
-    self.ano = matricula.getAno()
+                self.periodo = matricula.getPeriodo()
+                self.ano = matricula.getAno()

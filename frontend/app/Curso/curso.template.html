@@ -23,9 +23,9 @@
                                 <table class = "table table-bordered table-striped table-hover">
                                     <tbody>
                                         <tr ng-repeat="curso in $ctrl.cursos | filter: $ctrl.nome_curso">
-                                            <td> {{campus.codigo}} </td>
-                                            <td><a ng-href="#detalhe">{{campus.nome}}</a> </td>
-                                            <td>{{campus.turno}} </td>
+                                            <td> {{curso.codigo}} </td>
+                                            <td><a ng-href="#detalhe">{{curso.nome}}</a> </td>
+                                            <td>{{curso.turno}} </td>
                                         </tr>
                                     </tbody>
                                 </table>

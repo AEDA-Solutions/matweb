@@ -19,7 +19,7 @@ class Periodo(object):
 		return self.Id_curso
 		
 	def getCurso(self):
-		return (Curso().pegarCurso('where id = %s', (self.id_curso,)).getNome()
+		return (Curso().pegarCurso('where id = %s', (self.id_curso,))).getNome()
 	
 	def setPeriodo(self,periodo):
 		self.periodo = periodo

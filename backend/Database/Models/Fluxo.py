@@ -2,22 +2,22 @@ class Fluxo(object):
 
 	def __init__(self,dados=None):
 		if dados is not None:
-			self.periodo = dados ['periodo']
-			self.creditos_periodo = dados ['creditos_periodo']
+			self.id_periodo = dados ['id_periodo']
+			self.id_disciplina = dados ['id_disciplina']
 			self.nome_disciplina = dados ['nome_disciplina']
 			self.creditos_disciplina = dados ['creditos_disciplina']
 	
-	def setPeriodo(self,periodo):
-		self.periodo = periodo
+	def setId_periodo(self,id_periodo):
+		self.id_periodo = id_periodo
 		
-	def getPeriodo(self):
-		return self.periodo
+	def getId_periodo(self):
+		return self.id_periodo
 		
-	def setCreditos_periodo(self,creditos_periodo):
-		self.creditos_periodo = creditos_periodo
+	def setId_disciplina(self,id_disciplina):
+		self.id_disciplina = id_disciplina
 		
-	def getCreditos_periodo(self):
-		return self.creditos_periodo
+	def getId_disciplina(self):
+		return self.id_disciplina
 		
 	def setNome_disciplina(self,nome_disciplina):
 		self.nome_disciplina = nome_disciplina

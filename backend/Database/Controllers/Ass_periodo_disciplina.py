@@ -28,6 +28,6 @@ class Ass_periodo_disciplina(object):
 		
 	def pegarResumoAss(self, condicao, valores):
 		associacoes = []
-		for associacao in BancoDeDados().consultarMultiplos("select periodo.periodo, periodo.creditos as creditos_periodo, (select nome from disciplina where id=ass_periodo_disciplina.id_disciplina) as nome_disciplina, (select creditos from disciplina where id=ass_periodo_disciplina.id_disciplina) as creditos_disciplina from periodo inner join ass_periodo_disciplina on ass_periodo_disciplina.id_periodo=periodo.id %s" % (condicao),(valores)):
+		for associacao in BancoDeDados().consultarMultiplos("select periodo.id as id_periodo, (select nome from disciplina where id=ass_periodo_disciplina.id_disciplina) as nome_disciplina, ass_periodo_disciplina.id_disciplina, (select creditos from disciplina where id=ass_periodo_disciplina.id_disciplina) as creditos_disciplina from periodo inner join ass_periodo_disciplina on ass_periodo_disciplina.id_periodo=periodo.id %s" % (condicao),(valores)):
 			associacoes.append(Fluxo(associacao))
 		return associacoes

@@ -1,24 +1,39 @@
 <menu-principal></menu-principal>
 <div id="content">
-                <div class="inner">
+    <div class="inner">
 
-                        <article class="box post post-excerpt">
-                            <header>
-                                <h2><p>Selecione seu Campus do Curso.</p></h2>
-                            </header>
-<div>
-    <div>
-        <div class="table-responsive">
-            <table class = "table table-bordered table-striped table-hover">
-                <tbody>
-                        <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
-                        <td> {{campus.id}} </td>
-                        <td><a ng-href="/Departamento/{{campus.id}}">{{campus.nome}}</a> </td>
-                        </tr>
-                </tbody>
-            </table>
+            <article class="box post post-excerpt">
+                <header>
+                    <h2><p>Cursos do Campus {{$ctrl.campus_nome}}.</p></h2>
+                </header>
+        </article>
+        <div>
+            <div>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Nome do Curso" ng-model="$ctrl.nome_curso" type="text" autofocus>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <div>
+                        <div>
+                            <div class="table-responsive">
+                                <table class = "table table-bordered table-striped table-hover">
+                                    <tbody>
+                                        <tr ng-repeat="curso in $ctrl.cursos | filter: $ctrl.nome_curso">
+                                            <td> {{campus.codigo}} </td>
+                                            <td><a ng-href="#detalhe">{{campus.nome}}</a> </td>
+                                            <td>{{campus.turno}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-                </div>
-            </div>

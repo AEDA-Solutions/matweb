@@ -25,9 +25,9 @@ angular.
         var ctrl = this;
         this.listar = function()
         {
-            ApiDepartamentoPCampus.Listar(this.formulario,function(resultado) {
-                ctrl.departamentos = resultado.corpo;
-                MatWebGlobals.departamentos = resultado.corpo;
+            ApiCursoPCampus.Listar(this.formulario,function(resultado) {
+                ctrl.cursos = resultado.corpo;
+                MatWebGlobals.cursos = resultado.corpo;
                 for(var i = 0, campi = null; i < MatWebGlobals.campus.length; i++) {
                     if (MatWebGlobals.campus[i].id == $routeParams.Id_campus) {
                         campi = MatWebGlobals.campus[i];
@@ -40,7 +40,7 @@ angular.
                 ctrl.error = error.data.mensagem;
             });
         }
-        //this.listar();
+        this.listar();
     }]
 }).
     component('gerenciarCurso', {

@@ -82,14 +82,17 @@ angular.
             } );
         };
         
-        ctrl.FluxoListar = function(id_periodo) {
+       ctrl.FluxoListar = function(id_periodo) {
             console.log(id_periodo);
             ApiFluxoListar.Listar({ id_periodo: id_periodo, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.fluxo = resultado.corpo;
+                console.log(ctrl.fluxo);
+                return ctrl.fluxo;
             }, function(erro){
                 ctrl.erro = erro.data.mensagem
             } );    
         };
+        
         $scope.Curriculo = function(id_curso) {
             ctrl.botaoCurriculo();
         };

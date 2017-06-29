@@ -7,5 +7,4 @@ from Models.Fluxo.RespostaListar import RespostaListar
 class Fluxo(Controller):
 
 	def Listar(self,pedido_listar):
-		return RespostaListar(BDAssociacao().pegarResumoAss("WHERE id_curso = %s",(pedido_listar.getId_curso(),),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))
-
+		return RespostaListar(BDAssociacao().pegarResumoAss("WHERE id_curso = %s" % (pedido_listar.getId_curso(),),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))

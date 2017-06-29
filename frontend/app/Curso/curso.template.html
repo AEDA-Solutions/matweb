@@ -104,7 +104,7 @@
                                             <td><b>Período: </b>{{periodo.periodo}}</td>
                                             <td><b>Créditos: </b>{{periodo.creditos}}</td>
                                             <table class = "table table-bordered table-striped table-hover">
-                                                <tbody ng-init="$ctrl.FluxoListar(periodo.id)" >
+                                                <tbody ng-init="$ctrl.FluxoListar({{periodo.id}})" >
                                                     <tr ng-repeat="fluxo in $ctrl.fluxo">
                                                         <td>{{fluxo.nome_disciplina}}</td>
                                                         <td>{{fluxo.creditos_disciplna}}</td>

@@ -19,6 +19,7 @@ class Curso(object):
 			self.mec = dados ['mec']
 			self.credito_periodo_minimo = dados['credito_periodo_minimo']
 			self.credito_periodo_maximo = dados['credito_periodo_maximo']
+			self.turno = dados['turno']
 			
 	def getId(self):
 		return self.id
@@ -106,3 +107,9 @@ class Curso(object):
 		
 	def getCredito_periodo_maximo(self):
 		return self.credito_periodo_maximo
+	
+	def setTurno(self,turno):
+		self.turno = turno
+		
+	def getTurno(self):
+		return self.turno

@@ -12,6 +12,7 @@ class Curso(object):
 		self.creditos_optativos_conexa = curso.getCreditos_optativos_conexa()
 		self.creditos_livres_maximo = curso.getCreditos_livres_maximo()
 		self.mec = curso.getMec()
+		self.turno = curso.getTurno()
 		self.credito_periodo_minimo = curso.getCredito_periodo_minimo()
 		self.credito_periodo_maximo = curso.getCredito_periodo_maximo()
 

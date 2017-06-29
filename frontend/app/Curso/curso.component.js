@@ -2,11 +2,20 @@ angular.
   module('Curso').
   component('listarCurso', {
     templateUrl: '/app/Campus/campus.template.html',
-    controller: ['ApiCurso', 'MatWebGlobals','$scope',function (ApiCurso,MatWebGlobals,$scope) {
+    controller: ['ApiCurso','ApiCampus','MatWebGlobals','$scope',function (ApiCurso,ApiCampus,MatWebGlobals,$scope) {
         $scope.listcurso = true;
         this.nome_curso = "";
         var ctrl = this;
-        ctrl.cursos = [];
+        ctrl.campus = [];
+        
+        ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;
+            MatWebGlobals.campus = resultado.corpo;
+        }, function(erro){
+            ctrl.erro = erro.data.mensagem
+            console.log(ctrl.erro)
+        } );
+        
       this.pesquisar = function()
       {
        	ApiCurso.Listar({id_campus: 1, id_grau: 1, nome: ctrl.nome_curso, pagina: 0, quantidade: 1000 },function(resultado) {

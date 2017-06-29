@@ -1,7 +1,7 @@
 angular.
   module('Matricular').
-  component('registrarDepartamento', {
-    templateUrl: '/app/Cadastrar/matricula.template.html',
+  component('usuarioMatricular', {
+    templateUrl: '/app/Matricula/matricula.template.html',
     controller: ['ApiTest','$http','$location', 'MatWebGlobals',function(ApiTest,$http,$location,MatWebGlobals) {
       var ctrl = this;
       this.formulario = {'nome':'','id_campus':'','sigla':'','codigo':'0'};

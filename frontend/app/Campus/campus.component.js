@@ -18,7 +18,7 @@ angular.
   }).
 
   component('testCampus', {
-    templateUrl: '/mw/menu-nav-principal.html',
+    templateUrl: '/app/Campus/test.template.html',
     controller: ['ApiCampus', 'MatWebGlobals','$scope',function Entrar(ApiCampus,MatWebGlobals,$scope) {
         this.nome_campus = "";
         var ctrl = this;

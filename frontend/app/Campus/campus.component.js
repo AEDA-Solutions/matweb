@@ -1,8 +1,7 @@
 angular.
   module('Campus').
   component('listarCampus', {
-    templateUrl: '/app/Campus/campus.template.html'
-                 '/mw/menu-nav-principal.html', 
+    templateUrl: '/app/Campus/campus.template.html', 
     controller: ['ApiCampus', 'MatWebGlobals','$scope',function Entrar(ApiCampus,MatWebGlobals,$scope) {
         this.nome_campus = "";
         var ctrl = this;

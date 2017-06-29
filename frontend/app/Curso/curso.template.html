@@ -85,8 +85,8 @@
                                     </tbody>
                                 </table>
                                 <div>
-                                    <input type="submit" value="Fluxo" ng-click=Fluxo() />                                    
-                                    <input type="submit" value="Curriculo" ng-click=Curriculo() />    
+                                    <input type="submit" value="Fluxo" ng-click=Fluxo($ctrl.curso.id) />                                    
+                                    <input type="submit" value="Curriculo" ng-click=Curriculo($ctrl.curso.id) />    
                                 </div>
                             </div>
                             <div class="table-responsive" ng-if='tabelaFluxo'>

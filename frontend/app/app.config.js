@@ -79,7 +79,7 @@ angular.
       $routeProvider.when('/Departamento/:Id_campus', {
           template: '<listar-departpcampus></listar-departpcampus>'
         })
-      $routeProvider.when('/Departamento/Test/:Id_campus', {
+      $routeProvider.when('/Campus/Departamento/:Id_campus', {
           template: '<test-departpcampus></test-departpcampus>'
         })
       $routeProvider.when('/Depart/Gerenciar', {

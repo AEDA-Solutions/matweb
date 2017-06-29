@@ -18,7 +18,7 @@ angular.
 
       	 		$uibModal.open({
       			animation: 'true',
-      			component: 'Campusmodalnav',
+      			component: '',
       			size: 'sm',
       			});
 			}

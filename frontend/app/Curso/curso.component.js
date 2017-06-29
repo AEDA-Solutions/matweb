@@ -52,14 +52,14 @@ angular.
             ctrl.curso = curso;
         };
         
-        this.botaoFluxo =  function() {
+        ctrl.botaoFluxo =  function() {
             if ($scope.tabelaCurriculo == true ) {
                 $scope.tabelaCurriculo = false;
             };
             $scope.tabelaFluxo = !$scope.tabelaFluxo;
         };
         
-        this.botaoCurriculo =  function() {
+        ctrl.botaoCurriculo =  function() {
             if ($scope.tabelaFluxo == true ) {
                 $scope.tabelaFluxo = false;
             };
@@ -67,11 +67,11 @@ angular.
         }; 
         
         $scope.Fluxo = function() {
-            this.botaoFluxo();
+            ctrl.botaoFluxo();
         };
         
         $scope.Curriculo = function() {
-            this.botaoCurriculo();
+            ctrl.botaoCurriculo();
         };
     }]
 }).

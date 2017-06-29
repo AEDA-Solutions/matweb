@@ -176,6 +176,10 @@ header .container-fluid
     color: #FFFFFF;
 }
 
+.corteIframe {
+	position: absolute;
+	clip: rect(40px,424px,750px,55px); 
+	width: 424px; /* pode colocar o mesmo valor do segundo parâmetro */
 }
 /*------------------------------------*\
 	FOOTER

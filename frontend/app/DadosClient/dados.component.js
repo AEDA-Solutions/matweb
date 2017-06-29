@@ -3,16 +3,15 @@ angular.
   component('usuarioDados', {
     templateUrl: '/app/DadosClient/dados.template.html',
     controller: ['ApiDados', 'MatWebGlobals', '$scope', '$location', function Entrar(ApiDados,MatWebGlobals,$scope,$location) {
-        if (MatWebGlobals.hasOwnProperty('usuarioLogado')) {
+        if ( window.sessionStorage.hasOwnProperty('token_de_acesso') && window.sessionStorage.getItem('token_de_acesso') != '') {
             $scope.nomeUsuario = MatWebGlobals.usuarioLogado.nome;
             $scope.cpfUsuario = MatWebGlobals.usuarioLogado.cpf;
             $scope.perfilUsuario = MatWebGlobals.usuarioLogado.perfil;
             $scope.matriculaUsuario = MatWebGlobals.usuarioLogado.matricula;
-
+            console.log($scope.perfilUsuario);
         } else {
-            $location.path('/Usuario/Entrar');
+            $location.path('/');
         }
-        
   var ctrl = this;
   ctrl.usuarios = [];
         this.pesquisar = function()

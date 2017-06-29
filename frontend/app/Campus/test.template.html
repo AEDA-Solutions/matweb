@@ -1,0 +1,21 @@
+<div id="content">
+                <div class="inner">
+
+                        <article class="box post post-excerpt">
+<div>
+    <div>
+        <div class="table-responsive">
+            <table class = "table table-bordered table-striped table-hover">
+                <tbody>
+                        <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
+                        <td> {{campus.id}} </td>
+                        <td ng-if="listcurso==false"><a ng-href="/Departamento/{{campus.id}}">{{campus.nome}}</a> </td>
+                        <td ng-if="listcurso"><a ng-href="/Curso/Listar/{{campus.id}}" >{{campus.nome}}</a></td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>

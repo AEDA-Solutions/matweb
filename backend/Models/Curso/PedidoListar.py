@@ -7,7 +7,7 @@ class PedidoListar(Pedido):
 		super(PedidoListar, self).__init__(variaveis_do_ambiente)
 		try:
 			self.nome = self.corpo['nome']
-	      self.id_campus = self.corpo['id_campus']
+			self.id_campus = self.corpo['id_campus']
 			self.pagina = self.corpo['pagina']
 			self.quantidade = self.corpo['quantidade']
 		except:
@@ -20,9 +20,9 @@ class PedidoListar(Pedido):
 		return self.id_campus
 	
 	def getPagina(self):
-	   return self.pagina
+		return self.pagina
 	
-   def getQuantidade(self):
+	def getQuantidade(self):
 		return self.quantidade
 
 	

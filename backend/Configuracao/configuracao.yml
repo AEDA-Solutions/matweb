@@ -1,0 +1,2 @@
+BancoDeDados:
+        StringDeConexao: "host='localhost' dbname='matweb' user='postgres' password='postgres'"

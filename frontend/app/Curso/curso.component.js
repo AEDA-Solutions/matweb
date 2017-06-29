@@ -19,7 +19,7 @@ angular.
   }).
    component('cursoPcampus', {
     templateUrl: '/app/Curso/curso.template.html',
-    controller: ['ApiCursoPCampus', 'MatWebGlobals','ApiFluxoListar','$routeParams','$scope', function            Listar(ApiCursoPCampus,MatWebGlobals,ApiFluxoListar,$routeParams,$scope) {
+    controller: ['ApiCursoPCampus', 'MatWebGlobals','ApiFluxoListar','ApiPeriodosListar','$routeParams','$scope', function            Listar(ApiCursoPCampus,MatWebGlobals,ApiFluxoListar,ApiPeriodosListar,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         var ctrl = this;
         this.listar = function()
@@ -77,6 +77,17 @@ angular.
             } );
         };
         
+        ctrl.PeriodosListar = function {
+            ctrl.periodos = [];
+            ApiPeriodosListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
+                ctrl.periodos = resultado.corpo;
+                console.log(ctrl.periodos);
+            }, function(erro){
+                ctrl.erro = erro.data.mensagem
+                console.log(ctrl.erro)
+            } );
+            
+        }
         $scope.Curriculo = function(id_curso) {
             ctrl.botaoCurriculo();
         };

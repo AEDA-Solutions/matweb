@@ -43,6 +43,13 @@ factory('ApiCursoDeletar', ['$resource',
         });
     }                                                                      
   ]). 
+factory('ApiPeriodosListar', ['$resource',
+    function($resource) {
+        return $resource('/api/Periodos/Listar', {}, {
+          Listar: { method: 'POST'},
+        });
+    }                                                                      
+  ]). 
 factory('ApiFluxoListar', ['$resource',
     function($resource) {
         return $resource('/api/Fluxo/Listar', {}, {

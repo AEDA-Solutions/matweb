@@ -45,7 +45,7 @@ factory('ApiCursoDeletar', ['$resource',
   ]). 
 factory('ApiPeriodosListar', ['$resource',
     function($resource) {
-        return $resource('/api/Periodos/Listar', {}, {
+        return $resource('/api/Periodo/Listar', {}, {
           Listar: { method: 'POST'},
         });
     }                                                                      

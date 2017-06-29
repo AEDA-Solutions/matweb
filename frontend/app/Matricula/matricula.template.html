@@ -1,0 +1,20 @@
+<menu-principal><menu-principal>
+
+            <div id="content">
+                <div class="inner">
+ <form role="form" ng-submit="$ctrl.cadastrar()">
+                            <fieldset>
+ <label>Matricular-se em uma disciplina</label>
+            <div>
+                <input type="text" name="formulario.nome" placeholder="Nome" required="" id="nome" class="form-control" ng-model="$ctrl.formulario.nome" required />
+            </div>
+                <input type="submit" value="Adicionar" />
+                <a href="#">Cancelar</a>
+            </div>
+        </form>        
+        <h2>{{$ctrl.mensagem}}</h2>
+
+                            </fieldset>
+                        </form>
+                </div>
+            </div>

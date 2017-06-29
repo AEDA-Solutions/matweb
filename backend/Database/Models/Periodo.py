@@ -25,7 +25,7 @@ class Periodo(object):
 		self.periodo = periodo
 		
 	def getPeriodo(self):
-		return periodo
+		return self.periodo
 		
 	def setCreditos(self,creditos):
 		self.creditos = creditos

@@ -47,7 +47,7 @@ angular.
           template: '<oferta-discpdepart></oferta-discpdepart>'
         })
       $routeProvider.when('/Test/Oferta/:Id_departamento', {
-          template: '<oferta-discpdepart></oferta-discpdepart>'
+          template: '<oferta-sexo></oferta-sexo>'
         })
       $routeProvider.when('/Oferta/Detalhar/:Id_disciplina', {
           template: '<oferta-detalhar></oferta-detalhar>'

@@ -42,7 +42,7 @@ angular.
         this.listar();
     }]
 }).
-  component('testDiscpdepart',{
+  component('testSexo',{
     templateUrl: '/app/Oferta/test.template.html',
     controller: ['ApiOfertaPDepart', 'MatWebGlobals', '$routeParams', function Listar(ApiOfertaPDepart,MatWebGlobals,$routeParams) {
         this.formulario = {'id_departamento': $routeParams.Id_departamento , 'nome': '', 'pagina': 0, 'quantidade': 1000 };

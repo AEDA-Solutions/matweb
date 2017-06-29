@@ -68,26 +68,26 @@ angular.
         
         $scope.Fluxo = function(id_curso) {
             ctrl.botaoFluxo();
-            ApiFluxoListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
-                ctrl.fluxo = resultado.corpo;
-                console.log(ctrl.fluxo);
-            }, function(erro){
-                ctrl.erro = erro.data.mensagem
-                console.log(ctrl.erro)
-            } );
+            ctrl.PeriodosListar(id_curso);
+                
         };
         
         ctrl.PeriodosListar = function(id_curso) {
             ctrl.periodos = [];
             ApiPeriodosListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.periodos = resultado.corpo;
-                console.log(ctrl.periodos);
             }, function(erro){
                 ctrl.erro = erro.data.mensagem
-                console.log(ctrl.erro)
             } );
-            
-        }
+        };
+        
+        ctrl.FluxoListar = function(id_periodo) {
+            ApiFluxoListar.Listar({ id_curso: id_periodo, pagina: 0, quantidade: 1000 },function(resultado) {
+                ctrl.fluxo = resultado.corpo;
+            }, function(erro){
+                ctrl.erro = erro.data.mensagem
+            } );    
+        };
         $scope.Curriculo = function(id_curso) {
             ctrl.botaoCurriculo();
         };

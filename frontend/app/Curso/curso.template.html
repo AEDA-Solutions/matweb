@@ -104,13 +104,11 @@
                                             <td><b>Período: </b>{{periodo.periodo}}</td>
                                             <td><b>Créditos: </b>{{periodo.creditos}}</td>
                                             <table class = "table table-bordered table-striped table-hover">
-                                                <tbody>
                                                     {{periodo.id}}
-                                                    <tr ng-repeat="fluxo in $ctrl.fluxos">
-                                                        <td>{{fluxo.nome_disciplina}}</td>
-                                                        <td>{{fluxo.creditos_disciplna}}</td>
-                                                    </tr>
-                                                </tbody>
+                                                <tr ng-repeat="fluxo in $ctrl.fluxos">
+                                                    <td>{{fluxo.nome_disciplina}}</td>
+                                                    <td>{{fluxo.creditos_disciplna}}</td>
+                                                </tr>
                                             </table>
                                         </tr>
                                         <div>Fluxo</div>

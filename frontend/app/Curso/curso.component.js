@@ -76,6 +76,7 @@ angular.
             ctrl.periodos = [];
             ApiPeriodosListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.periodos = resultado.corpo;
+                console.log(ctrl.periodos);
             }, function(erro){
                 ctrl.erro = erro.data.mensagem
             } );

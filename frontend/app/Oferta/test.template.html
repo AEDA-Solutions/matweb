@@ -15,30 +15,12 @@
             </fieldset>
         </form>
     <div>
-    <div id="ModalEntrar" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-lg">
-
-                    <!-- ModalEntrar content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title"><strong>Acessar</strong></h4>
-                        </div>
-                        <div class="modal-body">
-                          <section id="content">
-                              <iframe src="/Usuario/Entrar" id="framed"></iframe>
-                          </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
             <tbody>
                 <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
                     <td> {{disciplina.nome}} </td>
-                    <td><a data-toggle="modal" data-target="#ModalEntrar">Detalhes</a></td>
+                   <td> <a href="/" onclick="alert('LogIn Necessário')">Detalhes</a></td>
                 </tr>
             </tbody>
     </table>

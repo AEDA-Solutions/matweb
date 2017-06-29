@@ -14,7 +14,7 @@ class Curso(object):
 		return ModelCurso(BancoDeDados().consultarUnico("SELECT * FROM curso %s" % (condicao), valores))
 	
 	def inserirCurso(self, curso):
-		BancoDeDados().executar("INSERT INTO curso (nome,codigo,id_campus,id_grau,permanencia_minima,permanencia_maxima,creditos_formatura,creditos_optativos_concentracao,creditos_optativos_conexa,creditos_livres_maximo,mec) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id", (curso.nome,curso.codigo,curso.id_campus,curso.id_grau,curso.permanencia_minima,curso.permanencia_maxima,curso.creditos_formatura,curso.creditos_optativos_concentracao,curso.creditos_optativos_conexa,curso.creditos_livres_maximo, curso.mec))
+		BancoDeDados().executar("INSERT INTO curso (nome,codigo,id_campus,id_grau,permanencia_minima,permanencia_maxima,creditos_formatura,creditos_optativos_concentracao,creditos_optativos_conexa,creditos_livres_maximo,mec,credito_periodo_minimo,credito_periodo_maximo) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id", (curso.nome,curso.codigo,curso.id_campus,curso.id_grau,curso.permanencia_minima,curso.permanencia_maxima,curso.creditos_formatura,curso.creditos_optativos_concentracao,curso.creditos_optativos_conexa,curso.creditos_livres_maximo, curso.mec,curso.credito_perido_minimo,credito_perido_maximo))
 		curso.id = BancoDeDados().pegarUltimoIDInserido()
 		return curso
 		
@@ -22,5 +22,5 @@ class Curso(object):
 		BancoDeDados().executar("DELETE FROM curso WHERE id = %s", (str(curso.id)))
 		
 	def alterarCurso(self, curso):
-		SQL = "UPDATE curso SET nome = %s, codigo = %s, id_grau = %s, id_campus = %s, permanencia_minima = %s, permanencia_maxima = %s, creditos_formatura = %s, creditos_optativos_concentracao = %s, creditos_optativos_conexa = %s, creditos_livres_maximo = %s, mec = %s WHERE id = %s"
-		BancoDeDados().executar(SQL, (curso.nome,curso.codigo,curso.id_campus,curso.id_grau,curso.permanencia_minima,curso.permanencia_maxima,curso.creditos_formatura,curso.creditos_optativos_concentracao,curso.creditos_optativos_conexa,curso.creditos_livres_maximo,curso.mec,curso.id))
+		SQL = "UPDATE curso SET nome = %s, codigo = %s, id_grau = %s, id_campus = %s, permanencia_minima = %s, permanencia_maxima = %s, creditos_formatura = %s, creditos_optativos_concentracao = %s, creditos_optativos_conexa = %s, creditos_livres_maximo = %s, mec = %s, credito_periodo_minimo = %s, credito_periodo_maximo = %s WHERE id = %s"
+		BancoDeDados().executar(SQL, (curso.nome,curso.codigo,curso.id_campus,curso.id_grau,curso.permanencia_minima,curso.permanencia_maxima,curso.creditos_formatura,curso.creditos_optativos_concentracao,curso.creditos_optativos_conexa,curso.creditos_livres_maximo,curso.mec,curso.credito_periodo_minimo,credito_periodo_maximo,curso.id))

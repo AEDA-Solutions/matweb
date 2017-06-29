@@ -104,7 +104,7 @@
                                             <td width="60%" bgcolor="#E6E6E6"><b>Período: </b>{{periodo.periodo}}</td>
                                             <td bgcolor="#E6E6E6"><b>Créditos: </b>{{periodo.creditos}}</td>
                                         </tr>
-                                        <tr ng-repeat="fluxo in $ctrl.fluxos | filter: {id_periodo: periodo.id} ">
+                                        <tr ng-repeat="fluxo in $ctrl.fluxos | filter: {id_periodo: periodo.id} | unique: nome_disciplina ">
                                             <td>{{fluxo.nome_disciplina}}</td>
                                             <td>{{fluxo.creditos_disciplina}}</td>
                                         </tr>

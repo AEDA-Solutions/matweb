@@ -22,8 +22,7 @@
                 <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
                     <td> {{departamento.sigla}} </td>
                     <td> {{departamento.nome}} </td>
-                    <td ng-if="departpcampus"><a ng-href="/Departamento/Oferta/{{departamento.id}}" >Oferta</a></td>
-                        </tr>
+                    <td><a href="/Departamento/Oferta/{{departamento.id}}">Oferta</a></td>
                 </tr>
             </tbody>
     </table>

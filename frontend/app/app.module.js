@@ -3,6 +3,8 @@ angular.module('MatWeb', [
   'ngRoute',
   'nucleo',
   'Cadastrar',
+  'Cadastrarusuario',
+  'DadosUsuario',
   'Cadastrarcurso',
   'Cadastrarpredio',
   'Home',
@@ -17,5 +19,6 @@ angular.module('MatWeb', [
   'Sala',
   'Curso',
   'Grade',
+  'CampusNav',
   'ui.bootstrap',
 ]); 

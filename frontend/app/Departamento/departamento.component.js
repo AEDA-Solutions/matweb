@@ -43,5 +43,98 @@ angular.
         }
         this.listar();
     }]
+}). 
+component('gerenciarDepartamento', {
+    templateUrl: '/app/Departamento/departamento.adm.template.html',
+    controller: ['ApiDepartamentoGerenciar','ApiCampus','ApiDepartamentoPCampus', 'ApiDepartamentoCadastrar', 'ApiDepartamentoEditar', 'ApiDepartamentoDeletar', 'MatWebGlobals', '$routeParams', '$scope', function Gerenciar(ApiDepartamentoGerenciar,ApiCampus,ApiDepartamentoPCampus,ApiDepartamentoCadastrar,ApiDepartamentoEditar,ApiDepartamentoDeletar,MatWebGlobals,$routeParams,$scope) {
+        this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
+        var ctrl = this;
+        ctrl.campus = [];
+        ctrl.departamento = [];
+        
+        ctrl.inicializa = function() {
+            $scope.opcaolistar = false;
+            $scope.listando = false;
+            $scope.gravando = false;
+            $scope.selecionado = false;
+            $scope.editando = false;
+        }
+        
+        ctrl.listarcampus = function() {
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;      
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            });
+        };
+        
+        $scope.OpcaoListar = function(){
+            ctrl.inicializa();
+            $scope.opcaolistar = true;
+            ctrl.listarcampus();
+        };
+        
+        $scope.listdptos = function(id) {
+            $scope.opcaolistar = false;
+            $scope.listando = true;
+            ApiDepartamentoPCampus.Listar({id_campus: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 }, function(resultado) {
+                ctrl.departamentos = resultado.corpo;
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            });
+        };
+        
+        $scope.Gravar = function() {
+            ctrl.inicializa();
+            $scope.gravando = true;
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;      
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            });
+        };
+        
+        $scope.Cadastrar = function() {
+            ApiDepartamentoCadastrar.Cadastrar({ 'nome': ctrl.departamento.nome, 'codigo': ctrl.departamento.codigo, 'sigla': ctrl.departamento.sigla, 'id_campus': ctrl.departamento.id_campus}, function(resultado) {
+                ctrl.departamento = [];
+                $scope.logCadastrar = "Departamento Cadastrado com Sucesso";
+            }, function(erro) {
+                $scope.logCadastrar = error.data.mensagem;
+            });
+        };
+        
+        $scope.Escolher = function() {
+            ctrl.inicializa();
+            $scope.opcaolistar = true;
+            $scope.editando = true;
+            ctrl.listarcampus();
+        }
+        
+        $scope.SelectDpto = function(departamento) {
+            ctrl.inicializa();
+            ctrl.departamento = departamento;
+            $scope.selecionado = true;
+        }
+        
+        $scope.AlterDpto = function() {
+            console.log(ctrl.departamento);
+            ApiDepartamentoEditar.Editar({'id': ctrl.departamento.id, 'nome': ctrl.departamento.nome, 'codigo': ctrl.departamento.codigo, 'sigla': ctrl.departamento.sigla, 'id_campus': ctrl.departamento.id_campus }, function(resultado) {
+                $scope.logEditar = "Departamento Alterado com Sucesso";
+                ctrl.departamento = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
+        
+        $scope.DelDpto = function() {
+            ApiDepartamentoDeletar.Deletar({'id': ctrl.departamento.id}, function(resultado) {
+                $scope.logEditar = "Departamento Excluído com Sucesso";
+                ctrl.departamento = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
+        
+    }]
 });
 

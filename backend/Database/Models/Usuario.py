@@ -1,3 +1,5 @@
+from Database.Controllers.Curso import Curso
+
 class Usuario(object):
 
 	def __init__(self,dados=None):
@@ -14,6 +16,8 @@ class Usuario(object):
 			self.ano_conclusao = dados['ano_conclusao']
 			self.identidade = dados['identidade']
 			self.senha = dados['senha']
+			self.id_curso = dados['senha']
+
 
 	def getId(self):
 		return self.id
@@ -83,3 +87,12 @@ class Usuario(object):
 		
 	def getIdentidade(self):
 		return self.identidade
+	
+	def setId_curso(self,id_curso):
+		self.id_curso = id_curso
+		
+	def getId_curso(self):
+		return self.id_curso
+		
+	def getCurso(self):
+		return (Curso().pegarCurso('id = %s',(self.id_curso))).getNome()

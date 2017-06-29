@@ -52,3 +52,6 @@ class PedidoCadastrar(Pedido):
 
 	def getIdentidade(self):
 		return self.identidade
+
+	def getId_curso(self):
+		return self.id_curso

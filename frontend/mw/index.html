@@ -34,17 +34,16 @@
         };
         </script>
     </head>
-    <body class="">
+    <body ng-app="" class="">
+	   
       <!-- Pushy Menu -->
       <nav class="pushy pushy-left">
         <ul class="list-unstyled">
             <li><a href="index.html">Início</a></li>
+            <li><a data-toggle="modal" data-target="#ModalEntrar">Entrar</a></li>
             <li><a href="#feat">Serviços</a></li>
-            <li><a href="#about">Ofertas</a></li>
-            <li><a target="_blank" href="http://www.saa.unb.br/images/stories/documentos/calendarios/graduacao/cal_aluno/Cartaz_Calendario_Academico_1_2017.pdf">Calendario Estudantil</a></li>
-            <li><a href="#history">Mapeamento</a></li>
-            <li><a href="#photos">Cursos</a></li>
             <li><a href="http://www.unb.br/">UnB</a></li>
+            <li><a target="_blank" href="http://www.saa.unb.br/images/stories/documentos/calendarios/graduacao/cal_aluno/Cartaz_Calendario_Academico_1_2017.pdf">Calendario Estudantil</a></li>
         </ul>
       </nav>
 
@@ -69,69 +68,70 @@
                         <h1><small>Seja bem vindo ao novo</small></br>
 						<strong>Matrícula Web</strong></h1>
                         <p>O objetivo do site, é fazer uma replica melhorada do Matrícula Web original usando AngularJs e ferramentas de produção e modernização do nosso atual, colocar mapeamentos entre outras coisas.</p>
-                        <p><a target="_blank" href="https://google.com"class="btn btn-primary btn-lg" role="button">Google</a> <a target="_blank" href="https://github.com/AEDA-Solutions/matweb/" class="btn btn-lg btn-danger" role="button">GIT HUB</a></p>
+
+                        <p>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalEntrar">Entrar</button>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ModalEntrar -->
+            <div id="ModalEntrar" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- ModalEntrar content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><strong>Acessar</strong></h4>
+                        </div>
+                        <div class="modal-body">
+                          <section id="content">
+                              <iframe src="/Usuario/Entrar" id="framed"></iframe>
+                          </section>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
+
         <section id="feat">
             <div class="container">
                 <div class="row features">
                     <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="100ms">
-                        <span class="typcn typcn-pencil x3"></span>
-                        <p><a target="_blank" href="https://pedrogabriel96.matweb.lumal21.net.br/Usuario/Entrar"class="btn btn-primary btn-lg" role="button">Espaço aluno</a>
-                        <p>Todos os serviços referente aos alunos da UnB seja da Graduação ou Pós Graduação estarão presentes aqui.Ex: Matrícula em disciplinas, Grade Horaria... LogIn Necessário </p>
+                        <span class="typcn typcn-location x3"></span>
+                         <p><a href="/Campus/Listar"class="btn btn-primary btn-lg" role="button">Navegar</a>
+
+                        <p>Pesquise sobre os nossos Campus, Departamenos e as Ofertas de Disciplinas.</p>
                     </div>
                     <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="300ms">
-                        <span class="typcn typcn typcn-pencil x3"></span>
-                        <p><a target="_blank" href="https://pedrogabriel96.matweb.lumal21.net.br/Usuario/Entrar" class="btn btn-primary btn-lg" role="button">Espaço Professor</a>
-                        <p>O professor também terá espaço no nosso novo matrícula WEB, aonde é possível matrícular alunos em suas disciplinas, requisitar reservas de salas e auditórios... LogIn Necessário.</p>
+                        <span class="typcn typcn typcn-bookmark x3"></span>
+                        <p><a target="_blank" href="http://www.unb.br/" class="btn btn-primary btn-lg" role="button">UnB</a>
+                        <p>Acesse o site da UnB.</p>
                     </div>
                     <div class="col-md-4 text-center wow fadeInUp" data-wow-delay="500ms">
-                        <span class="typcn typcn-bookmark x3"></span>
+                        <span class="typcn typcn-key-outline x3"></span>
                         <p><a target="_blank" href="https://pedrogabriel96.matweb.lumal21.net.br/Usuario/Entrar" class="btn btn-lg btn-danger" role="button">Espaço Administrador</a>
                         <p>Se você é um administrador do sistema, você poderá cadastrar um aluno, professor, lançar notas, consultar alunos entre outros serviços.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="clients wow fadeInUp" data-wow-delay="300ms">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2">
-                        <img src="images/logo-sample-01.jpg" class="img-responsive" />
-                    </div>
-                    <div class="col-md-2">
-                        <img src="images/logo-sample-02.jpg" class="img-responsive" />
-                    </div>
-                    <div class="col-md-2">
-                        <img src="images/logo-sample-03.png" class="img-responsive" />
-                    </div>
-                    <div class="col-md-2">
-                        <img src="images/logo-sample-04.jpg" class="img-responsive" />
-                    </div>
-                    <div class="col-md-2">
-                        <img src="images/logo-sample-05.jpg" class="img-responsive" />
-                    </div>
-                    <div class="col-md-2">
-                        <img src="images/logo-sample-06.png" class="img-responsive" />
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <section id="contact" class="prefooter wow fadeInUp" data-wow-delay="300ms">
             <!-- change the image in style.css to the class .prefooter .container-fluid [approximately row 154] -->
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8">
-                            <h3>Seja um gentil<br> doe ao nosso site projeto.</h3>
-                            <p>Coloque seu e-mail que entramos em contato com você para que possa ajudar-nos em nosso projeto, é simples, prático e rápido!</p>
+                            <h3>Entre em contato conosco<br> envie sua crítica ou sujestão.</h3>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Your Email Here...">
+                                    <input type="text" class="form-control" placeholder="Nos escreva algo...">
                                     <br>
-                                    <button type="button" class="btn btn-danger">Inscreva-se</button>
+                                    <button type="button" class="btn btn-danger">Enviar</button>
                                 </div>
                             </div>
                         </div>
@@ -139,6 +139,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->

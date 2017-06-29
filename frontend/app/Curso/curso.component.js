@@ -84,7 +84,7 @@ angular.
         
        ctrl.FluxoListar = function(id_periodo) {
             console.log(id_periodo);
-            ApiFluxoListar.Listar({ id_periodo: id_periodo, pagina: 0, quantidade: 1000 },function(resultado) {
+            ApiFluxoListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.fluxo = resultado.corpo;
                 console.log(ctrl.fluxo);
                 return ctrl.fluxo;

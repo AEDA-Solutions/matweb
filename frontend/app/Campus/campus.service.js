@@ -8,6 +8,16 @@ angular.
       });
     }
   ]).
+  angular.
+  module('CampusNav').
+  factory('ApiCampus2', ['$resource',
+    function($resource) {
+      return $resource('/api/Campus/Listar', {}, {
+        Listar: { method: 'POST' }
+
+      });
+    }
+  ]).
 factory('ApiCampusCadastrar', ['$resource',
     function($resource) {
       return $resource('/api/Campus/Cadastrar', {}, {

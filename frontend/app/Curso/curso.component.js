@@ -19,7 +19,7 @@ angular.
   }).
    component('cursoPcampus', {
     templateUrl: '/app/Curso/curso.template.html',
-    controller: ['ApiCursoPCampus', 'MatWebGlobals','ApiFluxoListar','$routeParams','$scope', function            Listar(ApiCursoPCampus,ApiCursoListar,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiCursoPCampus', 'MatWebGlobals','ApiFluxoListar','$routeParams','$scope', function            Listar(ApiCursoPCampus,ApiFluxoListar,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         var ctrl = this;
         this.listar = function()

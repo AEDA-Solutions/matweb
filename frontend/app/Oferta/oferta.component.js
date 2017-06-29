@@ -160,7 +160,7 @@ component('gerenciarDisciplina', {
         };
         
         $scope.Cadastrar = function() {
-            ApiDisciplinaCadastrar.Cadastrar({ 'id_departamento': ctrl.departamento.id, 'nome': ctrl.disciplina.nome, 'codigo': ctrl.disciplina.codigo }, function(resultado) {
+            ApiDisciplinaCadastrar.Cadastrar({ 'id_departamento': ctrl.departamento.id, 'nome': ctrl.disciplina.nome, 'codigo': ctrl.disciplina.codigo, 'creditos': ctrl.disciplina.creditos }, function(resultado) {
                 ctrl.disciplina = [];
                 $scope.logCadastrar = "Disciplina Cadastrada com Sucesso";
             }, function(erro) {
@@ -182,7 +182,7 @@ component('gerenciarDisciplina', {
         }
         
         $scope.AlterDisciplina = function() {
-            ApiDisciplinaEditar.Editar({'id':ctrl.disciplina.id, 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo}, function(resultado) {
+            ApiDisciplinaEditar.Editar({'id':ctrl.disciplina.id, 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo, 'creditos':ctrl.disciplina.creditos}, function(resultado) {
                 $scope.logEditar = "Disciplina Alterada com Sucesso";
                 ctrl.disciplina = [];
             }, function(erro) {

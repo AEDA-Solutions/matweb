@@ -24,7 +24,7 @@
                                     <tbody>
                                         <tr ng-repeat="curso in $ctrl.cursos | filter: $ctrl.nome_curso">
                                             <td> {{curso.codigo}} </td>
-                                            <td><a ng-href="#detalhe">{{curso.nome}}</a> </td>
+                                            <td><a href ng-click=detalhar(curso) >{{curso.nome}}</a> </td>
                                             <td>{{curso.turno}} </td>
                                         </tr>
                                     </tbody>

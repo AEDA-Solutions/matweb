@@ -77,7 +77,7 @@ angular.
             } );
         };
         
-        ctrl.PeriodosListar = function {
+        ctrl.PeriodosListar = function(id_curso) {
             ctrl.periodos = [];
             ApiPeriodosListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.periodos = resultado.corpo;

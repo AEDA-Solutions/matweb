@@ -103,11 +103,11 @@
                                         <tr>
                                             <td><b>Período: </b>{{periodo.periodo}}</td>
                                             <td><b>Créditos: </b>{{periodo.creditos}}</td>
-                                            <td>>{{periodo.id}}</td>
+                                            <td>{{periodo.id}}</td>
                                         </tr>
-                                        <tr ng-repeat="fluxo in $ctrl.fluxos">
+                                        <tr ng-repeat="fluxo in $ctrl.fluxos" | filter: {id_periodo: periodo.id} >
                                                     <td>{{fluxo.nome_disciplina}}</td>
-                                                    <td>{{fluxo.creditos_disciplna}}</td>
+                                                    <td>{{fluxo.creditos}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

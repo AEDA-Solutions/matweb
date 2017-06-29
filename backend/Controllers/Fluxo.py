@@ -3,8 +3,6 @@ from Models.Fluxo.RespostaListar import RespostaListar
 from Framework.Controller import Controller
 from Database.Controllers.Ass_periodo_disciplina import Ass_periodo_disciplina as BDAssociacao
 
-
-
 class Fluxo(Controller):
 
 	def Listar(self,pedido_listar):

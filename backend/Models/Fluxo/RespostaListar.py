@@ -1,5 +1,6 @@
 from Framework.Resposta import Resposta
 from Models.Fluxo.Fluxo import Fluxo as ModelFluxo
+
 class RespostaListar(Resposta):
 
 	def __init__(self,fluxos):

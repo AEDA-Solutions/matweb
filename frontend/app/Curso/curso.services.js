@@ -46,7 +46,7 @@ factory('ApiCursoDeletar', ['$resource',
 factory('ApiFluxoListar', ['$resource',
     function($resource) {
         return $resource('/api/Fluxo/Listar', {}, {
-          Deletar: { method: 'POST'},
+          Listar: { method: 'POST'},
         });
     }                                                                      
   ]);

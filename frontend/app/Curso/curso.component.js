@@ -81,7 +81,7 @@ angular.
             } );
         };
         
-       ctrl.FluxoListar = function(id_periodo) {
+       ctrl.FluxoListar = function(id_curso) {
             console.log(id_periodo);
             ApiFluxoListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.fluxo = resultado.corpo;

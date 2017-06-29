@@ -2,7 +2,7 @@ from Database.Controllers.Turma import Turma
 from Database.Controllers.Usuario import Usuario
 from Database.Controllers.Disciplina import Disciplina
 
-class Ass_turma_prof(object):
+class Ass_aluno_turma(object):
 
 	def __init__(self,dados=None):
 		if dados is not None:
@@ -23,8 +23,8 @@ class Ass_turma_prof(object):
 	def getTurma(self):
 		return (Turma().pegarTurma('id = %s',(self.id_turma,))).getLetra()
 
-	def setId_prof(self,aluno):
-		self.id_prof = (Usuario().pegarUsuario('nome = %s',(aluno,))).getId()
+	def setId_aluno(self,aluno):
+		self.id_aluno = (Usuario().pegarUsuario('nome = %s',(aluno,))).getId()
 		
 	def getId_aluno(self):
 		return self.id_aluno

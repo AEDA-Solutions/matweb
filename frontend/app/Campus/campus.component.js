@@ -16,6 +16,23 @@ angular.
       } );
     }]
   }).
+  component('testCampus', {
+    templateUrl: '/app/Campus/test.template.html',
+    controller: ['ApiCampuslol', 'MatWebGlobals','$scope',function Entrar(ApiCampuslol,MatWebGlobals,$scope) {
+        this.nome_campus = "";
+        var ctrl = this;
+        ctrl.campus = [];
+        $scope.listcurso = false;
+        ApiCampuslol.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;
+            MatWebGlobals.campus = resultado.corpo;
+    }, function(erro){
+        ctrl.erro = erro.data.mensagem
+      console.log(ctrl.erro)
+      } );
+    }]
+  }).
+
   component('gerenciarCampus', {
     templateUrl: '/app/Campus/campus.adm.template.html',
     controller: ['ApiCampus', 'ApiCampusCadastrar', 'ApiCampusEditar', 'ApiCampusDeletar', 'MatWebGlobals', '$scope', '$location', function Gerenciar(ApiCampus,ApiCampusCadastrar,ApiCampusEditar,ApiCampusDeletar,MatWebGlobals,$scope,$location) {

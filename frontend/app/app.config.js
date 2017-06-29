@@ -64,6 +64,9 @@ angular.
       $routeProvider.when('/Curso', {
           template: '<listar-curso></listar-curso>'
         })
+      $routeProvider.when('/Test/Mostrar', {
+          template: '<test-campus></test-campus>'
+        })
       $routeProvider.when('/Curso/Registrar', {
           template: '<registrar-curso></registrar-curso>'
         })

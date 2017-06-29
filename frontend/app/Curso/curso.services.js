@@ -42,11 +42,4 @@ factory('ApiCursoDeletar', ['$resource',
           Deletar: { method: 'POST'},
         });
     }                                                                      
-  ]). 
-factory('ApiCursoDetalhar', ['$resource',
-    function($resource) {
-        return $resource('/api/Curso/Detalhar', {}, {
-          Deletar: { method: 'POST'},
-        });
-    }                                                                      
   ]);

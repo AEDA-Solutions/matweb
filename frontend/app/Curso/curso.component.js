@@ -42,24 +42,10 @@ angular.
             });
         }
         this.listar();
-    }]
-}).
-component('detalharCurso', {
-    templateUrl: '/app/Curso/curso.template.html',
-    controller: ['ApiCursoDetalhar', 'MatWebGlobals', '$routeParams','$scope', function            Detalhar(ApiCursoDetalhar,MatWebGlobals,$routeParams,$scope) {
-        this.formulario = {id_curso: $routeParams.Id_curso , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
-        $scope.listacursos = false;
-        $scope.detalhescurso = true;
-        var ctrl = this;
-        this.detalhar = function()
-        {
-            ApiCursoDetalhar.Listar(this.formulario,function(resultado) {
-                ctrl.curso = resultado.corpo;
-            }, function(error){
-                ctrl.error = error.data.mensagem;
-            });
-        }
-        this.detalhar();
+        
+        $scope.detalhar = function(curso) {
+            console.log(curso);
+        };
     }]
 }).
     component('gerenciarCurso', {

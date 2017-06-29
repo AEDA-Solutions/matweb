@@ -69,14 +69,13 @@ angular.
         $scope.Fluxo = function(id_curso) {
             ctrl.botaoFluxo();
             ctrl.PeriodosListar(id_curso);
-                
+            ctrl.FluxoListar(id_curso);
         };
         
         ctrl.PeriodosListar = function(id_curso) {
             ctrl.periodos = [];
             ApiPeriodosListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.periodos = resultado.corpo;
-                console.log(ctrl.periodos);
             }, function(erro){
                 ctrl.erro = erro.data.mensagem
             } );
@@ -86,8 +85,6 @@ angular.
             console.log(id_periodo);
             ApiFluxoListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.fluxo = resultado.corpo;
-                console.log(ctrl.fluxo);
-                return ctrl.fluxo;
             }, function(erro){
                 ctrl.erro = erro.data.mensagem
             } );    

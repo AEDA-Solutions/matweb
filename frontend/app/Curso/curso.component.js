@@ -15,19 +15,34 @@ angular.
             ctrl.erro = erro.data.mensagem
             console.log(ctrl.erro)
         } );
-        
-      this.pesquisar = function()
-      {
-       	ApiCurso.Listar({id_campus: 1, id_grau: 1, nome: ctrl.nome_curso, pagina: 0, quantidade: 1000 },function(resultado) {
-		          ctrl.cursos = resultado.corpo
-      console.log(ctrl.cursos)
-    }, function(erro){
-        ctrl.erro = erro.data.mensagem
-      console.log(ctrl.erro)
-      } );
-      }
     }]
-  })
+  }).
+   component('cursoPcampus', {
+    templateUrl: '/app/Curso/curso.template.html',
+    controller: ['ApiCursoPCampus', 'MatWebGlobals', '$routeParams','$scope', function            Listar(ApiCursoPCampus,MatWebGlobals,$routeParams,$scope) {
+        this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
+        console.log($routeParams.Id_campus);
+        var ctrl = this;
+        this.listar = function()
+        {
+            ApiDepartamentoPCampus.Listar(this.formulario,function(resultado) {
+                ctrl.departamentos = resultado.corpo;
+                MatWebGlobals.departamentos = resultado.corpo;
+                for(var i = 0, campi = null; i < MatWebGlobals.campus.length; i++) {
+                    if (MatWebGlobals.campus[i].id == $routeParams.Id_campus) {
+                        campi = MatWebGlobals.campus[i];
+                        break;
+                    }
+                };
+                ctrl.campus_nome = campi.nome;
+                console.log(ctrl.campus_nome);
+            }, function(error){
+                ctrl.error = error.data.mensagem;
+            });
+        }
+        //this.listar();
+    }]
+}).
     component('gerenciarCurso', {
     templateUrl: '/app/Campus/curso.adm.template.html',
     controller: ['ApiCurso', 'ApiCursoCadastrar', 'ApiCursoEditar', 'ApiCursoDeletar', 'MatWebGlobals', '$scope', '$location', function Gerenciar(ApiCurso,ApiCursoCadastrar,ApiCursoEditar,ApiCursoDeletar,MatWebGlobals,$scope,$location) {

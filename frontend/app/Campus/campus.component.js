@@ -16,14 +16,15 @@ angular.
       } );
     }]
   }).
+
   component('testCampus', {
-    templateUrl: '/mw/menu-nav-principal.html',
-    controller: ['ApiCampuslol', 'MatWebGlobals','$scope',function Entrar(ApiCampuslol,MatWebGlobals,$scope) {
+    templateUrl: '/app/Campus/test.template.html',
+    controller: ['ApiCampus', 'MatWebGlobals','$scope',function Entrar(ApiCampus,MatWebGlobals,$scope) {
         this.nome_campus = "";
         var ctrl = this;
         ctrl.campus = [];
         $scope.listcurso = false;
-        ApiCampuslol.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+        ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
             ctrl.campus = resultado.corpo;
             MatWebGlobals.campus = resultado.corpo;
     }, function(erro){

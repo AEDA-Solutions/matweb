@@ -42,4 +42,11 @@ factory('ApiCursoDeletar', ['$resource',
           Deletar: { method: 'POST'},
         });
     }                                                                      
+  ]). 
+factory('ApiFluxoListar', ['$resource',
+    function($resource) {
+        return $resource('/api/Fluxo/Listar', {}, {
+          Deletar: { method: 'POST'},
+        });
+    }                                                                      
   ]);

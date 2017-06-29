@@ -2,13 +2,30 @@ angular.
   module('Campus').
   component('listarCampus', {
     templateUrl: '/app/Campus/campus.template.html',
-    templateUrl: '/mw/menu-nav-principal.html'
     controller: ['ApiCampus', 'MatWebGlobals','$scope',function Entrar(ApiCampus,MatWebGlobals,$scope) {
         this.nome_campus = "";
         var ctrl = this;
         ctrl.campus = [];
         $scope.listcurso = false;
         ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;
+            MatWebGlobals.campus = resultado.corpo;
+    }, function(erro){
+        ctrl.erro = erro.data.mensagem
+      console.log(ctrl.erro)
+      } );
+    }]
+  }).
+  angular.
+  module('CampusNav').
+  component('sexoCampus', {
+    templateUrl: '/app/Campus/campus-nav.template.html',
+    controller: ['ApiCampus2', 'MatWebGlobals','$scope',function Entrar(ApiCampus2,MatWebGlobals,$scope) {
+        this.nome_campus = "";
+        var ctrl = this;
+        ctrl.campus = [];
+        $scope.listcurso = false;
+        ApiCampus2.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
             ctrl.campus = resultado.corpo;
             MatWebGlobals.campus = resultado.corpo;
     }, function(erro){

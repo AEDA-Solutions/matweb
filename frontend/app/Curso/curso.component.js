@@ -83,12 +83,12 @@ angular.
         
        ctrl.FluxoListar = function(id_curso) {
             ApiFluxoListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
-                ctrl.fluxo = resultado.corpo;
+                ctrl.fluxos = resultado.corpo;
             }, function(erro){
                 ctrl.erro = erro.data.mensagem
             } );    
         };
-        
+
         $scope.Curriculo = function(id_curso) {
             ctrl.botaoCurriculo();
         };

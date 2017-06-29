@@ -9,7 +9,7 @@ class PedidoCadastrar(Pedido):
 			self.id_departamento= self.corpo['id_departamento']
 			self.nome = self.corpo['nome']
 			self.codigo = self.corpo['codigo']
-			self.creditos = self.creditos['creditos']
+			self.creditos = self.corpo['creditos']
 		except:
 			raise ErroNoHTTP(400)
 		

@@ -21,7 +21,8 @@ angular.
     templateUrl: '/app/Curso/curso.template.html',
     controller: ['ApiCursoPCampus', 'MatWebGlobals', '$routeParams','$scope', function            Listar(ApiCursoPCampus,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
-        console.log($routeParams.Id_campus);
+        $scope.listacursos = true;
+        $scope.detalhescurso = false;
         var ctrl = this;
         this.listar = function()
         {
@@ -41,6 +42,24 @@ angular.
             });
         }
         this.listar();
+    }]
+}).
+component('detalharCurso', {
+    templateUrl: '/app/Curso/curso.template.html',
+    controller: ['ApiCursoDetalhar', 'MatWebGlobals', '$routeParams','$scope', function            Detalhar(ApiCursoDetalhar,MatWebGlobals,$routeParams,$scope) {
+        this.formulario = {id_curso: $routeParams.Id_curso , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
+        $scope.listacursos = false;
+        $scope.detalhescurso = true;
+        var ctrl = this;
+        this.detalhar = function()
+        {
+            ApiCursoDetalhar.Listar(this.formulario,function(resultado) {
+                ctrl.curso = resultado.corpo;
+            }, function(error){
+                ctrl.error = error.data.mensagem;
+            });
+        }
+        this.detalhar();
     }]
 }).
     component('gerenciarCurso', {

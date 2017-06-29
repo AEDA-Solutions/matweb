@@ -101,8 +101,8 @@
                                 <table class = "table table-bordered table-striped table-hover"  ng-repeat="periodo in $ctrl.periodos">
                                     <tbody>
                                         <tr>
-                                            <td><b>Período: </b>{{periodo.periodo}}</td>
-                                            <td><b>Créditos: </b>{{periodo.creditos}}</td>
+                                            <td width="60%" bgcolor="#E6E6E6"><b>Período: </b>{{periodo.periodo}}</td>
+                                            <td bgcolor="#E6E6E6"><b>Créditos: </b>{{periodo.creditos}}</td>
                                         </tr>
                                         <tr ng-repeat="fluxo in $ctrl.fluxos | filter: {id_periodo: periodo.id} ">
                                             <td>{{fluxo.nome_disciplina}}</td>

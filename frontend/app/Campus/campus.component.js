@@ -16,24 +16,6 @@ angular.
       } );
     }]
   }).
-  angular.
-  module('CampusNav').
-  component('sexoCampus', {
-    templateUrl: '/app/Campus/campus-nav.template.html',
-    controller: ['ApiCampusSex', 'MatWebGlobals','$scope',function Entrar(ApiCampusSex,MatWebGlobals,$scope) {
-        this.nome_campus = "";
-        var ctrl = this;
-        ctrl.campus = [];
-        $scope.listcurso = false;
-        ApiCampusSex.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
-            ctrl.campus = resultado.corpo;
-            MatWebGlobals.campus = resultado.corpo;
-    }, function(erro){
-        ctrl.erro = erro.data.mensagem
-      console.log(ctrl.erro)
-      } );
-    }]
-  }).
   component('gerenciarCampus', {
     templateUrl: '/app/Campus/campus.adm.template.html',
     controller: ['ApiCampus', 'ApiCampusCadastrar', 'ApiCampusEditar', 'ApiCampusDeletar', 'MatWebGlobals', '$scope', '$location', function Gerenciar(ApiCampus,ApiCampusCadastrar,ApiCampusEditar,ApiCampusDeletar,MatWebGlobals,$scope,$location) {

@@ -21,11 +21,11 @@ angular.
     templateUrl: '/app/Curso/curso.template.html',
     controller: ['ApiCursoPCampus', 'MatWebGlobals', '$routeParams','$scope', function            Listar(ApiCursoPCampus,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
-        $scope.listacursos = true;
-        $scope.detalhescurso = false;
         var ctrl = this;
         this.listar = function()
         {
+            $scope.listacursos = true;
+            $scope.detalhescurso = false;
             ApiCursoPCampus.Listar(this.formulario,function(resultado) {
                 ctrl.cursos = resultado.corpo;
                 MatWebGlobals.cursos = resultado.corpo;
@@ -44,7 +44,10 @@ angular.
         this.listar();
         
         $scope.detalhar = function(curso) {
+            $scope.listacursos = false;
+            $scope.detalhescurso = true;
             console.log(curso);
+            ctrl.curso = curso;
         };
     }]
 }).

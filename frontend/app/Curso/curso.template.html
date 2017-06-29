@@ -1,5 +1,5 @@
 <menu-principal></menu-principal>
-<div id="content">
+<div id="content" ng-if='listacursos'>
     <div class="inner">
 
             <article class="box post post-excerpt">
@@ -26,6 +26,64 @@
                                             <td> {{curso.codigo}} </td>
                                             <td><a href ng-click=detalhar(curso) >{{curso.nome}}</a> </td>
                                             <td>{{curso.turno}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="content" ng-if='detalhescurso'>
+    <div class="inner">
+
+            <article class="box post post-excerpt">
+                <header>
+                    <h2><p>{{$ctrl.curso.nome}}.</p></h2>
+                </header>
+        </article>
+        <div>
+            <div>
+                <div class="panel-body">
+                    <div>
+                        <div>
+                            <div class="table-responsive">
+                                <table class = "table table-bordered table-striped table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th colspan="3" bgcolor="#E6E6E6"> </th>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6"> Turno </td>
+                                            <td>{{$ctrl.curso.turno}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6">Permanência Mínima</td>
+                                            <td>{{$ctrl.curso.permanencia_minima}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6">Permanência Máxima</td>
+                                            <td>{{$ctrl.curso.permanencia_maxima}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6">Créditos para Formatura</td>
+                                            <td>{{$ctrl.curso.creditos_formatura}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6">Créditos Mínimos Optativos na Área de Concentração</td>
+                                            <td>{{$ctrl.curso.creditos_optativos_concentracao}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6">Créditos Mínimos Optativos na Área Conexa</td>
+                                            <td>{{$ctrl.curso.creditos_optativos_conexa}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6">Créditos Máximos Módulo Livre </td>
+                                            <td>{{$ctrl.curso.creditos_livres_maximo}}</td>
                                         </tr>
                                     </tbody>
                                 </table>

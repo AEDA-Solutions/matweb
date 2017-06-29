@@ -98,20 +98,17 @@
                                 </table>
                             </div>
                             <div class="table-responsive" ng-if='tabelaFluxo'>
-                                <table class = "table table-bordered table-striped table-hover">
+                                <table class = "table table-bordered table-striped table-hover"  ng-repeat="periodo in $ctrl.periodos">
                                     <tbody>
-                                        <tr ng-repeat="periodo in $ctrl.periodos">
+                                        <tr>
                                             <td><b>Período: </b>{{periodo.periodo}}</td>
                                             <td><b>Créditos: </b>{{periodo.creditos}}</td>
-                                            <table class = "table table-bordered table-striped table-hover">
-                                                    {{periodo.id}}
-                                                <tr ng-repeat="fluxo in $ctrl.fluxos">
+                                            <td>>{{periodo.id}}</td>
+                                        </tr>
+                                        <tr ng-repeat="fluxo in $ctrl.fluxos">
                                                     <td>{{fluxo.nome_disciplina}}</td>
                                                     <td>{{fluxo.creditos_disciplna}}</td>
-                                                </tr>
-                                            </table>
                                         </tr>
-                                        <div>Fluxo</div>
                                     </tbody>
                                 </table>
                             </div>

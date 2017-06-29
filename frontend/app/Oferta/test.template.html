@@ -3,15 +3,14 @@
 
                         <article class="box post post-excerpt">
                             <header>
-                                <h2><p>Departamentos em {{$ctrl.campus_nome}}</p></h2>
+                                <h2><p>Disciplinas em {{$ctrl.departamento_nome}}</p></h2>
                             </header>
-                        </article>
 <div>
     <div class="panel-body">
         <form role="form">
             <fieldset>
                 <div class="form-group">
-                    <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
+                    <input class="form-control" placeholder="Nome da Disciplina" ng-model="$ctrl.nome_disciplina" type="text" autofocus>
                 </div>
             </fieldset>
         </form>
@@ -19,10 +18,9 @@
 <div class="table-responsive">
      <table class = "table table-bordered table-hover">
             <tbody>
-                <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
-                    <td> {{departamento.sigla}} </td>
-                    <td> {{departamento.nome}} </td>
-                    <td><a ng-href="/Departamento/Oferta/{{departamento.id}}">Oferta</a></td>
+                <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
+                    <td> {{disciplina.nome}} </td>
+                    <td><a href="/Oferta/Detalhar/{{disciplina.id}}">Detalhes</a></td>
                 </tr>
             </tbody>
     </table>
@@ -30,5 +28,4 @@
     </div>
 </div>
                 </div>
-</div>
 </div>

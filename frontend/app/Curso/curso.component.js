@@ -46,8 +46,32 @@ angular.
         $scope.detalhar = function(curso) {
             $scope.listacursos = false;
             $scope.detalhescurso = true;
+            $scope.tabelaCurriculo = false;
+            $scope.tabelaFluxo = false;
             console.log(curso);
             ctrl.curso = curso;
+        };
+        
+        this.botaoFluxo =  function() {
+            if ($scope.tabelaCurriculo == true ) {
+                $scope.tabelaCurriculo = false;
+            };
+            $scope.tabelaFluxo = !$scope.tabelaFluxo;
+        };
+        
+        this.botaoCurriculo =  function() {
+            if ($scope.tabelaFluxo == true ) {
+                $scope.tabelaFluxo = false;
+            };
+            $scope.tabelaCurriculo = !$scope.tabelaCurriculo;
+        }; 
+        
+        $scope.Fluxo = function() {
+            this.botaoFluxo();
+        };
+        
+        $scope.Curriculo = function() {
+            this.botaoCurriculo();
         };
     }]
 }).

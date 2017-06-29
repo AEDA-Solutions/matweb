@@ -9,7 +9,7 @@
                 <tbody>
                         <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
                         <td> {{campus.id}} </td>
-                        <td ng-if="listcurso==false"><a ng-href="/Departamento/{{campus.id}}">{{campus.nome}}</a> </td>
+                        <td ng-if="listcurso==false"><a ng-href="/Departamento/Test/:Id_campus">{{campus.nome}}</a> </td>
                         <td ng-if="listcurso"><a ng-href="/Curso/Listar/{{campus.id}}" >{{campus.nome}}</a></td>
                         </tr>
                 </tbody>

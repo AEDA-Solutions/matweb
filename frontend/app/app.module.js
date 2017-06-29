@@ -21,4 +21,5 @@ angular.module('MatWeb', [
   'Grade',
   'Matricular',
   'ui.bootstrap',
+  'angular.filter'
 ]); 

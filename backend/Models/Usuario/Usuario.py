@@ -12,3 +12,4 @@ class Usuario(object):
 		self.nome_mae = usuario.getNome_mae()
 		self.ano_conclusao = usuario.getAno_conclusao()
 		self.identidade = usuario.getIdentidade()
+		self.id_curso = usuario.getId_curso()

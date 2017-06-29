@@ -1,47 +1,32 @@
-from Database.Controllers.Curso import Curso
-from Database.Controllers.Opcao import Opcao
-
 class Fluxo(object):
 
 	def __init__(self,dados=None):
 		if dados is not None:
-			self.id = dados ['id']
-			self.periodo_inicio = dados ['periodo_inicio']
-			self.periodo_fim = dados ['periodo_fim']
-			self.id_curso = dados ['id_curso']
-		        self.id_opcao = dados ['id_opcao']
+			self.id_periodo = dados ['id_periodo']
+			self.id_disciplina = dados ['id_disciplina']
+			self.nome_disciplina = dados ['nome_disciplina']
+			self.creditos_disciplina = dados ['creditos_disciplina']
 	
-	def getId(self):
-		return self.id
-
-	def setPeriodo_inicio(self,periodo_inicio):
-		self.periodo_inicio = periodo_inicio
-
-	def getPeriodo_inicio(self):
-		return self.periodo_inicio
-
-	def setPeriodo_fim(self,periodo_fim):
-		self.periodo_fim = periodo_fim
-
-	def getPeriodo_fim(self):
-		return self.periodo_fim
-
-	def setId_curso(self,curso):
-		self.id_curso = (Curso().pegarCurso('nome = %s',(curso))).getId()
+	def setId_periodo(self,id_periodo):
+		self.id_periodo = id_periodo
 		
-	def getId_curso(self):
-		return self.id_curso
+	def getId_periodo(self):
+		return self.id_periodo
 		
-	def getCurso(self):
-		return (Curso().pegarCurso('id = %s',(self.id_curso))).getNome()
-	
-	def setId_opcao(self,opcao):
-		self.id_opcao = (Opcao().pegarOpcao('nome = %s',(opcao))).getId()
+	def setId_disciplina(self,id_disciplina):
+		self.id_disciplina = id_disciplina
 		
-	def getId_opcao(self):
-		return self.id_opcao
+	def getId_disciplina(self):
+		return self.id_disciplina
 		
-	def getOpcao(self):
-		return (Opcao().pegarOpcao('id = %s',(self.id_opcao))).getNome()
-	
-	
+	def setNome_disciplina(self,nome_disciplina):
+		self.nome_disciplina = nome_disciplina
+		
+	def getNome_disciplina(self):
+		return self.nome_disciplina
+		
+	def setCreditos_disciplina(self,creditos_disciplina):
+		self.creditos_disciplina = credidos_disciplina
+		
+	def getCreditos_disciplina(self):
+		return self.creditos_disciplina	

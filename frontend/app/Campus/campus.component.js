@@ -20,12 +20,12 @@ angular.
   module('CampusNav').
   component('sexoCampus', {
     templateUrl: '/app/Campus/campus-nav.template.html',
-    controller: ['ApiCampus2', 'MatWebGlobals','$scope',function Entrar(ApiCampus2,MatWebGlobals,$scope) {
+    controller: ['ApiCampusSex', 'MatWebGlobals','$scope',function Entrar(ApiCampusSex,MatWebGlobals,$scope) {
         this.nome_campus = "";
         var ctrl = this;
         ctrl.campus = [];
         $scope.listcurso = false;
-        ApiCampus2.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+        ApiCampusSex.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
             ctrl.campus = resultado.corpo;
             MatWebGlobals.campus = resultado.corpo;
     }, function(erro){

@@ -17,7 +17,7 @@ angular.module('MatWeb', [
   'Departamento',
   'Registrodesala',
   'Sala',
-  'CampusNav',
+  'SexoNav',
   'Curso',
   'Grade',
   'ui.bootstrap',

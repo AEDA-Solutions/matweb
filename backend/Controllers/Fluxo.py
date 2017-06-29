@@ -1,7 +1,7 @@
 # coding=utf-8
 from Framework.Controller import Controller
 from Database.Controllers.Ass_periodo_disciplina import Ass_periodo_disciplina as BDAssociacao
-from Models.Campus.RespostaListar import RespostaListar
+from Models.Fluxo.RespostaListar import RespostaListar
 
 class Fluxo(Controller):
 

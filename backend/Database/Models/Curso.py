@@ -9,14 +9,16 @@ class Curso(object):
 			self.nome = dados ['nome']
 			self.codigo = dados ['codigo']
 			self.id_campus = dados ['id_campus']
-		        self.id_grau = dados ['id_grau']
-                        self.permanencia_minima = dados ['permanencia_minima']
-                        self.permanencia_maxima = dados ['permanencia_maxima']
-                        self.creditos_formatura = dados ['creditos_formatura']
-                        self.creditos_optativos_concentracao = dados ['creditos_optativos_concentracao']
-                        self.creditos_optativos_conexa = dados ['creditos_optativos_conexa']
-                        self.creditos_livres_maximo = dados ['creditos_livres_maximo']
+			self.id_grau = dados ['id_grau']
+			self.permanencia_minima = dados ['permanencia_minima']
+			self.permanencia_maxima = dados ['permanencia_maxima']
+			self.creditos_formatura = dados ['creditos_formatura']
+			self.creditos_optativos_concentracao = dados ['creditos_optativos_concentracao']
+			self.creditos_optativos_conexa = dados ['creditos_optativos_conexa']
+			self.creditos_livres_maximo = dados ['creditos_livres_maximo']
 			self.mec = dados ['mec']
+			self.credito_periodo_minimo = dados['credito_periodo_minimo']
+			self.credito_periodo_maximo = dados['credito_periodo_maximo']
 			
 	def getId(self):
 		return self.id
@@ -92,3 +94,15 @@ class Curso(object):
 	
 	def getMec(self):
 		return self.mec
+		
+	def setCredito_periodo_minimo(self,credito_periodo_minimo):
+		self.credito_periodo_minimo = credito_periodo_minimo
+		
+	def getCredito_periodo_minimo(self):
+		return self.credito_periodo_minimo
+		
+	def setCredito_periodo_maximo(self,credito_periodo_maximo):
+		self.credito_periodo_maximo = credito_periodo_maximo
+		
+	def getCredito_periodo_maximo(self):
+		return self.credito_periodo_maximo

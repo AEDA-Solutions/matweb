@@ -82,7 +82,7 @@ angular.
         };
         
         ctrl.FluxoListar = function(id_periodo) {
-            ApiFluxoListar.Listar({ id_curso: id_periodo, pagina: 0, quantidade: 1000 },function(resultado) {
+            ApiFluxoListar.Listar({ id_periodo: id_periodo, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.fluxo = resultado.corpo;
             }, function(erro){
                 ctrl.erro = erro.data.mensagem

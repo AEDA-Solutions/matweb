@@ -20,6 +20,6 @@ angular.module('MatWeb', [
   'Curso',
   'Grade',
   'Matricular',
-  'ui.bootstrap',
-  'angular.filter'
+  'ui.bootstrap'//,
+  //'angular.filter'
 ]); 

@@ -52,7 +52,7 @@
                     <div class="table-responsive">
 				    	<table class = "table table-bordered table-hover">
 				        <tbody>
-				                <tr ng-repeat="departamento in $ctrl.departamentos">
+				                <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.formulario.nome">
 				                    <td> {{departamento.sigla}} </td>
 				                    <td> {{departamento.nome}} </td>
                             <td><a ng-href="/Oferta/Listar/{{departamento.id}}">Oferta</a></td>

@@ -6,7 +6,6 @@ class PedidoCadastrar(Pedido):
 	def __init__(self,variaveis_do_ambiente):
 		super(PedidoCadastrar, self).__init__(variaveis_do_ambiente)
 		try:
-			self.id = self.corpo['id']
 			self.id_disciplina = self.corpo['id_disciplina']
 			self.id_usuario = self.corpo['id_usuario']
 			self.id_turma = self.corpo['id_turma']

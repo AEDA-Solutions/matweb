@@ -1,7 +1,7 @@
 angular.
   module('Curso').
   component('listarCurso', {
-    templateUrl: '/app/Campus/campus.template.html',
+    templateUrl: '/app/Curso/campus.template.html',
     controller: ['ApiCurso','ApiCampus','MatWebGlobals','$scope',function (ApiCurso,ApiCampus,MatWebGlobals,$scope) {
         $scope.listcurso = true;
         this.nome_curso = "";

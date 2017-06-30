@@ -60,6 +60,12 @@ angular.
                 ctrl.logListar = error.data.mensagem;
             });
         };
+        
+        $scope.SelectDisciplina = function(disciplina) {
+            ctrl.disciplina = disciplina;
+            $scope.selecteddisciplinas = false;
+            $scope.selecionado = true;
+        }
 
         $scope.Gravar = function() {
             ctrl.inicializa();

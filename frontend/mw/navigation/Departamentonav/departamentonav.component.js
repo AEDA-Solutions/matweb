@@ -9,6 +9,7 @@ angular.
       
             ApiDepartamentoNav.Listar(this.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;
+                MatWebGlobals.departamentosnavs = resultado.corpo;
 
                 for(var i = 0, campi = null; i < MatWebGlobals.campusnav.length; i++) {
                     if (MatWebGlobals.campusnav[i].id == $routeParams.Id_campusnav) {

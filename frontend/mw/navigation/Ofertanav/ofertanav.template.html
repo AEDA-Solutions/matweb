@@ -34,7 +34,7 @@
 
       <article class="box post post-excerpt">
              <header>
-                   <center> <h1><p>Departamentos do Campus {{$ctrl.campusnav_nome}}</p></h1> </center>
+                   <center> <h1><p>Disciplinas do Departamento {{$ctrl.departamento_nome}}</p></h1> </center>
              </header>
        </article>                  
 
@@ -44,10 +44,8 @@
                     <div class="table-responsive">
 				    	<table class = "table table-bordered table-hover">
 				        <tbody>
-				                <tr ng-repeat="departamento in $ctrl.departamentos">
-				                    <td> {{departamento.sigla}} </td>
-				                    <td> {{departamento.nome}} </td>
-                            <td><a ng-href="/Oferta/Listar/{{departamento.id}}">Oferta</a></td>
+				                <tr ng-repeat="disciplina in $ctrl.disciplinas">
+				                    <td> {{disciplina.nome}} </td>
 				                </tr>
             			</tbody>
 				    	</table>

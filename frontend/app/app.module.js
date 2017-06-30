@@ -20,6 +20,7 @@ angular.module('MatWeb', [
   'CampusNav',
   'DepartamentoNav',
   'CursoNav',
+  'OfertaNav',
   'ui.bootstrap',
 ]); 
 

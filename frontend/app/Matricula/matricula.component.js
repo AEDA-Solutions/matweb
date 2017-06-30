@@ -121,7 +121,7 @@ angular.
         
         $scope.PedirMatricula = function(){
             ctrl.userid = window.sessionStorage.getItem('UserId');
-            ApiPedirMatricula.Cadastrar({ id_disciplina: ctrl.disciplina.id, id_usuario: ctrl.userid  , id_turma: ctrl.turmaescolhida.id, status: 'P'  },function(resultado){
+            ApiPedirMatricula.Cadastrar({ 'id_disciplina': ctrl.disciplina.id, 'id_usuario': ctrl.userid  , 'id_turma': ctrl.turmaescolhida.id, 'status': 'P'  },function(resultado){
                 $scole.logPedido = "Pedido de Matricula Realizado com Sucesso";
                 ctrl.disciplina = [];
                 ctrl.turmaescolhida = [];

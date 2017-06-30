@@ -26,4 +26,11 @@ angular.
             Deletar: { method: 'POST'},
         });
     }                                
+]). 
+factory('ApiPedirMatricula',['$resource',
+    function($resource) {
+        return $resource('/api/Matricula/Cadastrar',{}, {
+            Deletar: { method: 'POST'},
+        });
+    }                                
 ]);

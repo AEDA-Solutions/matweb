@@ -32,7 +32,7 @@ angular.
 }). 
   component('usuarioMatricular', {
     templateUrl: '/app/Matricula/matricula.template.html',
-    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiDisciplinaCadastrar','ApiDisciplinaEditar','ApiDisciplinaDeletar','ApiOfertaDetalhar','MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiDisciplinaCadastrar,ApiDisciplinaEditar,ApiDisciplinaDeletar,ApiOfertaDetalhar,MatWebGlobals,$routeParams,$scope) {
+    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiDisciplinaCadastrar','ApiDisciplinaEditar','ApiDisciplinaDeletar','ApiOfertaDetalhar','ApiPedirMatricula','MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiDisciplinaCadastrar,ApiDisciplinaEditar,ApiDisciplinaDeletar,ApiOfertaDetalhar,ApiPedirMatricula,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;
         ctrl.disciplina = [];
@@ -120,10 +120,14 @@ angular.
         };
         
         $scope.PedirMatricula = function(){
-            console.log(ctrl.disciplina);
-            console.log(ctrl.turmaescolhida);
             ctrl.formulario = { id_disciplina: ctrl.disciplina.id, id_usuario: window.sessionStorage.getItem('UserId'), id_turma: ctrl.turmaescolhida.id, status: "P"  };
-            console.log(ctrl.formulario);
+            ApiPedirMatricula.Cadastrar(ctrl.formulario,function(resultado){
+                $scole.logPedido = "Pedido de Matricula Realizado com Sucesso";
+                ctrl.disciplina = [];
+                ctrl.turmaescolhida = [];
+            }, function(erro) {
+               ctrl.erro = error.data.mensagem; 
+            });
         };
     }]
 });

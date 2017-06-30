@@ -15,13 +15,13 @@ class Curriculo(object):
 		return self.id
 		
 	def setId_curso(self,curso):
-		self.id_curso = (Curso().pegarCurso('nome = %s',(curso))).getId()
+		self.id_curso = (Curso().pegarCurso('nome = %s',(curso,))).getId()
 		
 	def getId_curso(self):
 		return self.id_curso
 		
 	def getCurso(self):
-		return (Curso().pegarCurso('where id = %s',(self.id_curso))).getNome()
+		return (Curso().pegarCurso('where id = %s',(self.id_curso,))).getNome()
 	
 	def setId_escopo_disciplina(self,id_escopo_disciplina):
 		self.id_escopo_disciplina = id_escopo_disciplina

@@ -1,7 +1,7 @@
 angular.
   module('Oferta').
   component('ofertaDisciplina', {
-    templateUrl: '/app/Oferta/oferta.template.html',
+    templateUrl: '#',
     controller: ['ApiOferta', 'MatWebGlobals',function Entrar(ApiOferta,MatWebGlobals) {
       this.nome_disciplina = "";
 	var ctrl = this;
@@ -19,30 +19,6 @@ angular.
     }]
   }).
  component('testDiscpdepart',{
-    templateUrl: '/app/Oferta/test.template.html',
-    controller: ['ApiOfertaPDepart', 'MatWebGlobals', '$routeParams', function Listar(ApiOfertaPDepart,MatWebGlobals,$routeParams) {
-        this.formulario = {'id_departamento': $routeParams.Id_departamento , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
-        var ctrl = this;
-        this.listar = function()
-        {
-            ApiOfertaPDepart.Listar(this.formulario,function(resultado) {
-                ctrl.disciplinas = resultado.corpo;
-                for(var i = 0, depart = null; i < MatWebGlobals.departamentos.length; i++) {
-                    if (MatWebGlobals.departamentos[i].id == $routeParams.Id_departamento) {
-                        depart = MatWebGlobals.departamentos[i];
-                        break;
-                    }
-                };
-                ctrl.departamento_nome = depart.nome;
-                console.log(ctrl.departamento_nome);
-            }, function(error){
-                ctrl.error = error.data.mensagem;
-            });
-        }
-        this.listar();
-    }]
-}).
- component('SexDiscpdepart',{
     templateUrl: '/app/Oferta/test.template.html',
     controller: ['ApiOfertaPDepart', 'MatWebGlobals', '$routeParams', function Listar(ApiOfertaPDepart,MatWebGlobals,$routeParams) {
         this.formulario = {'id_departamento': $routeParams.Id_departamento , 'nome': '', 'pagina': 0, 'quantidade': 1000 };

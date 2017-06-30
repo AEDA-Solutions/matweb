@@ -41,7 +41,7 @@ angular.
         
         ctrl.inicializa = function() {
             $scope.opcaolistar = false;
-            $scope.listando = false;
+            $scope.detalhando = false;
             $scope.gravando = false;
             $scope.selecionado = false;
             $scope.editando = false;
@@ -102,17 +102,10 @@ angular.
         };
         
         $scope.DetalharMatricula = function(iddisciplina) {
+            $scope.detalhando = !$scope.detalhando;
             $scope.ementa = false;
             ApiOfertaDetalhar.Detalhar({'id_disciplina': iddisciplina , 'pagina': 0 , 'quantidade': 1000}   ,function(resultado) {
                 ctrl.oferta = resultado.corpo;
-                console.log(ctrl.oferta.turmas);
-                for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){
-                    console.log(ctrl.oferta.turmas[i].horarios);
-                    for(var j=0; j < ctrl.oferta.turmas[i].horarios[j]; j++) {
-                        console.log(ctrl.oferta.turmas[i].horarios[j].inicio);
-                        console.log(ctrl.oferta.turmas[i].horarios[j].fim);
-                    }
-                }
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
                 console.log(error.data.mensagem);

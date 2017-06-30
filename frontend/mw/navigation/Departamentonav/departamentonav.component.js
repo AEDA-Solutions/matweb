@@ -6,8 +6,10 @@ angular.
         this.formulario = {id_campus: $routeParams.Id_campusnav , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         console.log($routeParams.Id_campusnav);
         var ctrl = this;
+
+        this.list = function() = {
       
-            ApiDepartamentoNav.Listar(this.formulario,function(resultado) {
+            ApiDepartamentoNav.Listar(ctrl.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;
                 MatWebGlobals.departamentosnavs = resultado.corpo;
 
@@ -23,6 +25,10 @@ angular.
             }, function(error){
                 ctrl.error = error.data.mensagem;
             });
+
+        }
+
+        this.list();
         
     }]
 });

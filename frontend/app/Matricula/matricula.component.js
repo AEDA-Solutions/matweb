@@ -44,7 +44,7 @@ angular.
         
         $scope.SelectDpto = function(departamento) {
             ctrl.departamento = departamento;
-            if ($scope.gravando == true) {
+            if ($scope.gravando == false) {
                 $scope.listando = false;
                 $scope.selecionado = true;
             } else if ($scope.editando == true ){

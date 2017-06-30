@@ -117,6 +117,7 @@ angular.
         
         $scope.DefineTurma = function(turma) {
             console.log(turma);
+            ctrl.turmaescolhida = turma;
         };
         
         $scope.AlterDisciplina = function() {

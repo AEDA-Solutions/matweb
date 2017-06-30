@@ -1,13 +1,14 @@
 angular.
   module('Matricular').
   component('usuarioMatricular', {
-    templateUrl: '/app/Matricula/matricula.template.html',
-    controller: ['ApiTest','$http','$location', 'MatWebGlobals',function(ApiTest,$http,$location,MatWebGlobals) {
+    templateUrl: '/app/Campus/campus.template.html',
+    controller: ['ApiMatricular','$http','$location','MatWebGlobals','$scope',function(ApiMatricular,$http,$location,MatWebGlobals,$scope) {
       var ctrl = this;
-      this.formulario = {'nome':'','id_campus':'','sigla':'','codigo':'0'};
+      $scope.pedindomatricula = true;
+      this.formulario = {'id_usuario':'','id_disciplina':'','id_turma':'','status':''};
       this.cadastrar = function()
       {
-          ApiTest.Cadastrar(ctrl.formulario,function(data){
+          ApiMatricular.Cadastrar(ctrl.formulario,function(data){
             ctrl.mensagem = "Matricula feita com Sucesso";
           },function(data){
             ctrl.mensagem = "ERRO";

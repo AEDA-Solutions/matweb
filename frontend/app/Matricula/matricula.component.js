@@ -2,7 +2,7 @@ angular.
   module('Matricular').
   component('usuarioMatricular', {
     templateUrl: '/app/Matricular/matricula.template.html',
-    controller: ['ApiMatricular','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart', '$http','$location','MatWebGlobals','$scope',function(ApiMatricular,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,$http,$location,MatWebGlobals,$scope) {
+    controller: ['ApiMatricular','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiOfertaDetalhar', '$http','$location','MatWebGlobals','$scope',function(ApiMatricular,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiOfertaDetalhar,$http,$location,MatWebGlobals,$scope) {
       var ctrl = this;
       
       ctrl.inicializa = function() {
@@ -47,13 +47,6 @@ angular.
           $scope.escolhaturma = true;
           ApiOfertaDetalhar.Detalhar({'id_disciplina': iddisciplina, 'pagina': 0 , 'quantidade': 1000 } ,function(resultado) {
                 ctrl.oferta = resultado.corpo;
-                for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){
-                    console.log(ctrl.oferta.turmas[i].horarios);
-                    for(var j=0; j < ctrl.oferta.turmas[i].horarios[j]; j++) {
-                        console.log(ctrl.oferta.turmas[i].horarios[j].inicio);
-                        console.log(ctrl.oferta.turmas[i].horarios[j].fim);
-                    }
-                }
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
             });

@@ -130,9 +130,8 @@
                             <h3>Entre em contato conosco<br> envie sua crítica ou sujestão.</h3>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Nos escreva algo...">
-                                    <br>
-                                    <a href:"mailto:romuloos7890@gmail.com" type="button" class="btn btn-danger">Enviar</a>
+                                    <p><input id="message" type="text" placeholder="Nos escreva algo..." class="form-control"></p>
+                                    <p><a id="mail-link" class="btn btn-danger" type="button">Enviar</a></p>
                                 </div>
                             </div>
                         </div>
@@ -168,4 +167,18 @@
   ga('create', 'UA-34344036-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+
+<script type="text/javascript">
+    function loadEvents() {
+        var mailString;
+        function updateMailString() {
+            mailString = 'criticas-sujestoes' + encodeURIComponent($('#criticas-sujestoes').val())
+                + '&body=' + encodeURIComponent($('#message').val());
+            $('#mail-link').attr('href',  'matwebaed@outlook.com' + mailString);
+        }
+        $( "#subject" ).focusout(function() { updateMailString(); });
+        $( "#message" ).focusout(function() { updateMailString(); });
+        updateMailString();
+    }
 </script>

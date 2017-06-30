@@ -89,15 +89,6 @@ angular.
             ctrl.listarcampus();
         };
         
-        $scope.Cadastrar = function() {
-            ApiDisciplinaCadastrar.Cadastrar({ 'id': ctrl.disciplina.id, 'id_disciplina': ctrl.disciplina.id, 'id_usuario': ctrl.usuario.id, 'status': 'Pedido Enviado' }, function(resultado) {
-                ctrl.disciplina = [];
-                $scope.logCadastrar = "Disciplina Cadastrada com Sucesso";
-            }, function(erro) {
-                $scope.logCadastrar = error.data.mensagem;
-            });
-        };
-        
         $scope.Escolher = function() {
             ctrl.inicializa();
             $scope.opcaolistar = true;

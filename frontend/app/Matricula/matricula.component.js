@@ -112,7 +112,7 @@ angular.
         
         $scope.DetalharMatricula = function(iddisciplina) {
             $scope.ementa = false;
-            ApiOfertaDetalhar.Detalhar(this.formulario,function(resultado) {
+            ApiOfertaDetalhar.Detalhar({'id_disciplina': iddisciplina , 'pagina': 0 , 'quantidade': 1000}   ,function(resultado) {
                 ctrl.oferta = resultado.corpo;
                 console.log(ctrl.oferta.turmas);
                 for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){

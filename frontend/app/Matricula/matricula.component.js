@@ -1,5 +1,35 @@
 angular.
   module('Matricular').
+    component('detalheMatricula', {
+    templateUrl: '/app/Matricula/matriculadetalhar.html',
+    controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams','$scope', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams,$scope) {
+        this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
+        var ctrl = this;
+        this.detalhar = function()
+        {   
+            $scope.ementa = false;
+            ApiOfertaDetalhar.Detalhar(this.formulario,function(resultado) {
+                ctrl.oferta = resultado.corpo;
+                console.log(ctrl.oferta.turmas);
+                for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){
+                    console.log(ctrl.oferta.turmas[i].horarios);
+                    for(var j=0; j < ctrl.oferta.turmas[i].horarios[j]; j++) {
+                        console.log(ctrl.oferta.turmas[i].horarios[j].inicio);
+                        console.log(ctrl.oferta.turmas[i].horarios[j].fim);
+                    }
+                }
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+                console.log(error.data.mensagem);
+            });
+        }
+        this.detalhar();
+        
+        $scope.MostraEmenta = function() {
+            $scope.ementa = !$scope.ementa;
+        }
+    }]
+}). 
   component('usuarioMatricular', {
     templateUrl: '/app/Matricula/matricula.template.html',
     controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiDisciplinaCadastrar','ApiDisciplinaEditar','ApiDisciplinaDeletar', 'MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiDisciplinaCadastrar,ApiDisciplinaEditar,ApiDisciplinaDeletar,MatWebGlobals,$routeParams,$scope) {
@@ -108,34 +138,5 @@ angular.
             });
         };
     }]
-}).
-  component('detalheMatricula', {
-    templateUrl: '/app/Matricula/matriculadetalhar.html',
-    controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams','$scope', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams,$scope) {
-        this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
-        var ctrl = this;
-        this.detalhar = function()
-        {   
-            $scope.ementa = false;
-            ApiOfertaDetalhar.Detalhar(this.formulario,function(resultado) {
-                ctrl.oferta = resultado.corpo;
-                console.log(ctrl.oferta.turmas);
-                for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){
-                    console.log(ctrl.oferta.turmas[i].horarios);
-                    for(var j=0; j < ctrl.oferta.turmas[i].horarios[j]; j++) {
-                        console.log(ctrl.oferta.turmas[i].horarios[j].inicio);
-                        console.log(ctrl.oferta.turmas[i].horarios[j].fim);
-                    }
-                }
-            }, function(erro) {
-                ctrl.error = error.data.mensagem;
-                console.log(error.data.mensagem);
-            });
-        }
-        this.detalhar();
-        
-        $scope.MostraEmenta = function() {
-            $scope.ementa = !$scope.ementa;
-        }
-    }]
-}). 
+});
+

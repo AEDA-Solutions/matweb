@@ -120,7 +120,8 @@ angular.
         };
         
         $scope.PedirMatricula = function(){
-            ApiPedirMatricula.Cadastrar({ id_disciplina: ctrl.disciplina.id, id_usuario: window.sessionStorage.getItem('UserId'), id_turma: ctrl.turmaescolhida.id, status: 'P'  },function(resultado){
+            ctrl.userid = window.sessionStorage.getItem('UserId');
+            ApiPedirMatricula.Cadastrar({ id_disciplina: ctrl.disciplina.id, id_usuario: ctrl.userid  , id_turma: ctrl.turmaescolhida.id, status: 'P'  },function(resultado){
                 $scole.logPedido = "Pedido de Matricula Realizado com Sucesso";
                 ctrl.disciplina = [];
                 ctrl.turmaescolhida = [];

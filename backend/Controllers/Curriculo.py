@@ -7,4 +7,4 @@ from Database.Models.Curriculo import Curriculo as ModelCurriculo
 class Curriculo(Controller):
 
 	def Listar(self,pedido_listar):
-		return RespostaListar(BDCurriculo().pegarMultiplosCurriculo("WHERE id_curso = %s LIMIT %s OFFSET %s",("%"+pedido_listar.getId_curso().replace(' ','%')+"%",str(pedido_listar.getQuantidade()),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))))
+		return RespostaListar(BDCurriculo().pegarCurriculos("WHERE id_curso = %s LIMIT %s OFFSET %s",("%"+pedido_listar.getId_curso().replace(' ','%')+"%",str(pedido_listar.getQuantidade()),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))))

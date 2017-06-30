@@ -120,8 +120,11 @@ angular.
         };
         
         $scope.PedirMatricula = function(){
-            ctrl.formulario = { id_disciplina: ctrl.disciplina.id, id_usuario: MatWebGlobals.usuariologado.id, id_turma: ctrl.turmaescolhida.id, status: "P"  };
-            console.log(ctrl.formulario);
+            console.log(ctrl.disciplina);
+            console.log(MatWebGlobals.usuariologado);
+            console.log(ctrl.turmaescolhida);
+            //ctrl.formulario = { id_disciplina: ctrl.disciplina.id, id_usuario: MatWebGlobals.usuariologado.id, id_turma: ctrl.turmaescolhida.id, status: "P"  };
+            //console.log(ctrl.formulario);
         };
     }]
 });

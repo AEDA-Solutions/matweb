@@ -20,6 +20,7 @@ class Matricula(Controller):
 		matricula = ModelMatricula()
 		matricula.setId_usuario(pedido_cadastrar.getId_usuario())
 		matricula.setId_disciplina(pedido_cadastrar.getId_disciplina())
+		matricula.setId_turma(pedido_cadastrar.getId_turma())
 		matricula.setStatus(pedido_cadastrar.getStatus())
 		return RespostaCadastrar(BDMatricula().inserirMatricula(matricula))
 

@@ -7,6 +7,13 @@ angular.
         });
     }                                
 ]). 
+    factory('ApiOfertaDetalhar',['$resource',
+    function($resource) {
+        return $resource('/api/Oferta/Detalhar',{}, {
+            Detalhar: { method: 'POST'},
+        });
+    }                                
+]). 
     factory('ApiDisciplinaEditar',['$resource',
     function($resource) {
         return $resource('/api/Matricula/Editar',{}, {

@@ -10,6 +10,9 @@ angular.
       $routeProvider.when('/Admin/Entrar', {
           template: '<admin-entrar></admin-entrar>'
         })
+      $routeProvider.when('/Detalhar/Matricular', {
+          template: '<detalhe-matricula></detalhe-matricula>'
+        })
       $routeProvider.when('/Usuario/Matricular', {
           template: '<usuario-matricular></usuario-matricular>'
         })

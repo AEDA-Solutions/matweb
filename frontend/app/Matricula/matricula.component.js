@@ -91,7 +91,7 @@ angular.
         }
         
         $scope.AlterDisciplina = function() {
-            ApiDisciplinaEditar.Editar({'id':ctrl.disciplina.id, 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo, 'creditos':ctrl.disciplina.creditos}, function(resultado) {
+            ApiDisciplinaEditar.Editar({'id':'', 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo, 'creditos':ctrl.disciplina.creditos}, function(resultado) {
                 $scope.logEditar = "Disciplina Alterada com Sucesso";
                 ctrl.disciplina = [];
             }, function(erro) {
@@ -108,4 +108,34 @@ angular.
             });
         };
     }]
-});
+}).
+  component('detalheMatricula', {
+    templateUrl: '/app/Matricula/matriculadetalhar.html',
+    controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams','$scope', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams,$scope) {
+        this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
+        var ctrl = this;
+        this.detalhar = function()
+        {   
+            $scope.ementa = false;
+            ApiOfertaDetalhar.Detalhar(this.formulario,function(resultado) {
+                ctrl.oferta = resultado.corpo;
+                console.log(ctrl.oferta.turmas);
+                for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){
+                    console.log(ctrl.oferta.turmas[i].horarios);
+                    for(var j=0; j < ctrl.oferta.turmas[i].horarios[j]; j++) {
+                        console.log(ctrl.oferta.turmas[i].horarios[j].inicio);
+                        console.log(ctrl.oferta.turmas[i].horarios[j].fim);
+                    }
+                }
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+                console.log(error.data.mensagem);
+            });
+        }
+        this.detalhar();
+        
+        $scope.MostraEmenta = function() {
+            $scope.ementa = !$scope.ementa;
+        }
+    }]
+}). 

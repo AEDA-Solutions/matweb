@@ -1,0 +1,53 @@
+<menu-principal></menu-principal>
+
+<div id="content">
+                <div class="inner">
+
+                        <article class="box post post-excerpt">
+                            <header>
+                                <h2><p>{{$ctrl.oferta.disciplina}}</p></h2>
+                            </header>
+<div>
+    <div class="panel-body">
+    <div>
+<div class="table-responsive">
+    <table>
+        <tr>
+            <td><input type="submit" value="Ementa"  ng-click='MostraEmenta()' ></input></td>
+            <td>Creditos: {{$ctrl.oferta.creditos}}</td>
+        </tr>
+    </table>
+</div>
+        <div  ng-if="ementa">
+        <ng-include src="$ctrl.oferta.ementa"></ng-include>
+        </div>
+<div class="table-responsive">
+     <table class = "table table-bordered table-hover">
+            <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
+                    <b>Turmas</b>
+                <tr>
+                    <th bgcolor="#E6E6E6" rowspan="2"><strong>Turma:</strong> {{turma.letra}} </th>
+                    <th bgcolor="#E6E6E6" rowspan="2"><strong>Turno:</strong> {{turma.turno}} </th>
+                    <th bgcolor="#E6E6E6" rowspan="2"><strong>Professor:</strong> {{turma.professor}}</th>
+                </tr>
+                <tr>
+                    <th bgcolor="#E6E6E6"><strong>Vagas</strong></th>
+                    <td bgcolor="#E6E6E6">Total: <strong>{{turma.vagas}}</strong> </td>
+                    <td bgcolor="#E6E6E6">Ocupadas: <strong>{{turma.ocupadas}}</strong> </td>
+                    <td bgcolor="#E6E6E6">Restantes: <strong>{{turma.restantes}}</strong> </td>
+                </tr>
+                <tr ng-repeat="horario in turma.horarios">
+                    <td>{{horario.dia}}</td>
+                    <td>{{horario.inicio}}</td>
+                    <td>{{horario.fim}}</td>
+                    <th colspan="4"><strong>Sala:</strong> {{horario.sala}}</th>
+                </tr>
+                <br>
+            </tbody>
+    </table>
+</div>
+    </div>
+</div>
+                </div>
+</div>
+</div>

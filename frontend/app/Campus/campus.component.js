@@ -6,7 +6,7 @@ angular.
   var ctrl = this;
         ctrl.campus = [];
 
-            ApiCampusNav.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.campus = resultado.corpo;
                 console.log(ctrl.campus)
             }, function(error){

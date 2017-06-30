@@ -13,7 +13,7 @@ class Matricula(object):
 		return ModelMatricula(BancoDeDados().consultarUnico("SELECT * FROM matricula %s" % (condicao), valores))
 	
 	def inserirMatricula(self, matricula):
-		BancoDeDados().executar("INSERT INTO matricula (nome,id_disciplina,id_usuario,ano,periodo) VALUES (%s,%s,%s,%s,%s) RETURNING id", (matricula.nome,matricula.id_usuario,matricula.id_disciplina,matricula.ano,matricula.periodo))
+		BancoDeDados().executar("INSERT INTO matricula (id_disciplina,id_turma,id_usuario,status) VALUES (%s,%s,%s,%s) RETURNING id", (matricula.id_disciplina,matricula.id_turma,matricula.id_usuario,matricula.status))
 		matricula.id = BancoDeDados().pegarUltimoIDInserido()
 		return matricula
 		
@@ -21,5 +21,5 @@ class Matricula(object):
 		BancoDeDados().executar("DELETE FROM matricula WHERE id = %s", (str(matricula.id)))
 		
 	def alterarMatricula(self, matricula):
-		SQL = "UPDATE matricula SET nome = %s, id_disciplina = %s, id_usuario = %s, ano = %s, periodo = %s WHERE id = %s"
-		BancoDeDados().executar(SQL, (matricula.nome,matricula.id_usuario,matricula.id_disciplina,matricula.ano,matricula.periodo,matricula.id))
+		SQL = "UPDATE matricula SET id_disciplina = %s, id_turma = %s, id_usuario = %s, status = %s WHERE id = %s"
+		BancoDeDados().executar(SQL, (matricula.id_disciplina,matricula.id_turma,matricula.id_usuario,matricula.status,matricula.id))

@@ -91,12 +91,12 @@
                                 <br><br>
                             </div>
                             <div class="table-responsive" ng-if='tabelaCurriculo'>
-                                <table class = "table table-bordered table-striped table-hover" ng-repeat="curr.escopo_disciplina in $ctrl.curriculo | unique: 'escopo_disciplina'">
+                                <table class = "table table-bordered table-striped table-hover" ng-repeat="curr in $ctrl.curriculo | unique: 'escopo_disciplina'">
                                     <tbody>
                                         <tr>
                                             <td bgcolor="#E6E6E6"><b>{{curr.escopo_disciplina}}</b>{{periodo.periodo}}</td>
                                         </tr>
-                                        <tr ng-repeat="curriculo.disciplina in $ctrl.curriculo | filter: {escopo_disciplina: curr.escopo_disciplina} | unique: 'disciplina' ">
+                                        <tr ng-repeat="curriculo in $ctrl.curriculo | filter: {escopo_disciplina: curr.escopo_disciplina} | unique: 'disciplina' ">
                                             <td>{{curriculo.disciplina}}</td>
                                         </tr>
                                     </tbody>

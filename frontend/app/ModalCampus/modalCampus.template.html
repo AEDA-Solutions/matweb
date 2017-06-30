@@ -6,8 +6,12 @@
 
 			<center>
 				<div class="btn-group btn-group-sm">
-					<a ng-href="/Departamento/Listar/{{$ctrl.inter}}" class="btn btn-info btn-sm" role="button">Departamento</a>
+					<a ng-href="/Departamento/Listar/{{$ctrl.inter}}" class="btn btn-info btn-sm" role="button" >Departamento</a>
+				<div ng-if = $ctrl.bol>
 
+					<div ng-click = $ctrl.cancelar()>
+					</div>
+					
 			    	<a ng-href="#" class="btn btn-info btn-sm" role="button">Cursos</a>
 				</div>
 			</center>
@@ -15,6 +19,6 @@
 	</div>
 <div class = "modal-footer">
 
-	<button class="btn btn-warning btn-sm" type="button" ng-click="$ctrl.cancel()">Sair</button>
+	<center><p> To que em algum lugar na tela para sair </p> </center>
 
 </div>

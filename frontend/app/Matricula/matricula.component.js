@@ -42,7 +42,7 @@ angular.
         ctrl.inicializa = function() {
             $scope.opcaolistar = false;
             $scope.detalhando = false;
-            $scope.gravando = false;
+            $scope.ementa = false;
             $scope.selecionado = false;
             $scope.editando = false;
             $scope.selecteddisciplinas = false;
@@ -103,13 +103,16 @@ angular.
         
         $scope.DetalharMatricula = function(iddisciplina) {
             $scope.detalhando = !$scope.detalhando;
-            $scope.ementa = false;
             ApiOfertaDetalhar.Detalhar({'id_disciplina': iddisciplina , 'pagina': 0 , 'quantidade': 1000}   ,function(resultado) {
                 ctrl.oferta = resultado.corpo;
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
                 console.log(error.data.mensagem);
             });
+        };
+        
+        $scope.MostraEmenta = function() {
+            $scope.ementa = !$scope.ementa;
         };
         
         $scope.AlterDisciplina = function() {

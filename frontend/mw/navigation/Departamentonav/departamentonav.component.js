@@ -7,7 +7,7 @@ angular.
         console.log($routeParams.Id_campusnav);
         var ctrl = this;
       
-            ApiDepartamentoNav.Listar(this.formulario,function(resultado) {
+            ApiDepartamentoNav.Listar(ctrl.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;
                 MatWebGlobals.departamentosnavs = resultado.corpo;
 

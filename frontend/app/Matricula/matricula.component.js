@@ -121,7 +121,7 @@ angular.
         
         $scope.PedirMatricula = function(){
             console.log(ctrl.disciplina);
-            console.log(MatWebGlobals.usuariologado);
+            console.log(MatWebGlobals.usuarioLogado);
             console.log(ctrl.turmaescolhida);
             ctrl.formulario = { id_disciplina: ctrl.disciplina.id, id_usuario: MatWebGlobals.usuarioLogado.id, id_turma: ctrl.turmaescolhida.id, status: "P"  };
             console.log(ctrl.formulario);

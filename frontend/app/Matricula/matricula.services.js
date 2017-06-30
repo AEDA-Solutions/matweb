@@ -1,6 +1,6 @@
 angular.
   module('Matricular').
-  factory('ApiTest', ['$resource',
+  factory('ApiMatricular', ['$resource',
     function($resource) {
       return $resource('/api/Matricula/Cadastrar', {}, {
         Cadastrar: { method: 'POST' },

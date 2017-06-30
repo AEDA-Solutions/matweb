@@ -34,7 +34,10 @@
                     <th bgcolor="#E6E6E6"><strong>Vagas</strong></th>
                     <td bgcolor="#E6E6E6">Total: <strong>{{turma.vagas}}</strong> </td>
                     <td bgcolor="#E6E6E6">Ocupadas: <strong>{{turma.ocupadas}}</strong> </td>
-                    <td bgcolor="#E6E6E6">Restantes: <strong>{{turma.restantes}}</strong> </td>
+                    <td bgcolor="#E6E6E6" ng-if='pedindomatricula==false'>Restantes: <strong>{{turma.restantes}}</strong> </td>
+                    <td bgcolor="#E6E6E6" ng-if='pedindomatricula'>
+                        <input type="submit" value="Matricular" ng-click='Matricular()' />
+                    </td>
                 </tr>
                 <tr ng-repeat="horario in turma.horarios">
                     <td>{{horario.dia}}</td>

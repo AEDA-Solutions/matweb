@@ -5,7 +5,7 @@
 
         <article class="box post post-excerpt">
             <header>
-                <h2><p>Gerenciar Disciplinas</p></h2>
+                <h2><p>Fazer Matrícula em Disciplinas</p></h2>
             </header>
             
             <div>
@@ -13,6 +13,8 @@
                     <div>
                         <tbody>
                             <td><input type="submit" value="Listar" ng-click=OpcaoListar() /></td>
+                            <td><input type="button" value="Cadastrar" ng-click=Gravar() /></td>
+                            <td><input type="button" value="Editar" ng-click=Escolher() /></td>
                         </tbody>
                     </div>
                 </div>
@@ -106,6 +108,8 @@
                     </div>
                 </div>
             </section>
+            
+<!-- Formulario para cadastrar -->
             <section  ng-if='gravando && listando==false && opcaolistar==false && selecionado'>
                 <div class="inner">
                     <form role="form" ng-submit="Cadastrar()">
@@ -141,3 +145,4 @@
                     </form>
                 </div>
             </section>
+

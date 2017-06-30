@@ -3,9 +3,13 @@ angular.
   component('listarDepartamentonav', {
     templateUrl: '/mw/navigation/Departamentonav/departamentonav.template.html',
     controller: ['ApiDepartamentoNav', 'MatWebGlobals', '$routeParams', function Listar(ApiDepartamentoNav,MatWebGlobals,$routeParams) {
-        this.formulario = {id_campus: $routeParams.Id_campusnav , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
-        console.log($routeParams.Id_campusnav);
+        
+        this.nome_departamento = "";
         var ctrl = this;
+        this.formulario = {id_campus: $routeParams.Id_campusnav , 'nome': crtl.nome_departamento, 'pagina': 0, 'quantidade': 1000 };
+        console.log($routeParams.Id_campusnav);
+        
+
       
             ApiDepartamentoNav.Listar(this.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;

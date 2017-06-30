@@ -1,0 +1,31 @@
+<div id="content">
+                <div class="inner">
+
+                        <article class="box post post-excerpt">
+                            <header>
+                                <h2><p>Disciplinas em {{$ctrl.departamento_nome}}</p></h2>
+                            </header>
+<div>
+    <div class="panel-body">
+        <form role="form">
+            <fieldset>
+                <div class="form-group">
+                    <input class="form-control" placeholder="Nome da Disciplina" ng-model="$ctrl.nome_disciplina" type="text" autofocus>
+                </div>
+            </fieldset>
+        </form>
+    <div>
+<div class="table-responsive">
+     <table class = "table table-bordered table-hover">
+            <tbody>
+                <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
+                    <td> {{disciplina.nome}} </td>
+                   <td> <a href="#" onclick="alert('LogIn Necessário')">Detalhes</a></td>
+                </tr>
+            </tbody>
+    </table>
+</div>
+    </div>
+</div>
+                </div>
+</div>

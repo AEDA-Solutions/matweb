@@ -1,108 +1,125 @@
-<!DOCTYPE HTML>
+<menu-principal></menu-principal>
+<div id="content" ng-if='listacursos'>
+    <div class="inner">
 
-<html>
-    <head>
-        <title>Campus</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="app/Home/assets/css/main.css" />
-        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    </head>
-    <body>
-
-            <div id="content">
-                <div class="inner">
-
-                        <article class="box post post-excerpt">
-                            <header>
-                                <h2><p>Pesquise os Cursos.</p></h2>
-                            </header>
-
-                                        <div class="panel-body">
-                                            <form role="form" ng-submit="$ctrl.pesquisar()">
-                                                <fieldset>
-                                                    <div class="form-group">
-                                                        <input class="form-control" placeholder="Nome do curso" ng-model="$ctrl.nome_curso" type="text" autofocus>
-                                                    </div>
-                                                    <button class="btn btn-lg btn btn-block">Pesquisar</button>
-                                                </fieldset>
-                                            </form>
-
-                                            <div class="table-responsive">
-                                                <table class = "table table-bordered table-hover">
-                                                    <tbody>
-                                                        <tr ng-repeat="curso in $ctrl.cursos | filter: $ctrl.nome_curso">
-                                                            <td> {{curso.nome}} </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+            <article class="box post post-excerpt">
+                <header>
+                    <h2><p>Cursos do Campus {{$ctrl.campus_nome}}.</p></h2>
+                </header>
+        </article>
+        <div>
+            <div>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Nome do Curso" ng-model="$ctrl.nome_curso" type="text" autofocus>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <div>
+                        <div>
+                            <div class="table-responsive">
+                                <table class = "table table-bordered table-striped table-hover">
+                                    <tbody>
+                                        <tr ng-repeat="curso in $ctrl.cursos | filter: $ctrl.nome_curso">
+                                            <td> {{curso.codigo}} </td>
+                                            <td><a href ng-click=detalhar(curso) >{{curso.nome}}</a> </td>
+                                            <td>{{curso.turno}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-                </div>
-            </div>
-        <!-- Sidebar -->
-            <div id="sidebar">
+</div>
 
-                <!-- Logo -->
-                    <h1 id="logo"><a href="/Usuario/Home">Matweb</a></h1>
+<div id="content" ng-if='detalhescurso'>
+    <div class="inner">
 
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="Campus">Campus</a></li>
-                            <li><a href="Departamento">Departamento</a></li>
-                            <li><a href="Curso">Cursos</a></li>
-                            <li><a href="Oferta">Disciplinas</a></li>
-                            <li><a href="Predio">Predios</a></li>
-                            <li><a href="Salas">Salas</a></li>
-
-                        </ul>
-                    </nav>
-
-                <!-- Search -->
-
-
-                <!-- Recent Posts -->
-                        <header>
-                            <h2>Menu do Aluno</h2>
-                        </header>
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="#">Histórico escolar</a></li>
-                            <li><a href="#">Grade Horária</a></li>
-                            <li><a href="#">Quadro-resumo</a></li>
-                            <li><a href="#">Dados pessoais</a></li>
-                        </ul>
-                    </nav>
-
-
-                    <section class="box search">
-                        <form method="post" action="#">
-                            <input type="text" class="text" name="search" placeholder="Search" />
-                        </form>
-                    </section>
-
-
-            </div>
-
-        <!-- Scripts -->
-            <script src="app/Home/assets/js/jquery.min.js"></script>
-            <script src="app/Home/assets/js/main.js"></script>
-            <script src="app/Home/assets/js/skel.min.js"></script>
-            <script src="app/Home/assets/js/util.js"></script>
-            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-
-    </body>
-</html>
-
-
+            <article class="box post post-excerpt">
+                <header>
+                    <h2><p>{{$ctrl.curso.nome}}</p></h2>
+                </header>
+        </article>
+        <div>
+            <div>
+                <div class="panel-body">
+                    <div>
+                        <div>
+                            <div class="table-responsive">
+                                <table class = "table table-bordered table-striped table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <td width="60%"> <b>Turno</b> </td>
+                                            <td>{{$ctrl.curso.turno}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="60%"><b>Permanência Mínima</b></td>
+                                            <td>{{$ctrl.curso.permanencia_minima}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="60%"><b>Permanência Máxima</b></td>
+                                            <td>{{$ctrl.curso.permanencia_maxima}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="60%"><b>Créditos para Formatura</b></td>
+                                            <td>{{$ctrl.curso.creditos_formatura}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="60%"><b>Créditos Mínimos Optativos na Área de Concentração</b></td>
+                                            <td>{{$ctrl.curso.creditos_optativos_concentracao}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="60%"><b>Créditos Mínimos Optativos na Área Conexa</b></td>
+                                            <td>{{$ctrl.curso.creditos_optativos_conexa}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="60%"><b>Créditos Máximos Módulo Livre </b></td>
+                                            <td>{{$ctrl.curso.creditos_livres_maximo}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <input type="submit" value="Fluxo" ng-click=Fluxo($ctrl.curso.id) />                                    
+                                    <input type="submit" value="Curriculo" ng-click=Curriculo($ctrl.curso.id) />    
+                                </div>
+                                <br><br>
+                            </div>
+                            <div class="table-responsive" ng-if='tabelaCurriculo'>
+                                <table class = "table table-bordered table-striped table-hover" ng-repeat="curr in $ctrl.curriculo | unique: 'escopo_disciplina'">
+                                    <tbody>
+                                        <tr>
+                                            <td bgcolor="#E6E6E6"><b>{{curr.escopo_disciplina}}</b>{{periodo.periodo}}</td>
+                                        </tr>
+                                        <tr ng-repeat="curriculo in $ctrl.curriculo | filter: {escopo_disciplina: curr.escopo_disciplina} | unique: 'disciplina' ">
+                                            <td>{{curriculo.disciplina}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-responsive" ng-if='tabelaFluxo'>
+                                <table class = "table table-bordered table-striped table-hover"  ng-repeat="periodo in $ctrl.periodos">
+                                    <tbody>
+                                        <tr>
+                                            <td width="60%" bgcolor="#E6E6E6"><b>Período: </b>{{periodo.periodo}}</td>
+                                            <td bgcolor="#E6E6E6"><b>Créditos: </b>{{periodo.creditos}}</td>
+                                        </tr>
+                                        <tr ng-repeat="fluxo in $ctrl.fluxos | filter: {id_periodo: periodo.id} | unique: 'nome_disciplina' ">
+                                            <td>{{fluxo.nome_disciplina}}</td>
+                                            <td>{{fluxo.creditos_disciplina}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>

@@ -1,18 +1,19 @@
- <html >   
- <head>
-  <meta charset="UTF-8">
-  <title>Cadastrar Curso</title>
-  </head>
-<link rel="stylesheet" href="css/style.css">
-    <div class="page-wrapper">
-                    <div class="panel-body">
-                    <body>
-                       <body>
-                       <div class="container">
-                    <section id="content">
-                        <form role="form" ng-submit="$ctrl.cadastrar()">
+<html>
+    <head>
+        <title>Cadastrar Materia</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="app/Home/assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    </head>
+    <body>
+
+            <div id="content">
+                <div class="inner">
+ <form role="form" ng-submit="$ctrl.cadastrar()">
                             <fieldset>
- <h1>Cadastrar Matéria</h1>
+ <label>Cadastrar Materia</label>
             <div>
                 <input type="text" name="formulario.idd" placeholder="Id do Departamento" required="" id="id" class="form-control" ng-model="$ctrl.formulario.id_departamento" required />
             </div>
@@ -24,18 +25,56 @@
             </div>
             <div>
                 <input type="submit" value="Cadastrar" />
-                <a href="/Admin">Cancelar</a>
             </div>
-        </form>
-        <div class="button">
-        <h1>{{$ctrl.mensagem}}</h1>
-        </div>
+
+
+        </form>        
+        <h2>{{$ctrl.mensagem}}</h2>
+
                             </fieldset>
                         </form>
-                    </div>
-    </div>
-    </div>
-    </section>
+                </div>
+            </div>
+
+        <!-- Sidebar -->
+            <div id="sidebar">
+
+                <!-- Logo -->
+                    <h1 id="logo"><a href="#">Matweb</a></h1>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul>
+                                <li><a href="/Admin" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Inicial</span></a></li>
+                                <li><a href="/Curso/Registrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Curso</span></a></li>
+                                <li><a href="/Usuario/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Usuário</span></a></li>
+                                <li><a href="/Oferta/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Matéria</span></a></li>
+                                <li><a href="/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Depart</span></a></li>
+                                <li><a href="/Predio/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Prédio</span></a></li>
+                                <li><a href="/Registrodesala/Cadastrar" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Cad Sala</span></a></li>
+                                <li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Matricular</span></a></li>
+                                <li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Alunos</span></a></li>
+                                <li><a href="#" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Central</span></a></li>
+
+                        </ul>
+                    </nav>
+
+                    <section>
+                        <form>  
+                            <input type="button" value="LogOut" onClick="history.go(0)" href="/Matweb/Site"> 
+                            <br></br>
+                        </form>
+                    </section>
+
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="app/Home/assets/js/jquery.min.js"></script>
+            <script src="app/Home/assets/js/main.js"></script>
+            <script src="app/Home/assets/js/skel.min.js"></script>
+            <script src="app/Home/assets/js/util.js"></script>
+            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
     </body>
-</body>
 </html>

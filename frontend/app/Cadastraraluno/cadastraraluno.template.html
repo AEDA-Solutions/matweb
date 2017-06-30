@@ -1,47 +1,97 @@
- <html >   
- <head>
-  <meta charset="UTF-8">
-  <title>Cadastrar Usuário</title>
-  </head>
-<link rel="stylesheet" href="css/style.css">
-    <div class="page-wrapper">
-                    <div class="panel-body">
-                    <body>
-                       <body>
-                       <div class="container">
-                    <section id="content">
-                        <form role="form" ng-submit="$ctrl.cadastrar()">
-                            <fieldset>
- <h1>Cadastrar Usuário</h1>
+<div class="inner">
+    <form role="form" ng-submit="$ctrl.cadastrar()">
+        <fieldset>
+            <label>Editar Usuário</label>
             <div>
-                <input type="text" name="formulario.nome" placeholder="Nome" required="" id="nome" class="form-control" ng-model="$ctrl.formulario.nome" required />
-            </div>
-
-            <div>
-                <input type="text" name="matricula" placeholder="Matricula" required="" id="matricula" class="form-control" ng-model="$ctrl.formulario.matricula" maxlength=9/>
-            </div>
-            <div>
-                <input type="text" name="cpf" placeholder="CPF" required="" id="cpf" class="form-control" ng-model="$ctrl.formulario.cpf" maxlength=11/>
-            </div>
-            <div>
-                <input type="text" name="perfil" placeholder="Perfil" required="" id="perfil" class="form-control" ng-model="$ctrl.formulario.perfil" />
-            </div>             <div>
-                <input type="password" name="password" placeholder="Password" required="" id="password" class="form-control" ng-model="$ctrl.formulario.senha" />
-            </div>                              
-            <div>
-                <input type="submit" value="Cadastrar" />
-                <a href="/Admin">Cancelar</a>
-            </div>
+                <div class="table-responsive">
+                    <table class = "table table-bordered table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Nome</b></td>
+                                <td>
+                                    <input type="text" placeholder="Nome" ng-model="$ctrl.usuario.nome" class="form-control" required />
+                                </td>
+                            </tr>    
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Matrícula</b></td>
+                                <td>
+                                    <input type="text" name="matricula" placeholder="Matricula" required="" id="matricula" class="form-control" ng-model="$ctrl.usuario.matricula" maxlength=9/>
+                                </td>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>CPF</b></td>
+                                <td>
+                                    <input type="text" name="cpf" placeholder="CPF" required="" id="cpf" class="form-control" ng-model="$ctrl.usuario.cpf"  maxlength=11/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Perfil</b></td>
+                                <td>
+                                    <select placeholder="Escolha o Perfil" name="perfil" required="" id="perfil" ng-model="$ctrl.usuario.perfil">
+                                        <option disabled selected value>--Escolha um Perfil--</option>
+                                        <option value="Aluno">Aluno</option>
+                                        <option value="Admin">Administrador</option>
+                                        <option value="Profe">Professor</option>
+                                        <option value="Coord">Coordenador</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Email</b></td>
+                                <td>
+                                    <input type="text" name="email" placeholder="Email" required="" id="email" class="form-control" ng-model="$ctrl.usuario.email" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Sexo</b></td>
+                                <td>
+                                    <select  placeholder="Escolha o Sexo" name="sexo" required="" id="sexo" ng-model="$ctrl.usuario.sexo">
+                                        <option disabled selected value>--Escolha o Sexo--</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Nome do Pai</b></td>
+                                <td>
+                                    <input type="text" name="nome_pai" placeholder="Nome do pai" required="" id="nome_pai" class="form-control" ng-model="$ctrl.usuario.nome_pai"  />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Nome do Mãe</b></td>
+                                <td>
+                                    <input type="text" name="nome_mae" placeholder="Nome da mae" required="" id="nome_mae" class="form-control" ng-model="$ctrl.usuario.nome_mae"  />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Ano de Conclusão</b></td>
+                                <td>
+                                    <input type="text" name="ano_conclusao" placeholder="Ano de conclusao" required="" id="ano_conclusao" class="form-control" ng-model="$ctrl.usuario.ano_conclusao"  />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Identidade</b></td>
+                                <td>
+                                    <input type="text" name="identidade" placeholder="Identidade" required="" id="Identidade" class="form-control" ng-model="$ctrl.usuario.identidade"  />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td  bgcolor='#A4A4A4'><b>Senha</b></td>
+                                <td>
+                                    <input type="password" name="password" placeholder="Password" required="" id="password" class="form-control" ng-model="$ctrl.usuario.senha" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" value="Alterar" ng-click=Alterar() />
+                                    <input type="submit" value="Apagar" ng-click=Apagar() />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><b>{{logEditar}}</b>
+            </div>                
+            </fieldset>
         </form>
-        <div class="button">
-        <h1>{{$ctrl.mensagem}}</h1>
-        </div>
-                            </fieldset>
-                        </form>
-                    </div>
-    </div>
-    </div>
-    </section>
-    </body>
-</body>
-</html>
+</div>

@@ -21,6 +21,7 @@ class Disciplina(Controller):
 		disciplina.setNome(pedido_cadastrar.getNome())
 		disciplina.setCodigo(pedido_cadastrar.getCodigo())
 		disciplina.setId_departamento(pedido_cadastrar.getId_departamento())
+		disciplina.setCreditos(pedido_cadastrar.getCreditos())
 		return RespostaCadastrar(BDDisciplina().inserirDisciplina(disciplina))
 	
 	def Editar(self,pedido_editar):
@@ -28,6 +29,7 @@ class Disciplina(Controller):
 		disciplina.setNome(pedido_editar.getNome())
 		disciplina.setCodigo(pedido_editar.getCodigo())
 		disciplina.setId_departamento(pedido_editar.getId_departamento())
+		disciplina.setCreditos(pedido_editar.getCreditos())
 		BDDisciplina().alterarDisciplina(disciplina)
 		return RespostaEditar("Disciplina Editado com sucesso!")
 	

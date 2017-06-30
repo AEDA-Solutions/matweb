@@ -1,3 +1,3 @@
 angular.module('Departamento', [
-	'ngResource',
+	'ngResource','Campus'
 	]);

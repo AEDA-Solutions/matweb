@@ -36,6 +36,7 @@
                                                 <tbody>
                                                     <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
                                                         <td> {{disciplina.nome}} </td>
+                                        <td><a href="/Disciplina/Info?{{disciplina.nome}}&CODIGO?{{disciplina.id}}" target="_blank"" >Matricular</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -70,22 +71,25 @@
 
 
                 <!-- Recent Posts -->
+                <section>
                         <header>
                             <h2>Menu do Aluno</h2>
                         </header>
+                </section>
                     <nav id="nav">
                         <ul>
                             <li><a href="#">Histórico escolar</a></li>
-                            <li><a href="#">Grade Horária</a></li>
+                            <li><a href="/Usuario/Grade">Grade Horária</a></li>
                             <li><a href="#">Quadro-resumo</a></li>
-                            <li><a href="#">Dados pessoais</a></li>
+                            <li><a href="/Usuario/Dados">Dados pessoais</a></li>
                         </ul>
                     </nav>
 
 
-                    <section class="box search">
-                        <form method="post" action="#">
-                            <input type="text" class="text" name="search" placeholder="Search" />
+                    <section>
+                        <form>  
+                            <input type="button" value="LogOut" onClick="history.go(0)"> 
+                            <br></br>
                         </form>
                     </section>
 

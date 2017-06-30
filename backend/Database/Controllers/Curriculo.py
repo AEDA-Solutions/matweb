@@ -14,7 +14,7 @@ class Curriculo(object):
 		return ModelCurriculo(BancoDeDados().consultarUnico("SELECT * FROM curriculo %s" % (condicao), valores))
 	
 	def inserirCurriculo(self, curriculo):
-		BancoDeDados().executar("INSERT INTO curriculo (mec,credito_periodo_minimo,credito_periodo_maximo,limite_permanencia_minimo,limite_permanencia_maximo,creditos_exigidos,creditos_exigidos_em_tese,creditos_exigidos_tc,creditos_exigidos_ac,creditos_exigidos_dc,id_curso,id_opcao,id_nivel) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) RETURNING id", (curriculo.mec,curriculo.credito_periodo_minimo,curriculo.credito_periodo_maximo,curriculo.limite_permanencia_minimo,curriculo.limite_permanencia_maximo,curriculo.creditos_exigidos,curriculo.creditos_exigidos_em_tese,curriculo.creditos_exigidos_tc,curriculo.creditos_exigidos_ac,curriculo.creditos_exigidos_dc,curriculo.id_curso,curriculo.id_opcao,curriculo.id_nivel))
+		BancoDeDados().executar("INSERT INTO curriculo (id_curso,id_escopo_disciplina,id_disciplina) VALUES (%s,%s,%s) RETURNING id", (curriculo.id_curso,curriculo.id_escopo_disciplina,curriculo.id_disciplina))
 		curriculo.id = BancoDeDados().pegarUltimoIDInserido()
 		return curriculo
 		
@@ -22,5 +22,5 @@ class Curriculo(object):
 		BancoDeDados().executar("DELETE FROM curriculo WHERE id = %s", (str(curriculo.id)))
 		
 	def alterarCurriculo(self, curriculo):
-		SQL = "UPDATE curriculo SET mec = %s, credito_periodo_minimo = %s, credito_periodo_maximo = %s, limite_permanencia_minimo = %s, limite_permanencia_maximo = %s, creditos_exigidos = %s, creditos_exigidos_em_tese = %s, creditos_exigidos_tc = %s, creditos_exigidos_ac = %s, creditos_exigidos_dc = %s, id_curso = %s, id_opcao = %s, id_nivel = %s WHERE id = %s"
-		BancoDeDados().executar(SQL, (curriculo.mec,curriculo.credito_periodo_minimo,curriculo.credito_periodo_maximo,curriculo.limite_permanencia_minimo,curriculo.limite_permanencia_maximo,curriculo.creditos_exigidos,curriculo.creditos_exigidos_em_tese,curriculo.creditos_exigidos_tc,curriculo.creditos_exigidos_ac,curriculo.creditos_exigidos_dc,curriculo.id_curso,curriculo.id_opcao,curriculo.id_nivel))
+		SQL = "UPDATE curriculo SET id_curso = %s, id_escopo_disciplina = %s, id_disciplina = %s WHERE id = %s"
+		BancoDeDados().executar(SQL, (curriculo.id_curso,curriculo.id_escopo_disciplina,curriculo.id_disciplina,curriculo.id_nivel))

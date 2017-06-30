@@ -33,7 +33,9 @@
                                     <table class = "table table-bordered table-hover">
                                         <tbody>
                                             <tr ng-repeat="predio in $ctrl.predios | filter: $ctrl.nome_predio">
-                                                <td><a ng-href="{{sala.nome}}">{{predio.nome}}</a> </td>
+                                                <td>{{predio.sigla}} </td>
+                                                <td>{{predio.nome}} </td>
+                                                <td><input type="button" value="Ver Salas" onClick="history.go(0)"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -47,7 +49,6 @@
             </div>
         <!-- Sidebar -->
             <div id="sidebar">
-
                 <!-- Logo -->
                     <h1 id="logo"><a href="/Usuario/Home">Matweb</a></h1>
 
@@ -75,16 +76,17 @@
                             <nav id="nav">
                                 <ul>
                                     <li><a href="#">Histórico escolar</a></li>
-                                    <li><a href="#">Grade Horária</a></li>
+                                    <li><a href="/Usuario/Grade">Grade Horária</a></li>
                                     <li><a href="#">Quadro-resumo</a></li>
-                                    <li><a href="#">Dados pessoais</a></li>
+                                    <li><a href="/Usuario/Dados">Dados pessoais</a></li>
                                 </ul>
                             </nav>
                         </section>
 
-                    <section class="box search">
-                        <form method="post" action="#">
-                            <input type="text" class="text" name="search" placeholder="Search" />
+                    <section>
+                        <form>  
+                            <input type="button" value="LogOut" onClick="history.go(0)"> 
+                            <br></br>
                         </form>
                     </section>
 

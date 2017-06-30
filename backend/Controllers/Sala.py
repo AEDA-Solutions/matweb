@@ -10,7 +10,7 @@ from Database.Models.Sala import Sala as ModelSala
 class Sala(Controller):
 
 	def Listar(self,pedido_listar):
-		return RespostaListar(BDSala().pegarSala("WHERE id_predio = %s AND codigo LIKE %s LIMIT %s OFFSET %s",(str(pedido_listar.getId_predio()),"%"+pedido_listar.getCodigo().replace(' ','%')+"%",str(pedido_listar.getQuantidade()),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))))
+		return RespostaListar(BDSala().pegarSalas("WHERE id_predio = %s AND codigo LIKE %s LIMIT %s OFFSET %s",(str(pedido_listar.getId_predio()),"%"+(str(pedido_listar.getCodigo())).replace(' ','%')+"%",str(pedido_listar.getQuantidade()),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))))
 
 	def Ver(self, pedido_ver):
 		return RespostaVer(BDSala().pegarSala("WHERE id = %s ", (str(pedido_ver.getId()),)))

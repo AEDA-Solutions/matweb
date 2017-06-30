@@ -1,0 +1,182 @@
+<menu-principal></menu-principal>
+
+<div id="content">
+    <div class="inner">
+
+        <article class="box post post-excerpt">
+            <header>
+                <h2><p>Gerenciar Departamentos</p></h2>
+            </header>
+            
+            <div>
+                <div>
+                    <div>
+                        <tbody>
+                            <td><input type="submit" value="Listar" ng-click=OpcaoListar() /></td>
+                            <td><input type="button" value="Cadastrar" ng-click=Gravar() /></td>
+                            <td><input type="button" value="Editar" ng-click=Escolher() /></td>
+                        </tbody>
+                    </div>
+                </div>
+            </div>
+        <br><br>
+
+
+<!-- Escolha da opcao Listar -->             
+            <section  ng-if='opcaolistar'>
+                <div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome do Campus" ng-model="$ctrl.nome_campus" type="text" autofocus>
+                                </div>
+                            </fieldset>
+                        </form>
+                </div>
+                    <div>
+                        <div class="table-responsive">
+                            <table class = "table table-bordered table-striped table-hover">
+                                <tbody>
+                                    <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
+                                        <td> {{campus.id}} </td>
+                                        <td><b>{{campus.nome}}</b></td>
+                                        <td>
+                                            <input type="submit" value="Selecionar" ng-click=listdptos(campus.id) />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+<!-- Resultado do comando de Listar -->            
+            <section  ng-if='listando'>
+                <div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div>
+                            <div class="table-responsive">
+                                <table class = "table table-bordered table-hover">
+                                    <tbody>
+                                        <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
+                                            <td> {{departamento.sigla}} </td>
+                                            <td> {{departamento.nome}} </td>
+                                            <td ng-if='editando'>
+                                                <input type="submit" value="Selecionar" ng-click=SelectDpto(departamento) />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+<!-- Formulario para cadastrar -->
+            <section  ng-if='gravando'>
+                <div class="inner">
+                    <form role="form" ng-submit="Cadastrar()">
+                        <fieldset>
+                            <div>
+                                <div class="table-responsive">
+                                    <table class = "table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" placeholder="Nome" ng-model="$ctrl.departamento.nome" class="form-control" required />
+                                                </td>
+                                            </tr>    
+                                            <tr>
+                                                <td>
+                                                    <input type="text" placeholder="Código"  class="form-control" ng-model="$ctrl.departamento.codigo" maxlength=4/>
+                                                </td>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" placeholder="Sigla"   class="form-control" ng-model="$ctrl.departamento.sigla"  maxlength=4/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select ng-model="$ctrl.departamento.id_campus" ng-options="campus.id as campus.nome for campus in $ctrl.campus" >
+                                                        <option disabled selected value>--Escolha um Campus--</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="submit" value="Salvar">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><b>{{logCadastrar}}</b>
+                            </div>                
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+
+
+<!-- Formulario para selecionar o campus a editar -->            
+            <section  ng-if='selecionado'>
+                <div class="inner">
+                    <form role="form">
+                        <fieldset>
+                            <div>
+                                <div class="table-responsive">
+                                    <table class = "table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Nome</b></td>
+                                                <td>
+                                                    <input type="text" ng-model="$ctrl.departamento.nome" class="form-control" required />
+                                                </td>
+                                            </tr>    
+                                            <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Código</b></td>
+                                                <td>
+                                                    <input type="text"  class="form-control" ng-model="$ctrl.departamento.codigo" maxlength=4/>
+                                                </td>
+                                            <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Sigla</b></td>
+                                                <td>
+                                                    <input type="text"   class="form-control" ng-model="$ctrl.departamento.sigla"  maxlength=4/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Campus</b></td>
+                                                <td>
+                                                    <select  ng-model="$ctrl.departamento.id_campus" ng-options="campus.id as campus.nome for campus in $ctrl.campus" >
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>
+                                                    <input type="submit" value="Alterar" ng-click=AlterDpto() />
+                                                    <input type="submit" value="Apagar" ng-click=DelDpto() />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><b>{{logEditar}}</b>
+                            </div>                
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+
+            
+        </article>
+                            </div>
+    </div>

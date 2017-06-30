@@ -11,7 +11,7 @@ class PedidoEditar(Pedido):
 		except:
 			raise ErroNoHTTP(400)
 
-        def getId(self):
+	def getId(self):
 		return self.id
 			
 	def getNome(self):

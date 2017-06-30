@@ -1,10 +1,11 @@
+
 angular.module('MatWeb', [
   'ngRoute',
   'nucleo',
-  'nucleoadmin',
   'Cadastrar',
-  'Cadastrarcurso',
   'Cadastrarusuario',
+  'DadosUsuario',
+  'Cadastrarcurso',
   'Cadastrarpredio',
   'Home',
   'Usuario',
@@ -18,6 +19,10 @@ angular.module('MatWeb', [
   'Departamento',
   'Disciplina',
   'Registrodesala',
+  'Sala',
   'Curso',
+  'Grade',
+  'Matricular',
   'ui.bootstrap',
-]);
+  'angular.filter'
+]); 

@@ -1,5 +1,5 @@
 from Framework.Resposta import Resposta
-from Models.Grau.GRau import Grau as ModelGrau
+from Models.Grau.Grau import Grau as ModelGrau
 
 class RespostaDeletar(Resposta):
 

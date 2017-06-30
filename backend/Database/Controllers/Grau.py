@@ -14,7 +14,7 @@ class Grau(object):
 		return ModelGrau(BancoDeDados().consultarUnico("SELECT * FROM grau %s" % (condicao), valores))
 	
 	def inserirGrau(self, grau):
-		BancoDeDados().executar("INSERT INTO garu (nome) VALUES (%s) RETURNING id", (grau.nome))
+		BancoDeDados().executar("INSERT INTO grau (nome) VALUES (%s) RETURNING id", (str(grau.nome),))
 		grau.id = BancoDeDados().pegarUltimoIDInserido()
 		return grau
 		

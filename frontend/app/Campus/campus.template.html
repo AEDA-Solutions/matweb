@@ -1,17 +1,6 @@
-<!DOCTYPE HTML>
+<menu-principal></menu-principal>
 
-<html>
-    <head>
-        <title>Campus</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="app/Home/assets/css/main.css" />
-        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    </head>
-    <body>
-
-            <div id="content">
+<div id="content">
                 <div class="inner">
 
                         <article class="box post post-excerpt">
@@ -25,7 +14,8 @@
                 <tbody>
                         <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
                         <td> {{campus.id}} </td>
-                        <td><a ng-href="https://matriculaweb.unb.br/graduacao/curso_rel.aspx?cod=1">{{campus.nome}}</a> </td>
+                        <td ng-if="listcurso==false"><a ng-href="/Departamento/{{campus.id}}">{{campus.nome}}</a> </td>
+                        <td ng-if="listcurso"><a ng-href="/Curso/Listar/{{campus.id}}" >{{campus.nome}}</a></td>
                         </tr>
                 </tbody>
             </table>
@@ -34,66 +24,3 @@
 </div>
                 </div>
             </div>
-        <!-- Sidebar -->
-            <div id="sidebar">
-
-                <!-- Logo -->
-                    <h1 id="logo"><a href="/Usuario/Home">Matweb</a></h1>
-
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="Campus">Campus</a></li>
-                            <li><a href="Departamento">Departamento</a></li>
-                            <li><a href="Curso">Cursos</a></li>
-                            <li><a href="Oferta">Disciplinas</a></li>
-                            <li><a href="Predio">Predios</a></li>
-                            <li><a href="Salas">Salas</a></li>
-
-                        </ul>
-                    </nav>
-
-                <!-- Search -->
-
-
-                <!-- Recent Posts -->
-                        <header>
-                            <h2>Menu do Aluno</h2>
-                        </header>
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="#">Histórico escolar</a></li>
-                            <li><a href="#">Grade Horária</a></li>
-                            <li><a href="#">Quadro-resumo</a></li>
-                            <li><a href="#">Dados pessoais</a></li>
-                        </ul>
-                    </nav>
-
-
-                    <section class="box search">
-                        <form method="post" action="#">
-                            <input type="text" class="text" name="search" placeholder="Search" />
-                        </form>
-                    </section>
-
-
-            </div>
-
-        <!-- Scripts -->
-            <script src="app/Home/assets/js/jquery.min.js"></script>
-            <script src="app/Home/assets/js/main.js"></script>
-            <script src="app/Home/assets/js/skel.min.js"></script>
-            <script src="app/Home/assets/js/util.js"></script>
-            <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-
-    </body>
-</html>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-

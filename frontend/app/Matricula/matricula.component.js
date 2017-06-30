@@ -4,7 +4,7 @@ angular.
     templateUrl: '/app/Matricular/matricula.template.html',
     controller: ['ApiCampus','$location','MatWebGlobals','$scope',function(ApiCampus,$location,MatWebGlobals,$scope) {
       var ctrl = this;
-      
+   /*   
       ctrl.inicializa = function() {
           $scope.escolhacampus = false;
           $scope.escolhadepartamento = false;
@@ -23,7 +23,7 @@ angular.
         ctrl.erro = error.data.mensagem;
       } );
       };
-      
+*/      
   /*  
       $scope.VerificarDepartamentos = function(idcampus) {
           ctrl.inicializa();

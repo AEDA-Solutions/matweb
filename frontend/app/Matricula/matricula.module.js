@@ -1,4 +1,6 @@
 angular.module('Matricular', [
 	'ngResource',
-    'Campus'
+    'Campus',
+    'Departamento',
+    'Oferta'
 	]);

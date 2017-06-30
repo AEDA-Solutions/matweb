@@ -8,30 +8,26 @@ from Models.Matricula.RespostaDeletar import RespostaDeletar
 from Database.Models.Matricula import Matricula as ModelMatricula
 
 
-class Curso(Controller):
+class Matricula(Controller):
 
 	def Listar(self,pedido_listar):
-		return RespostaListar(BDMatricula().pegarMatriculas("WHERE id_usuario = %s AND id_disciplina = %s AND nome LIKE %s LIMIT %s OFFSET %s",(str(pedido_listar.getIdUsuario()),str(pedido_listar.getIdDisciplina()),"%"+pedido_listar.getNome().replace(' ','%')+"%",str(pedido_listar.getQuantidade()),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))))
+		return RespostaListar(BDMatricula().pegarMatriculas("WHERE id_usuario = %s OR id_disciplina = %s LIKE %s LIMIT %s OFFSET %s",(str(pedido_listar.getIdUsuario()),str(pedido_listar.getIdDisciplina()),"%"+pedido_listar.getNome().replace(' ','%')+"%",str(pedido_listar.getQuantidade()),(str(pedido_listar.getQuantidade()*pedido_listar.getPagina())))))
 
 	def Ver(self, pedido_ver):
 		return RespostaVer(BDMatricula().pegarMatricula("WHERE id = %s ", (str(pedido_ver.getId()),)))
 
 	def Cadastrar(self,pedido_cadastrar):
-		curso = ModelMatricula()
-		curso.setNome(pedido_cadastrar.getNome())
-		curso.setId_usuario(pedido_cadastrar.getId_usuario())
-		curso.setId_disciplina(pedido_cadastrar.getId_disciplina())
-		curso.setPeriodo(pedido_cadastrar.getPeriodo())
-		curso.setAno(pedido_cadastrar.getAno())
+		matricula = ModelMatricula()
+		matricula.setId_usuario(pedido_cadastrar.getId_usuario())
+		matricula.setId_disciplina(pedido_cadastrar.getId_disciplina())
+		matricula.setStatus(pedido_cadastrar.getStatus())
 		return RespostaCadastrar(BDMatricula().inserirMatricula(matricula))
 
 	def Editar(self,pedido_editar):
 		matricula = BDMatricula().pegarMatricula("WHERE id = %s ", (pedido_editar.getId()))
-		curso.setNome(pedido_editar.getNome())
-		curso.setId_disciplina(pedido_editar.getId_disciplina())
-		curso.setId_usuario(pedido_editar.getId_usuario())
-		curso.setPeriodo(pedido_editar.getPeriodo())
-		curso.setAno(pedido_editar.getAno())
+		matricula.setId_disciplina(pedido_editar.getId_disciplina())
+		matricula.setId_usuario(pedido_editar.getId_usuario())
+		matricula.setStatus(pedido_editar.getStatus())
 		BDMatricula().alterarMatricula(matricula)
 		return RespostaEditar("Matricula Editada com sucesso!")
 

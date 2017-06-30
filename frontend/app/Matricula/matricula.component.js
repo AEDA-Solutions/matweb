@@ -110,7 +110,6 @@ angular.
         $scope.Escolher = function() {
             ctrl.inicializa();
             $scope.opcaolistar = true;
-            $scope.editando = true;
             ctrl.listarcampus();
         }
         

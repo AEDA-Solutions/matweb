@@ -21,12 +21,12 @@ angular.
   }).
   component('listarDepartamentoc', {
     templateUrl: '/app/Departamento/listarc.template.html',
-    controller: ['ApiDepartamentoc','$routeParams','MatWebGlobals',function Dep(ApiDepartamentoc,$routeParams,MatWebGlobals) {
+    controller: ['ApiDepartamentoc','$routeParams','MatWebGlobals',function Depart(ApiDepartamentoc,$routeParams,MatWebGlobals) {
       this.formulario = {id_campus: $routeParams.Id_campusnav , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         console.log($routeParams.Id_campusnav);
         var ctrl = this;
       
-            ApiDepartamentoNav.Listar(this.formulario,function(resultado) {
+            ApiDepartamentoc.Listar(this.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;
 
             }, function(error){

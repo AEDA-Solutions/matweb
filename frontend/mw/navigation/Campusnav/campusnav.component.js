@@ -8,6 +8,7 @@ angular.
 
             ApiCampusNav.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.campus = resultado.corpo;
+                MatWebGlobals.campusnav = resultado.corpo;
                 console.log(ctrl.campus)
             }, function(error){
                 ctrl.error = error.data.mensagem;

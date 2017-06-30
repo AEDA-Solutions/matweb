@@ -130,9 +130,17 @@
                             <h3>Entre em contato conosco<br> envie sua crítica ou sujestão.</h3>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p><input id="subject" type="text" placeholder="type your subject here" class="form-control"></p>
-                                    <p><input id="message" type="text" placeholder="Nos escreva algo..." class="form-control"></p>
-                                    <p><submit id="mail-link" class="btn btn-danger" type="button">Enviar</submit></p>
+                                    <input type="text" class="form-control" placeholder="Nos escreva algo...">
+                                    <a href:"mailto:romuloos7890@gmail.com" type="button" class="btn btn-danger">Enviar</a>
+                                    <form action="mailto:someone@example.com" method="post" enctype="text/plain">
+                                        Name:<br>
+                                        <input type="text" name="name"><br>
+                                        E-mail:<br>
+                                        <input type="text" name="matwebaed@outlook.com"><br>
+                                        Comment:<br>
+                                        <input type="text" name="comment" size="50"><br><br>
+                                        <input type="submit" value="Send">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -174,7 +182,7 @@
     function loadEvents() {
         var mailString;
         function updateMailString() {
-            mailString = '?subject=' + encodeURIComponent($('#subject').val())
+            mailString = 'criticas-sujestoes' + encodeURIComponent($('#').val())
                 + '&body=' + encodeURIComponent($('#message').val());
             $('#mail-link').attr('href',  'matwebaed@outlook.com' + mailString);
         }

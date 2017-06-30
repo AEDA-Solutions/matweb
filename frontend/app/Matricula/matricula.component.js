@@ -22,8 +22,8 @@ angular.
             ctrl.campus = resultado.corpo;
             MatWebGlobals.campus = resultado.corpo;
     }, function(erro){
-        ctrl.erro = erro.data.mensagem
-      console.log(ctrl.erro)
+        ctrl.erro = erro.data.mensagem;
+      console.log(ctrl.erro);
       } );
       };
       

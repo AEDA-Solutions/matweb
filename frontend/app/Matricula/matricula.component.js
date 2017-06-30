@@ -1,67 +1,141 @@
 angular.
   module('Matricular').
-  component('usuarioMatricular', {
-    templateUrl: '/app/Matricular/matricula.template.html',
-    controller: ['ApiCampus','$location','MatWebGlobals','$scope',function(ApiCampus,$location,MatWebGlobals,$scope) {
-      var ctrl = this;
-   /*   
-      ctrl.inicializa = function() {
-          $scope.escolhacampus = false;
-          $scope.escolhadepartamento = false;
-          $scope.escolhadisciplina = false;
-          $scope.escolhaturma= false;
-      };
-      
-        
-      $scope.OpcaoMatricular = function(){
-          ctrl.inicializa();
-          $scope.escolhacampus = true;
-          ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
-            ctrl.campus = resultado.corpo;
-            MatWebGlobals.campus = resultado.corpo;
-    }, function(erro){
-        ctrl.erro = error.data.mensagem;
-      } );
-      };
-*/      
-  /*  
-      $scope.VerificarDepartamentos = function(idcampus) {
-          ctrl.inicializa();
-          $scope.escolhadepartamento=true;
-          ApiDepartamentoPCampus.Listar({id_campus: idcampus , 'nome': '', 'pagina': 0, 'quantidade': 1000} ,function(resultado) {
-                ctrl.departamentos = resultado.corpo;
-            }, function(error){
-                ctrl.error = error.data.mensagem;
-            });
-      };
-        
-      $scope.VericiarDisciplinas = function(iddepartamento) {
-          ctrl.inicializa();
-          $scope.escolhadisciplina=true;
-          ApiOfertaPDepart.Listar({id_departamento: iddepartamento , 'nome': '', 'pagina': 0, 'quantidade': 1000} ,function(resultado) {
-                ctrl.disciplinas = resultado.corpo;
-            }, function(error){
-                ctrl.error = error.data.mensagem;
-            });
-      };
-        
-      $scope.VerificarTurmas = function(iddisciplina) {
-          ctr.inicializa();
-          $scope.escolhaturma = true;
-          ApiOfertaDetalhar.Detalhar({'id_disciplina': iddisciplina, 'pagina': 0 , 'quantidade': 1000 } ,function(resultado) {
+ component('ofertaDetalhar', {
+    templateUrl: '/app/Oferta/matricula.template2.html',
+    controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams','$scope', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams,$scope) {
+        this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
+        var ctrl = this;
+        this.detalhar = function()
+        {   
+            $scope.ementa = false;
+            ApiOfertaDetalhar.Detalhar(this.formulario,function(resultado) {
                 ctrl.oferta = resultado.corpo;
+                console.log(ctrl.oferta.turmas);
+                for(var i=0, horario = null; i < ctrl.oferta.turmas.length; i++){
+                    console.log(ctrl.oferta.turmas[i].horarios);
+                    for(var j=0; j < ctrl.oferta.turmas[i].horarios[j]; j++) {
+                        console.log(ctrl.oferta.turmas[i].horarios[j].inicio);
+                        console.log(ctrl.oferta.turmas[i].horarios[j].fim);
+                    }
+                }
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+                console.log(error.data.mensagem);
+            });
+        }
+        this.detalhar();
+        
+        $scope.MostraEmenta = function() {
+            $scope.ementa = !$scope.ementa;
+        }
+    }]
+}). 
+component('gerenciarDisciplina', {
+    templateUrl: '/app/Oferta/matricula.template.html',
+    controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiDisciplinaCadastrar','ApiDisciplinaEditar','ApiDisciplinaDeletar', 'MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiDisciplinaCadastrar,ApiDisciplinaEditar,ApiDisciplinaDeletar,MatWebGlobals,$routeParams,$scope) {
+        this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
+        var ctrl = this;
+        ctrl.disciplina = [];
+        ctrl.campus = [];
+        ctrl.departamento = [];
+        
+        ctrl.inicializa = function() {
+            $scope.opcaolistar = false;
+            $scope.listando = false;
+            $scope.gravando = false;
+            $scope.selecionado = false;
+            $scope.editando = false;
+            $scope.selecteddisciplinas = false;
+        };
+        
+        ctrl.listarcampus = function() {
+            ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            ctrl.campus = resultado.corpo;      
             }, function(erro) {
                 ctrl.error = error.data.mensagem;
             });
-      };
-      
-      this.cadastrar = function()
-      {
-          ApiMatricular.Cadastrar(ctrl.formulario,function(data){
-            ctrl.mensagem = "Matricula feita com Sucesso";
-          },function(data){
-            ctrl.mensagem = "ERRO";
-          });
-    };*/
+        };
+        
+        $scope.OpcaoListar = function(){
+            ctrl.inicializa();
+            $scope.opcaolistar = true;
+            ctrl.listarcampus();
+        };
+        
+        $scope.listdptos = function(id) {
+            $scope.opcaolistar = false;
+            $scope.listando = true;
+            ApiDepartamentoPCampus.Listar({id_campus: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 }, function(resultado) {
+                ctrl.departamentos = resultado.corpo;
+            }, function(erro) {
+                ctrl.error = error.data.mensagem;
+            });
+        };
+        
+        $scope.SelectDpto = function(departamento) {
+            ctrl.departamento = departamento;
+            if ($scope.gravando == true) {
+                $scope.listando = false;
+                $scope.selecionado = true;
+            } else if ($scope.editando == true ){
+                $scope.selecteddisciplinas = true;
+                $scope.listando = false;
+            } else {
+                ctrl.inicializa();
+                $scope.selecteddisciplinas = true;
+            };
+            ApiOfertaPDepart.Listar({id_departamento: departamento.id, 'nome': '', 'pagina': 0, 'quantidade': 1000 },function(resultado) {
+                ctrl.disciplinas = resultado.corpo;
+            }, function(error){
+                ctrl.logListar = error.data.mensagem;
+            });
+        };
+
+        $scope.Gravar = function() {
+            ctrl.inicializa();
+            $scope.gravando = true;
+            $scope.opcaolistar = true;
+            ctrl.listarcampus();
+        };
+        
+        $scope.Cadastrar = function() {
+            ApiDisciplinaCadastrar.Cadastrar({ 'id_departamento': ctrl.departamento.id, 'nome': ctrl.disciplina.nome, 'codigo': ctrl.disciplina.codigo, 'creditos': ctrl.disciplina.creditos }, function(resultado) {
+                ctrl.disciplina = [];
+                $scope.logCadastrar = "Disciplina Cadastrada com Sucesso";
+            }, function(erro) {
+                $scope.logCadastrar = error.data.mensagem;
+            });
+        };
+        
+        $scope.Escolher = function() {
+            ctrl.inicializa();
+            $scope.opcaolistar = true;
+            $scope.editando = true;
+            ctrl.listarcampus();
+        }
+        
+        $scope.SelectDisciplina = function(disciplina) {
+            ctrl.disciplina = disciplina;
+            $scope.selecteddisciplinas = false;
+            $scope.selecionado = true;
+        }
+        
+        $scope.AlterDisciplina = function() {
+            ApiDisciplinaEditar.Editar({'id':ctrl.disciplina.id, 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo, 'creditos':ctrl.disciplina.creditos}, function(resultado) {
+                $scope.logEditar = "Disciplina Alterada com Sucesso";
+                ctrl.disciplina = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
+        
+        $scope.DelDisciplina = function() {
+            ApiDisciplinaDeletar.Deletar({'id':ctrl.disciplina.id}, function(resultado) {
+                $scope.logEditar = "Disciplina Apagada com Sucesso";
+                ctrl.disciplina = [];
+            }, function(erro) {
+                $scope.logEditar = error.data.mensagem;
+            });
+        };
     }]
 });

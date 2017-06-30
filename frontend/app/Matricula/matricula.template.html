@@ -5,113 +5,139 @@
 
         <article class="box post post-excerpt">
             <header>
-                <h2><p>Sistema de Matricula</p></h2>
+                <h2><p>Gerenciar Disciplinas</p></h2>
             </header>
             
             <div>
                 <div>
                     <div>
                         <tbody>
-                            <td><input type="submit" value="Solicitar" ng-click=OpcaoMatricular() /></td>
-                            <td><input type="submit" value="Consultar" ng-click=OpcaoListar() /></td>
+                            <td><input type="submit" value="Listar" ng-click=OpcaoListar() /></td>
                         </tbody>
                     </div>
                 </div>
             </div>
         <br><br>
-            <!--
-            <section ng-if='escolhacampus'>
-            <div class="table-responsive" >
-            <table class = "table table-bordered table-striped table-hover">
-                <tbody>
-                        <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
-                        <td> {{campus.id}} </td>
-                        <td ><a href ng-click='VerificarDepartamentos(campus.id)'>{{campus.nome}}</a> </td>
-                        </tr>
-                </tbody>
-            </table>
-        </div>
-                </section>
-        
-            <section ng-if='escolhadepartamento'>
-            <div class="panel-body" >
-                <form role="form">
-                    <fieldset>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
-                        </div>
-                    </fieldset>
-                </form>
+
+
+<!-- Escolha da opcao Listar -->             
+            <section  ng-if='opcaolistar || (opcaolistar && gravando) || (opcaolistar && editando)' >
                 <div>
-                    <div class="table-responsive">
-                        <table class = "table table-bordered table-hover">
-                            <tbody>
-                                <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
-                                    <td> {{departamento.sigla}} </td>
-                                    <td> {{departamento.nome}} </td>
-                                    <td><a href ng-click='VericiarDisciplinas(departamento.id)' >Oferta</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome do Campus" ng-model="$ctrl.nome_campus" type="text" autofocus>
+                                </div>
+                            </fieldset>
+                        </form>
+                </div>
+                    <div>
+                        <div class="table-responsive">
+                            <table class = "table table-bordered table-striped table-hover">
+                                <tbody>
+                                    <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
+                                        <td> {{campus.id}} </td>
+                                        <td><b>{{campus.nome}}</b></td>
+                                        <td>
+                                            <input type="submit" value="Selecionar" ng-click=listdptos(campus.id) />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-                </section>
+            </section>
             
-            <section ng-if='escolhadisciplina'>
-            <div class="panel-body">
-                <form role="form">
-                    <fieldset>
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Nome da Disciplina" ng-model="$ctrl.nome_disciplina" type="text" autofocus>
-                        </div>
-                    </fieldset>
-                </form>
+<!-- Resultado do comando de Listar -->            
+            <section  ng-if='listando || (listando && gravando) || (listando && editando && selecteddisciplinas==false)' >
                 <div>
-                    <div class="table-responsive">
-                        <table class = "table table-bordered table-hover">
-                            <tbody>
-                                <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
-                                    <td> {{disciplina.nome}} </td>
-                                    <td><a href ng-click='VerificarTurmas(disciplina.id)'>Detalhes</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Nome do departamento" ng-model="$ctrl.nome_departamento" type="text" autofocus>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div>
+                            <div class="table-responsive">
+                                <table class = "table table-bordered table-hover">
+                                    <tbody>
+                                        <tr ng-repeat="departamento in $ctrl.departamentos | filter: $ctrl.nome_departamento">
+                                            <td> {{departamento.sigla}} </td>
+                                            <td> {{departamento.nome}} </td>
+                                            <td>
+                                                <input type="submit" value="Selecionar" ng-click=SelectDpto(departamento) />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-                </section>
+            </section>
             
-            <section  ng-if='escolhaturma'>
-            <div class="table-responsive">
-                <table class = "table table-bordered table-hover">
-                    <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
-                        <b>Turmas</b>
-                        <tr>
-                            <th bgcolor="#E6E6E6" rowspan="2"><strong>Turma:</strong> {{turma.letra}} </th>
-                            <th bgcolor="#E6E6E6" rowspan="2"><strong>Turno:</strong> {{turma.turno}} </th>
-                            <th bgcolor="#E6E6E6" rowspan="2"><strong>Professor:</strong> {{turma.professor}}</th>
-                        </tr>
-                        <tr>
-                            <th bgcolor="#E6E6E6"><strong>Vagas</strong></th>
-                            <td bgcolor="#E6E6E6">Total: <strong>{{turma.vagas}}</strong> </td>
-                            <td bgcolor="#E6E6E6">Ocupadas: <strong>{{turma.ocupadas}}</strong> </td>
-                            <td bgcolor="#E6E6E6" ng-if='pedindomatricula==false'>Restantes: <strong>{{turma.restantes}}</strong> </td>
-                            <td bgcolor="#E6E6E6" ng-if='pedindomatricula'>
-                                <input type="submit" value="Matricular" ng-click='Matricular()' />
-                            </td>
-                        </tr>
-                        <tr ng-repeat="horario in turma.horarios">
-                            <td>{{horario.dia}}</td>
-                            <td>{{horario.inicio}}</td>
-                            <td>{{horario.fim}}</td>
-                            <th colspan="4"><strong>Sala:</strong> {{horario.sala}}</th>
-                        </tr>
-                        <br>
-                    </tbody>
-                </table>
-            </div>
-                </section> -->
-        </article>
-    </div>
-</div>
+<!-- Resultado da Lista de Disciplinas por Departamento -->
+            <section ng-if='selecteddisciplinas || (selecteddisciplinas && editando)'>
+                <div class="panel-body">
+                    <form role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Nome da Disciplina" ng-model="$ctrl.nome_disciplina" type="text" autofocus>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <div>
+                        <div class="table-responsive">
+                            <table class = "table table-bordered table-hover">
+                                <tbody>
+                                    <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
+                                        <td><b> {{disciplina.nome}} </b></td>
+                                        <td ng-if='editando'>
+                                            <input type="submit" value="Selecionar" ng-click=SelectDisciplina(disciplina) />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section  ng-if='gravando && listando==false && opcaolistar==false && selecionado'>
+                <div class="inner">
+                    <form role="form" ng-submit="Cadastrar()">
+                        <fieldset>
+                            <div>
+                                <div class="table-responsive">
+                                    <table class = "table table-bordered table-striped table-hover">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" placeholder="Nome" ng-model="$ctrl.disciplina.nome" class="form-control" required />
+                                                </td>
+                                            </tr>    
+                                            <tr>
+                                                <td>
+                                                    <input type="text" placeholder="Código"  class="form-control" ng-model="$ctrl.disciplina.codigo" maxlength=4/>
+                                                </td>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" placeholder="Créditos"  class="form-control" ng-model="$ctrl.disciplina.creditos" maxlength=15/>
+                                                </td>
+                                            <tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="submit" value="Salvar">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><b>{{logCadastrar}}</b>
+                            </div>                
+                        </fieldset>
+                    </form>
+                </div>
+            </section>

@@ -27,7 +27,7 @@ angular.
       } );
       };
       
-    
+  /*  
       $scope.VerificarDepartamentos = function(idcampus) {
           ctrl.inicializa();
           $scope.escolhadepartamento=true;
@@ -65,6 +65,6 @@ angular.
           },function(data){
             ctrl.mensagem = "ERRO";
           });
-    };
+    };*/
     }]
 });

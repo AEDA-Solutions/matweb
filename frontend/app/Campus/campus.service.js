@@ -4,17 +4,6 @@ angular.
     function($resource) {
       return $resource('/api/Campus/Listar', {}, {
         Listar: { method: 'POST' }
-
-      });
-    }
-  ]).
-  angular.
-  module('CampusNav').
-  factory('ApiCampusSex', ['$resource',
-    function($resource) {
-      return $resource('/api/Campus/Listar', {}, {
-        Listar: { method: 'POST' }
-
       });
     }
   ]).

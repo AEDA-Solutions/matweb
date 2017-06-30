@@ -35,7 +35,7 @@ angular.
       $scope.VericiarDisciplinas = function(iddepartamento) {
           ctrl.inicializa();
           $scope.escolhadisciplina=true;
-          ApiOfertaPDepart.Listar({id_departamento: iddepartamento , 'nome': '', 'pagina': 0, 'quantidade': 1000}} ,function(resultado) {
+          ApiOfertaPDepart.Listar({id_departamento: iddepartamento , 'nome': '', 'pagina': 0, 'quantidade': 1000} ,function(resultado) {
                 ctrl.disciplinas = resultado.corpo;
             }, function(error){
                 ctrl.error = error.data.mensagem;

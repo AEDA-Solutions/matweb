@@ -96,8 +96,6 @@
                                 <tbody>
                                     <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.nome_disciplina">
                                         <td><b> {{disciplina.nome}} </b></td>
-                                        <td><input type="submit" value="Matricular" ng-click=SelectDisciplina(disciplina) />
-                                        <td ng-if='editando'>
                                             <input type="submit" value="Selecionar" ng-click=SelectDisciplina(disciplina) />
                                         </td>
                                     </tr>

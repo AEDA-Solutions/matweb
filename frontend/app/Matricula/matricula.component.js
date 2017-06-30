@@ -17,7 +17,6 @@ angular.
           ctrl.inicializa();
           $scope.escolhacampus = true;
           ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
-            ctrl.inicializa();
             ctrl.campus = resultado.corpo;
             MatWebGlobals.campus = resultado.corpo;
     }, function(erro){

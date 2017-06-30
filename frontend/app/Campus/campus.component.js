@@ -6,7 +6,7 @@ angular.
         this.nome_campus = "";
         var ctrl = this;
         ctrl.campus = [];
-        $scope.listcurso = false;
+        ctrl.listcurso = false;
         ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
             ctrl.campus = resultado.corpo;
             MatWebGlobals.campus = resultado.corpo;

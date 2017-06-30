@@ -3,10 +3,10 @@ angular.
   component('listarCurso', {
     templateUrl: '/app/Curso/campus.template.html',
     controller: ['ApiCurso','ApiCampus','MatWebGlobals','$scope',function (ApiCurso,ApiCampus,MatWebGlobals,$scope) {
-        $scope.listcurso = true;
         this.nome_curso = "";
         var ctrl = this;
         ctrl.campus = [];
+        ctrl.listcurso = true;
         
         ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
             ctrl.campus = resultado.corpo;

@@ -116,22 +116,30 @@
                                     <table class = "table table-bordered table-striped table-hover">
                                         <tbody>
                                             <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Nome</b></td>
                                                 <td>
                                                     <b>{{$ctrl.disciplina.nome}}</b>
                                                 </td>
                                             </tr>    
                                             <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Código</b></td>
                                                 <td>
-                                                    <input type="text" placeholder="Código"  class="form-control" ng-model="$ctrl.disciplina.codigo" maxlength=4/>
+                                                    <b>{{$ctrl.disciplina.codigo}}</b>
                                                 </td>
                                             <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Créditos</b></td>
                                                 <td>
-                                                    <input type="text" placeholder="Créditos"  class="form-control" ng-model="$ctrl.disciplina.creditos" maxlength=15/>
+                                                    <b>{{$ctrl.disciplina.creditos}}</b>
                                                 </td>
                                             <tr>
+                                                <td  bgcolor='#A4A4A4'><b>Turma Escolhida</b></td>
+                                                <td>
+                                                    <input type="text" placeholder="Letra"  class="form-control" ng-model="$ctrl.turmaescolhida"  maxlength=1/>
+                                                </td>
                                             <tr>
                                                 <td>
                                                     <input type="submit" value="Salvar">
+                                                    <input type="submit" value="Detalhar" href ng-click=DetalharMatricula($ctrl.disciplina.id) />
                                                 </td>
                                             </tr>
                                         </tbody>

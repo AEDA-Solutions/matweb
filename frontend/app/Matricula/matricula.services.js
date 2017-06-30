@@ -30,7 +30,7 @@ angular.
 factory('ApiPedirMatricula',['$resource',
     function($resource) {
         return $resource('/api/Matricula/Cadastrar',{}, {
-            Deletar: { method: 'POST'},
+            Cadastrar: { method: 'POST'},
         });
     }                                
 ]);

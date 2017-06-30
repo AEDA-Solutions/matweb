@@ -60,12 +60,11 @@ angular.
                 ctrl.logListar = error.data.mensagem;
             });
         };
-        
         $scope.SelectDisciplina = function(disciplina) {
             ctrl.disciplina = disciplina;
             $scope.selecteddisciplinas = false;
             $scope.selecionado = true;
-        }
+        };
 
         $scope.Gravar = function() {
             ctrl.inicializa();
@@ -75,9 +74,9 @@ angular.
         };
         
         $scope.Cadastrar = function() {
-            ApiDisciplinaCadastrar.Cadastrar({ 'id_departamento': ctrl.departamento.id, 'nome': ctrl.disciplina.nome, 'codigo': ctrl.disciplina.codigo, 'creditos': ctrl.disciplina.creditos }, function(resultado) {
+            ApiDisciplinaCadastrar.Cadastrar({ 'id':ctrl.disciplina.id, 'id_disciplina': ctrl.disciplina.id, 'status': 'Enviado', 'id_usuario': ctrl.usuario.id }, function(resultado) {
                 ctrl.disciplina = [];
-                $scope.logCadastrar = "Disciplina Cadastrada com Sucesso";
+                $scope.logCadastrar = "Disciplina Matriculada com Sucesso";
             }, function(erro) {
                 $scope.logCadastrar = error.data.mensagem;
             });

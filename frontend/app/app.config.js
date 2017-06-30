@@ -46,6 +46,9 @@ angular.
       $routeProvider.when('/Campus', {
           template: '<listar-campus></listar-campus>'
         })
+      $routeProvider.when('/Campus/Listar', {
+          template: '<listar-campusnav></listar-campusnav>'
+        })
       $routeProvider.when('/Curso', {
           template: '<listar-curso></listar-curso>'
         })
@@ -57,6 +60,9 @@ angular.
         })
       $routeProvider.when('/Departamento/:Id_campus', {
           template: '<listar-departpcampus></listar-departpcampus>'
+        })
+      $routeProvider.when('/Departamento/Listar/:Id_campusnav', {
+          template: '<listar-departamentonav></listar-departamentonav>'
         })
         $routeProvider.when('/Cadastrar', {
           template: '<registrar-departamento></registrar-departamento>'

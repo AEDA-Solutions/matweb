@@ -17,5 +17,7 @@ angular.module('MatWeb', [
   'Sala',
   'Curso',
   'Grade',
+  'CampusNav',
+  'DepartamentoNav',
   'ui.bootstrap',
 ]); 

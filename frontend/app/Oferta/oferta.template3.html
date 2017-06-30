@@ -13,7 +13,7 @@
 <div class="table-responsive">
     <table>
         <tr>
-            <td>Ementa <input type="checkbox"  ng-model="ementa" ng-init="ementa=false"></input></td>
+            <td><input type="submit" value="Ementa"  ng-click='MostraEmenta()' ></input></td>
             <td>Creditos: {{$ctrl.oferta.creditos}}</td>
         </tr>
     </table>
@@ -26,9 +26,9 @@
             <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                     <b>Turmas</b>
                 <tr>
-                    <th rowspan="2"><strong>Turma:</strong> {{turma.letra}} </th>
-                    <th rowspan="2"><strong>Turno:</strong> {{turma.turno}} </th>
-                    <th rowspan="2"><strong>Professor:</strong> {{turma.professor}}</th>
+                    <th bgcolor="#E6E6E6" rowspan="2"><strong>Turma:</strong> {{turma.letra}} </th>
+                    <th bgcolor="#E6E6E6" rowspan="2"><strong>Turno:</strong> {{turma.turno}} </th>
+                    <th bgcolor="#E6E6E6" rowspan="2"><strong>Professor:</strong> {{turma.professor}}</th>
                 </tr>
                 <tr>
                     <th><strong>Vagas</strong></th>

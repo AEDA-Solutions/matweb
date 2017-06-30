@@ -139,7 +139,7 @@
                                             <tr>
                                                 <td>
                                                     <input type="submit" value="Salvar">
-                                                    <input type="submit" value="Detalhar" href ng-click=DetalharMatricula($ctrl.disciplina.id) />
+                                                    <input type="submit" value="Turmas" href ng-click=DetalharMatricula($ctrl.disciplina.id) />
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -154,16 +154,6 @@
 
 <!-- Formulario para selecionar o campus a editar -->            
             <section  ng-if='selecionado && detalhando'>
-                <div class="table-responsive">
-                    <table>
-                        <tr>
-                            <td><input type="submit" value="Ementa"  ng-click='MostraEmenta()' ></input></td>
-                    </tr>
-                </table>
-            </div>
-            <div  ng-if="ementa">
-                <ng-include src="$ctrl.oferta.ementa"></ng-include>
-            </div>
         <div class="table-responsive">
             <table class = "table table-bordered table-hover">
                 <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">

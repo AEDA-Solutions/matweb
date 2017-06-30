@@ -130,6 +130,7 @@
                             <h3>Entre em contato conosco<br> envie sua crítica ou sujestão.</h3>
                             <div class="row">
                                 <div class="col-md-6">
+                                    <p><input id="subject" type="text" placeholder="type your subject here" class="form-control"></p>
                                     <p><input id="message" type="text" placeholder="Nos escreva algo..." class="form-control"></p>
                                     <p><a id="mail-link" class="btn btn-danger" type="button">Enviar</a></p>
                                 </div>
@@ -173,9 +174,9 @@
     function loadEvents() {
         var mailString;
         function updateMailString() {
-            mailString = 'criticas-sujestoes' + encodeURIComponent($('#criticas-sujestoes').val())
+            mailString = '?subject=' + encodeURIComponent($('#subject').val())
                 + '&body=' + encodeURIComponent($('#message').val());
-            $('#mail-link').attr('href',  'matwebaed@outlook.com' + mailString);
+            $('#mail-link').attr('href',  'mailto:person@email.com' + mailString);
         }
         $( "#subject" ).focusout(function() { updateMailString(); });
         $( "#message" ).focusout(function() { updateMailString(); });

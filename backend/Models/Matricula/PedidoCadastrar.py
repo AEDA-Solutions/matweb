@@ -9,12 +9,16 @@ class PedidoCadastrar(Pedido):
 			self.id = self.corpo['id']
 			self.id_disciplina = self.corpo['id_disciplina']
 			self.id_usuario = self.corpo['id_usuario']
+			self.id_turma = self.corpo['id_turma']
 			self.status = self.status['status']
 		except:
 			raise ErroNoHTTP(400)
 	
 	def getId_disciplina(self):
 		return self.id_disciplina
+	
+	def getId_turma(self):
+		return self.id_turma
 		
 	def getId_usuario(self):
 		return self.id_usuario

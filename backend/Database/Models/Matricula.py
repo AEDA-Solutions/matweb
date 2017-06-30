@@ -33,10 +33,10 @@ class Curso(object):
 	def getDisciplina(self):
 		return (Disciplina().pegarDisciplina('where id = %s',(self.id_disciplina))).getDisciplina()
 	
-	def setStatus = (self,status):
+	def setStatus(self,status):
 		self.status = status
 		
-	def getStatus = (self):
+	def getStatus(self):
 		return self.status
 		
 	def setId_turma(self,id_turma):

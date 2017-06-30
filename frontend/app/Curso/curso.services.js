@@ -56,4 +56,11 @@ factory('ApiFluxoListar', ['$resource',
           Listar: { method: 'POST'},
         });
     }                                                                      
+  ]). 
+factory('ApiCurriculoListar', ['$resource',
+    function($resource) {
+        return $resource('/api/Curriculo/Listar', {}, {
+          Listar: { method: 'POST'},
+        });
+    }                                                                      
   ]);

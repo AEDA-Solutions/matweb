@@ -19,7 +19,7 @@ angular.
   }).
    component('cursoPcampus', {
     templateUrl: '/app/Curso/curso.template.html',
-    controller: ['ApiCursoPCampus', 'MatWebGlobals','ApiFluxoListar','ApiPeriodosListar','$routeParams','$scope', function            Listar(ApiCursoPCampus,MatWebGlobals,ApiFluxoListar,ApiPeriodosListar,$routeParams,$scope) {
+    controller: ['ApiCursoPCampus', 'MatWebGlobals','ApiFluxoListar','ApiPeriodosListar','ApiCurriculoListar', '$routeParams','$scope', function            Listar(ApiCursoPCampus,MatWebGlobals,ApiFluxoListar,ApiPeriodosListar,ApiCurriculoListar,$routeParams,$scope) {
         this.formulario = {id_campus: $routeParams.Id_campus , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         var ctrl = this;
         this.listar = function()
@@ -77,7 +77,7 @@ angular.
             ApiPeriodosListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.periodos = resultado.corpo;
             }, function(erro){
-                ctrl.erro = erro.data.mensagem
+                ctrl.erro = error.data.mensagem
             } );
         };
         
@@ -85,12 +85,22 @@ angular.
             ApiFluxoListar.Listar({ id_curso: id_curso, pagina: 0, quantidade: 1000 },function(resultado) {
                 ctrl.fluxos = resultado.corpo;
             }, function(erro){
-                ctrl.erro = erro.data.mensagem
+                ctrl.erro = error.data.mensagem
             } );    
         };
 
         $scope.Curriculo = function(id_curso) {
             ctrl.botaoCurriculo();
+            ctrl.CurriculoListar(id_curso);
+        };
+        
+        ctrl.CurriculoListar = function(id_curso) {
+            ctrl.curriculo = [];
+            ApiCurriculoListar.Listar({id_curso: id_curso, pagina: 0, quantidade: 1000},function(resultado) {
+                ctrl.curriculo = resultado.corpo;
+            }, function(erro) {
+                ctrl.erro = error.data.mensagem;
+            });
         };
     }]
 }).

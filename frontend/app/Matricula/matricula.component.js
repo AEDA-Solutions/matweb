@@ -63,7 +63,7 @@ angular.
         };
         
         $scope.listdptos = function(id) {
-            $scope.opcaolistar = false;
+            ctrl.inicializa();
             $scope.listando = true;
             ApiDepartamentoPCampus.Listar({id_campus: id, 'nome': '', 'pagina': 0, 'quantidade': 1000 }, function(resultado) {
                 ctrl.departamentos = resultado.corpo;

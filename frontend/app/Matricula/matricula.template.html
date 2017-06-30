@@ -19,8 +19,8 @@
                 </div>
             </div>
         <br><br>
-            
-            <div class="table-responsive" ng-if='escolhacampus'>
+            <section ng-if='escolhacampus'>
+            <div class="table-responsive" >
             <table class = "table table-bordered table-striped table-hover">
                 <tbody>
                         <tr ng-repeat="campus in $ctrl.campus | filter: $ctrl.nome_campus">
@@ -30,8 +30,10 @@
                 </tbody>
             </table>
         </div>
+                </section>
         
-            <div class="panel-body" ng-if='escolhadepartamento'>
+            <section ng-if='escolhadepartamento'>
+            <div class="panel-body" >
                 <form role="form">
                     <fieldset>
                         <div class="form-group">
@@ -53,8 +55,10 @@
                     </div>
                 </div>
             </div>
+                </section>
             
-            <div class="panel-body" ng-if='escolhadisciplina'>
+            <section ng-if='escolhadisciplina'>
+            <div class="panel-body">
                 <form role="form">
                     <fieldset>
                         <div class="form-group">
@@ -75,8 +79,10 @@
                     </div>
                 </div>
             </div>
+                </section>
             
-            <div class="table-responsive" ng-if='escolhaturma'>
+            <section  ng-if='escolhaturma'>
+            <div class="table-responsive">
                 <table class = "table table-bordered table-hover">
                     <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                         <b>Turmas</b>
@@ -104,6 +110,7 @@
                     </tbody>
                 </table>
             </div>
+                </section>
         </article>
     </div>
 </div>

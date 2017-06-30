@@ -69,7 +69,7 @@ angular.
         };
         
         $scope.Cadastrar = function() {
-            ApiDisciplinaCadastrar.Cadastrar({ 'id_departamento': ctrl.departamento.id, 'nome': ctrl.disciplina.nome, 'codigo': ctrl.disciplina.codigo, 'creditos': ctrl.disciplina.creditos }, function(resultado) {
+            ApiDisciplinaCadastrar.Cadastrar({ 'id': 1, 'id_disciplina': ctrl.disciplina.id, 'id_usuario': ctrl.usuario.id, 'status': 'Pedido Enviado' }, function(resultado) {
                 ctrl.disciplina = [];
                 $scope.logCadastrar = "Disciplina Cadastrada com Sucesso";
             }, function(erro) {

@@ -153,52 +153,43 @@
 
 
 <!-- Formulario para selecionar o campus a editar -->            
-            <section  ng-if='selecionado && editando'>
-                <div class="inner">
-                    <form role="form">
-                        <fieldset>
-                            <div>
-                                <div class="table-responsive">
-                                    <table class = "table table-bordered table-striped table-hover">
-                                        <tbody>
-                                            <tr>
-                                                <td  bgcolor='#E6E6E6'><b>Nome</b></td>
-                                                <td>
-                                                    <input type="text" ng-model="$ctrl.disciplina.nome" class="form-control" required />
-                                                </td>
-                                            </tr>    
-                                            <tr>
-                                                <td  bgcolor='#E6E6E6'><b>Código</b></td>
-                                                <td>
-                                                    <input type="text"  class="form-control" ng-model="$ctrl.disciplina.codigo" maxlength=4/>
-                                                </td>
-                                            <tr>
-                                                <td  bgcolor='#E6E6E6'><b>Créditos</b></td>
-                                                <td>
-                                                    <input type="text"   class="form-control" ng-model="$ctrl.disciplina.creditos"  maxlength=15/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td  bgcolor='#E6E6E6'><b>Turma Escolhida</b></td>
-                                                <td>
-                                                    <input type="text"   class="form-control" ng-model="#"  maxlength=1/>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td>
-                                                    <input type="submit" value="Matricular" ng-click=Cadastrar() />
-                                                    <input type="submit" value="Detalhar" href="/Detalhar/Matricular" />
-                                                    
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div><b></b>
-                            </div>                
-                        </fieldset>
-                    </form>
-                </div>
+            <section  ng-if='selecionado && detalhando'>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <td><input type="submit" value="Ementa"  ng-click='MostraEmenta()' ></input></td>
+                    <td>Creditos: {{$ctrl.oferta.creditos}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div  ng-if="ementa">
+                <ng-include src="$ctrl.oferta.ementa"></ng-include>
+            </div>
+        <div class="table-responsive">
+            <table class = "table table-bordered table-hover">
+                <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
+                    <b>Turmas</b>
+                    <tr>
+                        <th bgcolor="#E6E6E6" rowspan="2"><strong>Turma:</strong> {{turma.letra}} </th>
+                        <th bgcolor="#E6E6E6" rowspan="2"><strong>Turno:</strong> {{turma.turno}} </th>
+                        <th bgcolor="#E6E6E6" rowspan="2"><strong>Professor:</strong> {{turma.professor}}</th>
+                    </tr>
+                    <tr>
+                        <th bgcolor="#E6E6E6"><strong>Vagas</strong></th>
+                        <td bgcolor="#E6E6E6">Total: <strong>{{turma.vagas}}</strong> </td>
+                        <td bgcolor="#E6E6E6">Ocupadas: <strong>{{turma.ocupadas}}</strong> </td>
+                        <td bgcolor="#E6E6E6">Restantes: <strong>{{turma.restantes}}</strong> </td>
+                    </tr>
+                    <tr ng-repeat="horario in turma.horarios">
+                        <td>{{horario.dia}}</td>
+                        <td>{{horario.inicio}}</td>
+                        <td>{{horario.fim}}</td>
+                        <th colspan="4"><strong>Sala:</strong> {{horario.sala}}</th>
+                    </tr>
+                    <br>
+                </tbody>
+            </table>
+        </div>
             </section>
 
             

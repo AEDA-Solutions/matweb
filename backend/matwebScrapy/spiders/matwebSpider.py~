@@ -1,0 +1,15 @@
+import scrapy
+
+class MatwebSpider(scrapy.Spider):
+	name = "matweb"
+	
+	def start_requests(self):
+		start_urls = 'https://matriculaweb.unb.br/graduacao/oferta_campus.aspx'
+		yield scrapy.Request(url=start_urls, callback=self.parse)
+		
+		
+	def parse(self, response):
+		filename = 'matriculaweb.html'
+		tabela = response.xpath('//table[@class="FrameCinza"]')
+		with open(filename, 'wb') as f:
+			f.writelines(tabela.xpath('////tr[@class="PadraoMenor"]//td//text()').extract())

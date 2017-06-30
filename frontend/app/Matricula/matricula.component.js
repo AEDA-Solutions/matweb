@@ -1,7 +1,7 @@
 angular.
   module('Matricular').
  component('ofertaDetalhar', {
-    templateUrl: '/app/Oferta/matricula.template2.html',
+    templateUrl: '/app/Matricula/matricula.template2.html',
     controller: ['ApiOfertaDetalhar', 'MatWebGlobals', '$routeParams','$scope', function Detalhar(ApiOfertaDetalhar,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;
@@ -31,7 +31,7 @@ angular.
     }]
 }). 
 component('gerenciarDisciplina', {
-    templateUrl: '/app/Oferta/matricula.template.html',
+    templateUrl: '/app/Matricula/matricula.template.html',
     controller: ['ApiOfertaDetalhar','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiDisciplinaCadastrar','ApiDisciplinaEditar','ApiDisciplinaDeletar', 'MatWebGlobals', '$routeParams', '$scope', function Detalhar(ApiOfertaDetalhar,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiDisciplinaCadastrar,ApiDisciplinaEditar,ApiDisciplinaDeletar,MatWebGlobals,$routeParams,$scope) {
         this.formulario = {'id_disciplina': $routeParams.Id_disciplina , 'pagina': 0 , 'quantidade': 1000};
         var ctrl = this;

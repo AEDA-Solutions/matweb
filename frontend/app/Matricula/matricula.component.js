@@ -8,6 +8,7 @@ angular.
       ctrl.campus = [];
       this.formulario = {'id_usuario':'','id_disciplina':'','id_turma':'','status':''};
       ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+            $scope.listcurso = false;
             ctrl.campus = resultado.corpo;
             MatWebGlobals.campus = resultado.corpo;
     }, function(erro){

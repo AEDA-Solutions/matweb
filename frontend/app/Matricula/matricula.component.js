@@ -12,7 +12,11 @@ angular.
           $scope.escolhaturma= false;
       };
       
-      ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+        
+      $scope.OpcaoMatricular = function(){
+          ctrl.inicializa();
+          $scope.escolhacampus = true;
+          ApiCampus.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
             ctrl.inicializa();
             $scope.escolhacampus = true;
             ctrl.campus = resultado.corpo;
@@ -21,6 +25,8 @@ angular.
         ctrl.erro = erro.data.mensagem
       console.log(ctrl.erro)
       } );
+      };
+      
     
       $scope.VerificarDepartamentos = function(idcampus) {
           ctrl.inicializa();

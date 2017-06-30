@@ -2,7 +2,7 @@ from Database.Controllers.Usuario import Usuario
 from Database.Controllers.Disciplina import Disciplina
 from Database.Controllers.Turma import Turma
 
-class Curso(object):
+class Matricula(object):
 
 	def __init__(self,dados=None):
 		if dados is not None:

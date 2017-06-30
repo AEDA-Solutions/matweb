@@ -116,26 +116,12 @@ angular.
         };
         
         $scope.DefineTurma = function(turma) {
-            console.log(turma);
             ctrl.turmaescolhida = turma;
         };
         
-        $scope.AlterDisciplina = function() {
-            ApiDisciplinaEditar.Editar({'id':'', 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo, 'creditos':ctrl.disciplina.creditos}, function(resultado) {
-                $scope.logEditar = "Disciplina Alterada com Sucesso";
-                ctrl.disciplina = [];
-            }, function(erro) {
-                $scope.logEditar = error.data.mensagem;
-            });
-        };
-        
-        $scope.DelDisciplina = function() {
-            ApiDisciplinaDeletar.Deletar({'id':ctrl.disciplina.id}, function(resultado) {
-                $scope.logEditar = "Disciplina Apagada com Sucesso";
-                ctrl.disciplina = [];
-            }, function(erro) {
-                $scope.logEditar = error.data.mensagem;
-            });
+        $scope.PedirMatricula = function(){
+            ctrl.formulario = { id_disciplina: ctrl.disciplina.id, id_usuario: MatWebGlobals.usuariologado.id, id_turma: ctrl.turmaescolhida.id, status: "P"  };
+            console.log(ctrl.formulario);
         };
     }]
 });

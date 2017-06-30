@@ -105,9 +105,9 @@ angular.
         }
         
         $scope.SelectDisciplina = function(disciplina) {
-            ctrl.disciplina = disciplina;
-            $scope.selecteddisciplinas = false;
+            ctrl.inicializa();
             $scope.selecionado = true;
+            ctrl.disciplina = disciplina;
         }
         
         $scope.AlterDisciplina = function() {

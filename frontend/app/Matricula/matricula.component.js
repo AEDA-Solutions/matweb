@@ -2,7 +2,7 @@ angular.
   module('Matricular').
   component('usuarioMatricular', {
     templateUrl: '/app/Matricular/matricula.template.html',
-    controller: ['ApiMatricular','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiOfertaDetalhar', '$http','$location','MatWebGlobals','$scope',function(ApiMatricular,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiOfertaDetalhar,$http,$location,MatWebGlobals,$scope) {
+    controller: ['ApiMatricular','ApiCampus','ApiDepartamentoPCampus','ApiOfertaPDepart','ApiOfertaDetalhar','$location','MatWebGlobals','$scope',function(ApiMatricular,ApiCampus,ApiDepartamentoPCampus,ApiOfertaPDepart,ApiOfertaDetalhar,$location,MatWebGlobals,$scope) {
       var ctrl = this;
       
       ctrl.inicializa = function() {

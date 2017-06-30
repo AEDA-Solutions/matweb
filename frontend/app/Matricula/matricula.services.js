@@ -1,6 +1,6 @@
 angular.
   module('Matricular').
-	factory('ApiOfertaPDepart', ['$resource',
+  factory('ApiOfertaPDepart', ['$resource',
     function($resource) {
         return $resource('/api/Disciplina/Listar', {}, {
           Listar: { method: 'POST'},
@@ -14,10 +14,10 @@ angular.
         });
     }                                
 ]). 
-  factory('ApiDisciplinaCadastrar',['$resource',
+    factory('ApiDisciplinaCadastrar',['$resource',
     function($resource) {
-        return $resource('/api/Matricula/Cadastrar',{}, {
+        return $resource('/api/Disciplina/Cadastrar',{}, {
             Cadastrar: { method: 'POST'},
         });
-    }                                
-]). 
+    }   
+]);

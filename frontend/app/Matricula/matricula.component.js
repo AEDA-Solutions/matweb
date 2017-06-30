@@ -44,7 +44,7 @@ angular.
             $scope.detalhando = false;
             $scope.ementa = false;
             $scope.selecionado = false;
-            $scope.editando = false;
+            $scope.listando = false;
             $scope.selecteddisciplinas = false;
         };
         

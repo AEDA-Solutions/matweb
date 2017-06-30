@@ -115,6 +115,10 @@ angular.
             $scope.ementa = !$scope.ementa;
         };
         
+        $scope.DefineTurma = function(turma) {
+            console.log(turma);
+        };
+        
         $scope.AlterDisciplina = function() {
             ApiDisciplinaEditar.Editar({'id':'', 'id_departamento':ctrl.departamento.id, 'nome':ctrl.disciplina.nome, 'codigo':ctrl.disciplina.codigo, 'creditos':ctrl.disciplina.creditos}, function(resultado) {
                 $scope.logEditar = "Disciplina Alterada com Sucesso";

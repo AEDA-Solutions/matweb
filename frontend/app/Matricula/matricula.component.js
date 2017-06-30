@@ -73,7 +73,7 @@ angular.
         };
         
         $scope.SelectDpto = function(departamento) {
-            ctrltrl.inicializa();
+            ctrl.inicializa();
             $scope.selecteddisciplinas = true;
             ApiOfertaPDepart.Listar({id_departamento: departamento.id, 'nome': '', 'pagina': 0, 'quantidade': 1000 },function(resultado) {
                 ctrl.disciplinas = resultado.corpo;

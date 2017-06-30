@@ -159,7 +159,9 @@
                 <tbody ng-repeat="turma in $ctrl.oferta.turmas" ng-init="parentIndex = $index">
                     <b>Turmas</b>
                     <tr>
-                        <th bgcolor="#E6E6E6" rowspan="2"><strong>Turma:</strong> {{turma.letra}} </th>
+                        <th bgcolor="#E6E6E6" rowspan="2"><strong>Turma:</strong> {{turma.letra}} 
+                            <input type="checkbox" ng-model='$ctrl.turmaescolhida=turma' />
+                        </th>
                         <th bgcolor="#E6E6E6" rowspan="2"><strong>Turno:</strong> {{turma.turno}} </th>
                         <th bgcolor="#E6E6E6" rowspan="2"><strong>Professor:</strong> {{turma.professor}}</th>
                     </tr>

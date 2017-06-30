@@ -5,16 +5,15 @@ angular.
     bindings: {
     dismiss: '&'
     }, 
-    controller: [ 'MatWebGlobals',function (MatWebGlobals) {
+   controller: [ 'MatWebGlobals',function (MatWebGlobals) {
     var ctrl = this;
     ctrl.inter = "";
+
     ctrl.cancel = function () {
       ctrl.dismiss({$value: 'cancel'});
     };
 
-
-    MatWebGlobals.Id = ctrl.inter;
-    
+     ctrl.inter = MatWebGlobals.Id ;
+     console.log(ctrl.inter)
   }]
 });
-

@@ -25,7 +25,7 @@ angular.
       $routeProvider.when('/Departamento/Listar', {
           template: '<listar-departamento></listar-departamento>'
         })
-      $routeProvider.when('/Departamento/Listar/:Id_campus', {
+      $routeProvider.when('/Departamento/Listar/:Id_campusnav', {
           template: '<listar-departamentoc></listar-departamentoc>'
         })
       .otherwise('/');

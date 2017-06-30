@@ -4,27 +4,30 @@ angular.
     templateUrl: '/app/Campus/campus.template.html',
     controller: ['ApiCampus', '$uibModal', 'MatWebGlobals',function Entrar(ApiCampus,$uibModal,MatWebGlobals) {
   var ctrl = this;
+        ctrl.campus = [];
 
-  ctrl.campus = [];
-  ctrl.id = "";
-  MatWebGlobals.Id = ctrl.id; 
-    ApiCampus.Listar({ nome:"", pagina: 0, quantidade: 1000 },function(resultado) {
-              ctrl.campus = resultado.corpo
-      console.log(ctrl.campus)
-    }, function(erro){
-        ctrl.erro = erro.data.mensagem
-      console.log(ctrl.erro)
-      } );
+            ApiCampusNav.Listar({ nome: "", pagina: 0, quantidade: 1000 },function(resultado) {
+                ctrl.campus = resultado.corpo;
+                console.log(ctrl.campus)
+            }, function(error){
+                ctrl.error = error.data.mensagem;
+                console.log(ctrl.error)
+            });
 
-      this.abrir = function(){
+            this.abrir = function(id){
 
-      $uibModal.open({
-      animation: 'true',
-      component: 'modalCampus',
-      size: 'sm',
-      });
+                $uibModal.open({
+                animation: 'true',
+                component: 'modalCampusnav',
+                size: 'sm',
+                });
 
-      }
-      
+            MatWebGlobals.Id = id;
+
+            console.log(id)
+            console.log(MatWebGlobals.Id)
+            }
+        
     }]
-  });
+});
+  

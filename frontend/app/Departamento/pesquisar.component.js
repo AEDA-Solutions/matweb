@@ -22,20 +22,17 @@ angular.
   component('listarDepartamentoc', {
     templateUrl: '/app/Departamento/listarc.template.html',
     controller: ['ApiDepartamentoc','$routeParams','MatWebGlobals',function Dep(ApiDepartamentoc,$routeParams,MatWebGlobals) {
-      this.formulario = {id_campus: $routeParams.Id_campus, 'nome': '', 'pagina': 0, 'quantidade': 1000}
-      console.log($routeParams)
-  var ctrl = this;
-      this.listar = function()
-      {
-        ApiDepartamentoc.Listar(this.formulario,function(resultado) {
-              ctrl.departamento = resultado.corpo
-      console.log(ctrl.departamento)
-    }, function(erro){
-        ctrl.erro = erro.data.mensagem
-      console.log(ctrl.erro)
-      });
-      }
-      this.listar();
+      this.formulario = {id_campus: $routeParams.Id_campusnav , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
+        console.log($routeParams.Id_campusnav);
+        var ctrl = this;
+      
+            ApiDepartamentoNav.Listar(this.formulario,function(resultado) {
+                ctrl.departamentos = resultado.corpo;
 
+            }, function(error){
+                ctrl.error = error.data.mensagem;
+            });
+        
     }]
-  });
+});
+

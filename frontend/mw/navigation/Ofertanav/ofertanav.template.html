@@ -40,11 +40,19 @@
 
 
                     <div class="jumbotron">
+
+                    <form role="form">
+                          <fieldset>
+                              <div class="form-group">
+                                  <input class="form-control" placeholder="Nome da Disciplina" ng-model="$ctrl.formulario.nome" type="text" autofocus>
+                              </div>
+                          </fieldset>
+                     </form>
                         
                     <div class="table-responsive">
 				    	<table class = "table table-bordered table-hover">
 				        <tbody>
-				                <tr ng-repeat="disciplina in $ctrl.disciplinas">
+				                <tr ng-repeat="disciplina in $ctrl.disciplinas | filter: $ctrl.formulario.nome">
 				                    <td> {{disciplina.nome}} </td>
 				                </tr>
             			</tbody>

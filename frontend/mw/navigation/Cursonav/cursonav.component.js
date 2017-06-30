@@ -7,7 +7,7 @@ angular.
         console.log($routeParams.Id_campusnav);
         var ctrl = this;
       
-            ApiCursoNav.Listar(this.formulario,function(resultado) {
+            ApiCursoNav.Listar(ctrl.formulario,function(resultado) {
                 ctrl.cursos = resultado.corpo;
 
                 for(var i = 0, campi = null; i < MatWebGlobals.campusnav.length; i++) {

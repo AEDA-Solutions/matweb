@@ -25,13 +25,20 @@ angular.
       this.formulario = {id_campus: $routeParams.Id_campusnav , 'nome': '', 'pagina': 0, 'quantidade': 1000 };
         console.log($routeParams.Id_campusnav);
         var ctrl = this;
-      
+
+
+      this.listar = function(){
+
+
             ApiDepartamentoc.Listar(this.formulario,function(resultado) {
                 ctrl.departamentos = resultado.corpo;
 
             }, function(error){
                 ctrl.error = error.data.mensagem;
             });
+          }
+
+      this.listar();
         
     }]
 });
